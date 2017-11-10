@@ -4,6 +4,15 @@ name:
 description:
 subresolution:
   - _subresolution
+team:
+  - _team
+
+# team
+id:
+name:
+description:
+host:
+member:
 
 # subresolution
 id:
@@ -13,11 +22,10 @@ owner:
   - _office
 partner:
   - _office
-stakeholder:
-  group:
-    - _group
-  org:
-    - _org
+stakeholder_group:
+  - _group
+stakeholder_org:
+  - _org
 proposal: 
     - _proposal
 log:
@@ -47,6 +55,12 @@ id:
 name:
 description:
 date:
+milestone:
+  - name:
+    date:
+    task:
+      - name:
+        description:
 status:
 law_reform:
   - _law_reform
@@ -99,14 +113,14 @@ contact:
     email: 
     tel: 
 
-# group
+# stakeholder_group
 id:
 name:
 description:
 category:
   - _category
 
-# org
+# stakeholder_org
 id:
 name:
 description:
