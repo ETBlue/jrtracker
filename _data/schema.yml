@@ -20,36 +20,67 @@ stakeholder:
     - _org
 proposal: 
     - _proposal
+log:
+  - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
+    id: _id
+
+# meeting
+id:
+name:
+description:
+date:
+record:
+  - name:
+    url:
+
+# training
+id:
+name:
+description:
+date:
+record:
+  - name:
+    url:
 
 # proposal
 id:
 name:
 description:
 date:
-law:
-  - _law
-admin:
-  - _admin
+status:
+law_reform:
+  - _law_reform
+rule_reform:
+  - _rule_reform
 policy:
   - _policy
 
-# law
+# law_reform
 id:
 name:
+description:
+date:
 paragraph:
 subparagraph:
 item:
 old:
 new:
-office:
-  - office
 
-# admin
+# rule_reform
 id:
 name:
 description:
-office:
-  - office
+date:
+paragraph:
+subparagraph:
+item:
+old:
+new:
+
+# get_budget
+id:
+name:
+description:
 
 # policy
 id:
