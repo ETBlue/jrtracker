@@ -1,0 +1,87 @@
+# resolution
+id:
+name:
+description:
+subresolution:
+  - _subresolution
+
+# subresolution
+id:
+name:
+description:
+owner:
+  - _office
+partner:
+  - _office
+stakeholder:
+  group:
+    - _group
+  org:
+    - _org
+proposal: 
+    - _proposal
+
+# proposal
+id:
+name:
+description:
+date:
+law:
+  - _law
+admin:
+  - _admin
+policy:
+  - _policy
+
+# law
+id:
+name:
+paragraph:
+subparagraph:
+item:
+old:
+new:
+office:
+  - office
+
+# admin
+id:
+name:
+description:
+office:
+  - office
+
+# policy
+id:
+name:
+description:
+url:
+office: 
+  - office
+
+# office
+id:
+name:
+description:
+contact: 
+  - name: 
+    email: 
+    tel: 
+
+# group
+id:
+name:
+description:
+category:
+  - _category
+
+# org
+id:
+name:
+description:
+
+# category
+id:
+name:
+description:
+
