@@ -113,20 +113,19 @@ contact:
     email: 
     tel: 
 
+# stakeholder_category
+id:
+name:
+description:
+stakeholder_group:
+  - _stakeholder_group
+
 # stakeholder_group
 id:
 name:
 description:
-category:
-  - _category
 
 # stakeholder_org
 id:
 name:
 description:
-
-# category
-id:
-name:
-description:
-
