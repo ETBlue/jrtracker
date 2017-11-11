@@ -1,36 +1,37 @@
 # resolution
+# 決議
 id:
   title: 
-  _object:
-  _topic:
+  _object: # 底下的子決議
+  _topic: # 對應的司改國是會議的主題
 
-  _stakeholder:
-
-  _owner:
-  _partner:
-  note:
-  log:
-    - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
+  _stakeholder: # 受影響的族群
+  _owner: # 主責單位
+  _partner: # 配合單位
+  note: # 自由發揮註解區
+  log: # 進度表
+    - type: 提出草案 / 修法 / 修行政命令 / 編預算 / 開會 / 辦活動 ... etc.
       title: 
       description:
-      date: 
-      link:
+      date: # commit 日期
+      link: # 相關連結
         - title: 
           url: 
           type: 
 
 # object
+# 子決議
 id:
   description:
-  _mission:
+  _mission: # 底下的子決議細項
 
+  # 以下格式同決議
   _stakeholder:
-
   _owner:
   _partner:
   note:
   log:
-    - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
+    - type: 
       title: 
       description:
       date: 
@@ -40,16 +41,17 @@ id:
           type: 
 
 # mission
+# 子決議細項
 id:
   description:
 
+  # 以下格式同決議
   _stakeholder:
-
   _owner:
   _partner:
   note:
   log:
-    - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
+    - type: 
       title: 
       description:
       date: 
@@ -59,6 +61,7 @@ id:
           type: 
 
 # meeting
+# 進度：會議
 id:
   name:
   description:
@@ -68,6 +71,7 @@ id:
       url:
 
 # training
+# 進度：教育訓練
 id:
   name:
   description:
@@ -77,6 +81,7 @@ id:
       url:
 
 # proposal
+# 進度：提案
 id:
   name:
   description:
@@ -96,6 +101,7 @@ id:
     - _policy
 
 # law_reform
+# 進度：修法
 id:
   name:
   description:
@@ -107,6 +113,7 @@ id:
   new:
 
 # rule_reform
+# 進度：修行政命令
 id:
   name:
   description:
@@ -118,11 +125,13 @@ id:
   new:
 
 # get_budget
+# 進度：編預算
 id:
   name:
   description:
 
 # policy
+# 上層的政策
 id:
   description:
   url:
@@ -131,6 +140,7 @@ id:
     - _office
 
 # office
+# 單位或法人組織
 id:
   type: gov, ngo
   contact: 
@@ -139,9 +149,11 @@ id:
       phone: 
 
 # topic
+# 司改國是會議主題
 id: name
 
 # team
+# 司改國是會議分組
 id:
   name: 
   title: 
@@ -151,7 +163,7 @@ id:
   _committee:
 
 # committee
-
+# 司改國是會議委員
 id:
   title:
   staff:
@@ -159,11 +171,13 @@ id:
   _office:
 
 # stakeholder
+# 受影響族群（資料來源：英國人神圖）
 id:
   name_en: 
   description:
 
 # system
+# 司法體系（資料來源：英國人神圖）
 id:
   description:
   activity:
