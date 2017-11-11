@@ -1,0 +1,63 @@
+"警員":
+  name_en: police officer
+  description:
+"市民":
+  name_en: citizen
+  description:
+"受害人":
+  name_en: victim
+  description:
+"證人":
+  name_en: witness
+  description:
+"探員":
+  name_en: agency officer
+  description:
+"親友":
+  name_en: family or friend
+  description:
+"扶助工作者":
+  name_en: support worker
+  description:
+"檢察官":
+  name_en: prosecutor
+  description:
+"犯罪嫌疑人":
+  name_en: suspect
+  description:
+"法律代理人":
+  name_en: legal representative
+  description:
+"法官一":
+  name_en: magistrate
+  description:
+"法律顧問":
+  name_en: legal advisor
+  description:
+"法官二":
+  name_en: judge
+  description:
+"陪審員":
+  name_en: juror
+  description:
+"專業證人":
+  name_en: expert witness
+  description:
+"辯護人":
+  name_en: defendant
+  description:
+"獄官":
+  name_en: prison officer
+  description:
+"緩刑官":
+  name_en: probation officer
+  description:
+"輔導官":
+  name_en: youth worker
+  description:
+"受刑人":
+  name_en: offender
+  description:
+"更生人":
+  name_en: ex-offender
+  description:

@@ -1,0 +1,191 @@
+"日常生活":
+  description:
+  activity:
+  - name: 預防措施
+    name_en: prevention
+  - name: 保護措施
+    name_en: protection
+  group:
+  - name: 體制內使用者
+    name_en: internal users
+    _stakeholder:
+    - "警員"
+  - name: 體制外使用者
+    name_en: external users
+    _stakeholder:
+    - "市民"
+"可能的犯罪行為":
+  name_en: possible crime and antisocial behavior
+  description:
+  activity: []
+  group:
+  - name: 體制內使用者
+    name_en: internal users
+    _stakeholder: []
+  - name: 體制外使用者
+    name_en: external users
+    _stakeholder:
+    - "受害人"
+    - "證人"
+"初步勘查":
+  description:
+  activity:
+  - name: 通報
+    name_en: reporting
+  - name: 紀錄
+    name_en: recording
+  - name: 蒐證
+    name_en: uncovering
+  - name: 回覆
+    name_en: response
+  group:
+  - name: 體制內使用者
+    name_en: internal users
+    _stakeholder:
+    - "探員"
+  - name: 體制外使用者
+    name_en: external users
+    _stakeholder:
+    - "親友"
+"個人扶助":
+  name_en: personal support
+  description:
+  activity: []
+  group:
+  - name: 體制內使用者
+    name_en: internal users
+    _stakeholder:
+    - "扶助工作者"
+  - name: 體制外使用者
+    name_en: external users
+    _stakeholder: []
+"司法程序一":
+  description:
+  activity:
+  - name: 調查
+    name_en: investigation
+  - name: 逮捕
+    name_en: arrest
+  - name: 控告
+    name_en: charge
+  - name: 傳喚
+    name_en: summon
+  - name: 罰款
+    name_en: penalty
+  - name: 警告
+    name_en: caution
+  - name: 和解
+    name_en: community resolution
+  group:
+  - name: 體制內使用者
+    name_en: internal users
+    _stakeholder:
+    - "檢察官"
+  - name: 體制外使用者
+    name_en: external users
+    _stakeholder:
+    - "犯罪嫌疑人"
+    - "法律代理人"
+"司法程序二之一":
+  description:
+  activity:
+  - name: 起訴書
+    name_en: indictment or written charge
+  - name: 起訴
+    name_en: prosecution
+  - name: 答辯
+    name_en: defence
+  - name: 認罪
+    name_en: plea
+  - name: 財務扶助
+    name_en: financial support
+  group:
+  - name: 體制內使用者
+    name_en: internal users
+    _stakeholder: []
+  - name: 體制外使用者
+    name_en: external users
+    _stakeholder: []
+"司法程序二之二":
+  description:
+  activity:
+  - name: 居留
+    name_en: custody
+  - name: 保釋
+    name_en: bail
+  group:
+  - name: 體制內使用者
+    name_en: internal users
+    _stakeholder: []
+  - name: 體制外使用者
+    name_en: external users
+    _stakeholder: []
+"司法程序三":
+  description:
+  activity:
+  - name: 預審
+    name_en: trail
+  - name: 聽審
+    name_en: hearing
+  - name: 宣判
+    name_en: verdict
+  - name: 量刑
+    name_en: sentencing
+  - name: 上訴
+    name_en: appeal
+  group:
+  - name: 體制內使用者
+    name_en: internal users
+    _stakeholder:
+    - "法官一"
+    - "法律顧問"
+    - "法官二"
+    - "陪審員"
+  - name: 體制外使用者
+    name_en: external users
+    _stakeholder:
+    - "專業證人"
+    - "辯護人"
+"司法程序四":
+  description:
+  activity:
+  - name: 勞動服務
+    name_en: unpaid work
+  - name: 入獄
+    name_en: prison
+  - name: 矯正
+    name_en: rehabilitation
+  - name: 保護管束
+    name_en: supervision
+  - name: 返還不當得利
+    name_en: recovery
+  - name: 賠償損害
+    name_en: compensation
+  - name: 教育與治療
+    name_en: education and treatment
+  - name: 行為限制
+    name_en: restriciton
+  - name: 罰鍰
+    name_en: fine
+  group:
+  - name: 體制內使用者
+    name_en: internal users
+    _stakeholder:
+    - "獄官"
+    - "緩刑官"
+    - "輔導官"
+  - name: 體制外使用者
+    name_en: external users
+    _stakeholder:
+    - "受刑人"
+    - "更生人"
+"司法教育":
+  description:
+  activity:
+  group:
+  - name: 體制內使用者
+    name_en: internal users
+    _stakeholder:
+  - name: 體制外使用者
+    name_en: external users
+    _stakeholder:

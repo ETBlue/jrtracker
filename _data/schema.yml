@@ -1,134 +1,134 @@
 # resolution
 id:
-title: 
-_object:
-_topic:
+  title: 
+  _object:
+  _topic:
 
-_stakeholder:
+  _stakeholder:
 
-_owner:
-_partner:
-note:
-log:
-  - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
-    _id: 
+  _owner:
+  _partner:
+  note:
+  log:
+    - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
+      _id: 
 
 # object
 id:
-description:
-_mission:
+  description:
+  _mission:
 
-_stakeholder:
+  _stakeholder:
 
-_owner:
-_partner:
-note:
-log:
-  - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
-    _id: 
+  _owner:
+  _partner:
+  note:
+  log:
+    - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
+      _id: 
 
 # mission
 id:
-description:
+  description:
 
-_stakeholder:
+  _stakeholder:
 
-_owner:
-_partner:
-note:
-log:
-  - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
-    _id: 
+  _owner:
+  _partner:
+  note:
+  log:
+    - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
+      _id: 
 
 # meeting
 id:
-name:
-description:
-date:
-record:
-  - name:
-    url:
+  name:
+  description:
+  date:
+  record:
+    - name:
+      url:
 
 # training
 id:
-name:
-description:
-date:
-record:
-  - name:
-    url:
+  name:
+  description:
+  date:
+  record:
+    - name:
+      url:
 
 # proposal
 id:
-name:
-description:
-date:
-milestone:
-  - name:
-    date:
-    task:
-      - name:
-        description:
-status:
-_law_reform:
-  - _law_reform
-_rule_reform:
-  - _rule_reform
-_policy:
-  - _policy
+  name:
+  description:
+  date:
+  milestone:
+    - name:
+      date:
+      task:
+        - name:
+          description:
+  status:
+  _law_reform:
+    - _law_reform
+  _rule_reform:
+    - _rule_reform
+  _policy:
+    - _policy
 
 # law_reform
 id:
-name:
-description:
-date:
-paragraph:
-subparagraph:
-item:
-old:
-new:
+  name:
+  description:
+  date:
+  paragraph:
+  subparagraph:
+  item:
+  old:
+  new:
 
 # rule_reform
 id:
-name:
-description:
-date:
-paragraph:
-subparagraph:
-item:
-old:
-new:
+  name:
+  description:
+  date:
+  paragraph:
+  subparagraph:
+  item:
+  old:
+  new:
 
 # get_budget
 id:
-name:
-description:
+  name:
+  description:
 
 # policy
 id:
-name:
-description:
-url:
-_office: 
-  - _office
+  name:
+  description:
+  url:
+  _office: 
+    - _office
 
 # office
 id:
-name:
-description:
-contact: 
-  - name: 
-    email: 
-    tel: 
+  name:
+  description:
+  contact: 
+    - name: 
+      email: 
+      tel: 
 
 # stakeholder_category
 id:
-name:
-description:
-_stakeholder:
-  - _stakeholder
+  name:
+  description:
+  _stakeholder:
+    - _stakeholder
 
 # stakeholder_group
 id:
-name:
-description:
+  name:
+  description:
