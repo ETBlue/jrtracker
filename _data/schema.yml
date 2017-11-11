@@ -11,7 +11,13 @@ id:
   note:
   log:
     - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
-      _id: 
+      title: 
+      description:
+      date: 
+      link:
+        - title: 
+          url: 
+          type: 
 
 # object
 id:
@@ -25,7 +31,13 @@ id:
   note:
   log:
     - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
-      _id: 
+      title: 
+      description:
+      date: 
+      link:
+        - title: 
+          url: 
+          type: 
 
 # mission
 id:
@@ -38,7 +50,13 @@ id:
   note:
   log:
     - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
-      _id: 
+      title: 
+      description:
+      date: 
+      link:
+        - title: 
+          url: 
+          type: 
 
 # meeting
 id:
@@ -106,29 +124,55 @@ id:
 
 # policy
 id:
-  name:
   description:
   url:
+  _policy:
   _office: 
     - _office
 
 # office
 id:
-  name:
-  description:
+  type: gov, ngo
   contact: 
     - name: 
       email: 
-      tel: 
+      phone: 
 
-# stakeholder_category
+# topic
+id: name
+
+# team
 id:
-  name:
+  name: 
+  title: 
+  _topic:
   description:
+  _host:
+  _committee:
+
+# committee
+
+id:
+  title:
+  staff:
   _stakeholder:
-    - _stakeholder
+  _office:
 
-# stakeholder_group
+# stakeholder
 id:
-  name:
+  name_en: 
   description:
+
+# system
+id:
+  description:
+  activity:
+  - name: 
+    name_en: 
+  group:
+  - name: 體制內使用者
+    name_en: internal users
+    _stakeholder:
+  - name: 體制外使用者
+    name_en: external users
+    _stakeholder:

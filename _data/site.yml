@@ -1,4 +1,14 @@
-name: 
-description: 
-cover: 
-favicon: 
+name: 司改追追追
+description: 給你滿滿的資料大平台！熱烈實驗中
+#cover: assets/images/cover.png
+#favicon: assets/images/fav.png
+
+code:
+  source: https://github.com/ETBlue/jrtracker
+  license: MIT
+content: 
+  source: 
+  license: All rights reserved
+data: 
+  source: 
+  license: All rights reserved
