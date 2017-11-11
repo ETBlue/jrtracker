@@ -1,36 +1,44 @@
 # resolution
 id:
-name:
-description:
-subresolution:
-  - _subresolution
-team:
-  - _team
+title: 
+_object:
+_topic:
 
-# team
-id:
-name:
-description:
-host:
-member:
+_stakeholder:
 
-# subresolution
-id:
-name:
-description:
-owner:
-  - _office
-partner:
-  - _office
-stakeholder_group:
-  - _group
-stakeholder_org:
-  - _org
-proposal: 
-    - _proposal
+_owner:
+_partner:
+note:
 log:
   - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
-    id: _id
+    _id: 
+
+# object
+id:
+description:
+_mission:
+
+_stakeholder:
+
+_owner:
+_partner:
+note:
+log:
+  - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
+    _id: 
+
+# mission
+id:
+description:
+
+_stakeholder:
+
+_owner:
+_partner:
+note:
+log:
+  - type: meeting, training, proposal, law_reform, rule_reform, get_budget, other
+    _id: 
 
 # meeting
 id:
@@ -62,11 +70,11 @@ milestone:
       - name:
         description:
 status:
-law_reform:
+_law_reform:
   - _law_reform
-rule_reform:
+_rule_reform:
   - _rule_reform
-policy:
+_policy:
   - _policy
 
 # law_reform
@@ -101,8 +109,8 @@ id:
 name:
 description:
 url:
-office: 
-  - office
+_office: 
+  - _office
 
 # office
 id:
@@ -117,15 +125,10 @@ contact:
 id:
 name:
 description:
-stakeholder_group:
-  - _stakeholder_group
+_stakeholder:
+  - _stakeholder
 
 # stakeholder_group
-id:
-name:
-description:
-
-# stakeholder_org
 id:
 name:
 description:
