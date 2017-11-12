@@ -221,10 +221,11 @@ title: 測試
           <div class="content">
             <header style="margin: -1rem -1rem 1rem  -1rem; padding: 1rem; background-color: #ebf9f7; color: #00b5ad; border-radius: 0.25rem 0.25rem 0 0;">
               <p style=" margin: 0; line-height: 2em;">
-                <span style="float: left; margin-right: 1rem;">
+                <span style="float: none; margin-right: 1rem;">
                   決議 {{ r[0] }}
                 </span>
               </p>
+              <!--
               <p style="text-align: right; margin: 0; line-height: 2em;">
                 {% if r[1]._owner %}
                   {% for ow in r[1]._owner %}
@@ -252,6 +253,7 @@ title: 測試
                   {% endif %}
                 {% endif %}
               </p>
+            -->
             </header>
 
             {% if r[1].title %}
@@ -260,7 +262,6 @@ title: 測試
             </h3>
             {% endif %}
 
-            {% if r[1]._topic %}
             <p>
               國是會議主題：
               {% for t in r[1]._topic %}
@@ -271,9 +272,7 @@ title: 測試
               </span>
               {% endfor %}
             </p>
-            {% endif %}
 
-            {% if r[1]._stakeholder %}
             <p>
               影響族群：
               {% for s in r[1]._stakeholder %}
@@ -282,17 +281,43 @@ title: 測試
               </span>
               {% endfor %}
             </p>
-            {% endif %}
+
+            <p>
+              主責單位：
+              {% for ow in r[1]._owner %}
+              <span class="ui teal horizontal label" style="margin: 0 0 0 0.5rem;">
+                {{ ow }}
+              </span>
+              {% endfor %}
+            </p>
+
+            <p>
+              配合單位：
+              {% for pn in r[1]._partner %}
+              <span class="ui basic teal horizontal label" style="margin: 0 0 0 0.5rem;">
+                {{ pn }}
+              </span>
+              {% endfor %}
+            </p>
+
+            <p>
+              最新進度：[
+              {{ r[1].log.first.type }}
+              ]
+              {{ r[1].log.first.date }}
+              {{ r[1].log.first.title }}
+            </p>
 
             {% for o in r[1]._object %}
             <article style="margin: 1rem 0">
 
               <header style="color: #00b5ad; background-color: #ebf9f7; padding: 0.5rem 1rem; margin: 1rem -1rem;">
                 <p style=" margin: 0; line-height: 2em;">
-                  <span style="float: left; margin-right: 1rem;">
+                  <span style="float: none; margin-right: 1rem;">
                     子決議 {{ o }}
                   </span>
                 </p>
+                <!--
                 <p style="text-align: right; margin: 0; line-height: 2em;">
                   {% if site.data.object[o]._owner %}
                     {% for ow in site.data.object[o]._owner %}
@@ -320,6 +345,7 @@ title: 測試
                     {% endif %}
                   {% endif %}
                 </p>
+              -->
               </header>
 
               {% if site.data.object[o].description %}
@@ -330,7 +356,6 @@ title: 測試
                 {% endfor %}
               {% endif %}
 
-              {% if site.data.object[o]._stakeholder %}
               <p>
                 影響族群：
                 {% for s in site.data.object[o]._stakeholder %}
@@ -339,7 +364,32 @@ title: 測試
                 </span>
                 {% endfor %}
               </p>
-              {% endif %}
+
+              <p>
+                主責單位：
+                {% for ow in site.data.object[o]._owner %}
+                <span class="ui teal horizontal label" style="margin: 0 0 0 0.5rem;">
+                  {{ ow }}
+                </span>
+                {% endfor %}
+              </p>
+
+              <p>
+                配合單位：
+                {% for pn in site.data.object[o]._partner %}
+                <span class="ui basic teal horizontal label" style="margin: 0 0 0 0.5rem;">
+                  {{ pn }}
+                </span>
+                {% endfor %}
+              </p>
+
+              <p>
+                最新進度：[
+                {{ site.data.object[o].log.first.type }}
+                ]
+                {{ site.data.object[o].log.first.date }}
+                {{ site.data.object[o].log.first.title }}
+              </p>
 
               {% if site.data.object[o]._mission %}
                 {% for m in site.data.object[o]._mission %}
@@ -347,10 +397,11 @@ title: 測試
 
                   <header style="background-color: rgba(0,0,0,0.05); padding: 0.5rem; margin: 1rem 0;">
                     <p style=" margin: 0; line-height: 2em;">
-                      <span style="float: left; margin-right: 1rem;">
+                      <span style="float: none; margin-right: 1rem;">
                         子決議細項 {{ m }}
                       </span>
                     </p>
+                    <!--
                     <p style="text-align: right; margin: 0; line-height: 2em;">
                       {% if site.data.mission[m]._owner %}
                         {% for ow in site.data.mission[m]._owner %}
@@ -378,6 +429,7 @@ title: 測試
                         {% endif %}
                       {% endif %}
                     </p>
+                  -->
                   </header>
 
                   {% if site.data.mission[m].description %}
@@ -388,7 +440,6 @@ title: 測試
                     {% endfor %}
                   {% endif %}
 
-                  {% if site.data.mission[m]._stakeholder %}
                   <p>
                     影響族群：
                     {% for s in site.data.mission[m]._stakeholder %}
@@ -397,17 +448,32 @@ title: 測試
                     </span>
                     {% endfor %}
                   </p>
-                  {% endif %}
 
-                  {% if site.data.mission[m].log %}
-                    <p>
-                      最新進度：[
-                      {{ site.data.mission[m].log.first.type }}
-                      ]
-                      {{ site.data.mission[m].log.first.date }}
-                      {{ site.data.mission[m].log.first.title }}
-                    </p>
-                  {% endif %}
+                  <p>
+                    主責單位：
+                    {% for ow in site.data.mission[m]._owner %}
+                    <span class="ui teal horizontal label" style="margin: 0 0 0 0.5rem;">
+                      {{ ow }}
+                    </span>
+                    {% endfor %}
+                  </p>
+
+                  <p>
+                    配合單位：
+                    {% for pn in site.data.mission[m]._partner %}
+                    <span class="ui basic teal horizontal label" style="margin: 0 0 0 0.5rem;">
+                      {{ pn }}
+                    </span>
+                    {% endfor %}
+                  </p>
+
+                  <p>
+                    最新進度：[
+                    {{ site.data.mission[m].log.first.type }}
+                    ]
+                    {{ site.data.mission[m].log.first.date }}
+                    {{ site.data.mission[m].log.first.title }}
+                  </p>
 
                 </article>
                 {% endfor %}
