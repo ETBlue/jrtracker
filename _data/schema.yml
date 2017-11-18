@@ -1,6 +1,6 @@
 # resolution
 # 決議
-id:
+resolution_id:
   version:
     - date:
       title:
@@ -8,19 +8,67 @@ id:
         - _object
       _topic: # 對應的司改國是會議的主題
         - _topic
-      _stakeholder: # 受影響的族群
-        - _stakeholder
+
+      # 以下三層決議共用欄位
+
+      # 喬事階段會確定的
       _owner: # 主責單位
         - _owner
       _partner: # 配合單位
         - _partner
-      _law:
-        - _law
-      _rule:
-        - _rule
+
+      # 填表階段會確定的
+      background: # 背景 / 問題 / 成因 / 現況
+        - paragraph
+      _feasibility: # 改革方向評估，單選
+      plan:
+        - paragraph
+      budget: # 預算
+      hr:
+        - paragraph
+      _stakeholder: # 受影響的族群
+        - _stakeholder
+      impact:
+        - paragraph
+      law:
+        - name: # 法規名稱
+          type: # 修法類型
+          description: # 修法方向
+          paragraph: # 條
+          subparagraph: # 項
+          item: # 款
+          old: # 原本條文內容
+          new: # 修法後內容
+          _legislator: # 負責提案的立委
+            - _legislator
+          link: # 相關連結
+            - title: 
+              url: 
+              type: 
+      rule:
+        - name: # 行政命令名稱
+          description: # 調整方向
+          new: # 行政命令內容
+          _office: # 發佈命令的機關
+            - _office
+          link: # 相關連結
+            - title: 
+              url: 
+              type: 
       _policy:
         - _policy
-      milestone:
+      _period: # 期程，單選
+      link:
+        - title:
+          description:
+          url:
+      _meeting: # 司改國是會議編號，應提供選單
+        - _meeting
+      reference:
+        - title:
+          description:
+          url:
+      milestone: # 長期的才需要？寫在 plan 欄位裡面？（待確認）
         - date:
           title:
           task:
@@ -30,10 +78,10 @@ id:
 
   status:
     - date: # 進入此狀態時間
-      status: 草案規劃中 / 草案審議中 / 已成案 / 執行中 / 驗收中 / 已結案 / 放置中 / 已撤案 # 狀態
+      _status: # 狀態，單選
   progress:
     - date: # commit 日期
-      type: 提出草案 / 修法 / 修行政命令 / 編預算 / 開會 / 辦活動 ... etc. # 進度類型
+      _type: # 進度類型
       title: # 進度條上的標題
       description:
       link: # 相關連結
@@ -43,106 +91,70 @@ id:
 
 # object
 # 子決議
-id:
+object_id:
   version:
     - date:
       description:
       _mission: # 底下的子決議細項
-
       # 以下格式同決議
-      _stakeholder:
-      _owner:
-      _partner:
-      _law:
-      _rule:
-      _policy:
-      milestone:
-        - date:
-          title:
-          task:
-            - title:
-              description:
-      note:
-  status:
-    - date: # 進入此狀態時間
-      status: 草案規劃中 / 草案審議中 / 已成案 / 執行中 / 驗收中 / 已結案 / 放置中 / 已撤案 # 狀態
-  progress:
-    - date: # commit 日期
-      type: 提出草案 / 修法 / 修行政命令 / 編預算 / 開會 / 辦活動 ... etc. # 進度類型
-      title: # 進度條上的標題
-      description:
-      link: # 相關連結
-        - title: 
-          url: 
-          type: # 連結類型
 
 # mission
 # 子決議細項
-id:
+mission_id:
   version:
     - date:
       description:
-
       # 以下格式同決議
-      _stakeholder:
-      _owner:
-      _partner:
-      _law:
-      _rule:
-      _policy:
-      milestone:
-        - date:
-          title:
-          task:
-            - title:
-              description:
-      note:
-  status:
-    - date: # 進入此狀態時間
-      status: 草案規劃中 / 草案審議中 / 已成案 / 執行中 / 驗收中 / 已結案 / 放置中 / 已撤案 # 狀態
-  progress:
-    - date: # commit 日期
-      type: 提出草案 / 修法 / 修行政命令 / 編預算 / 開會 / 辦活動 ... etc. # 進度類型
-      title: # 進度條上的標題
-      description:
-      link: # 相關連結
-        - title: 
-          url: 
-          type: # 連結類型
 
-# law
-# 提案內容：修法
-id:
-  name: # 法規名稱
-  description: # 修法方向
-  paragraph: # 條
-  subparagraph: # 項
-  item: # 款
-  old: # 原本條文內容
-  new: # 修法後內容
-  _legislator: # 負責提案的立委
-    - _legislator
-  link: # 相關連結
-    - title: 
-      url: 
-      type: 
+# status
+status:
+  - 尚未啟動
+  - 修正中
+  - 執行中
+  - 已完成
 
-# rule
-# 提案內容：修行政命令
-id:
-  name: # 行政命令名稱
-  description: # 調整方向
-  new: # 行政命令內容
-  _office: # 發佈命令的機關
-    - _office
-  link: # 相關連結
-    - title: 
-      url: 
-      type: 
+# feasibility
+feasibility:
+  - 評估中
+  - 可行
+  - 需另提方案
+  - 需重新定義問題
+
+# budget
+budget:
+  - 待評估
+  - 10 萬內
+  - 100 萬內
+  - 500 萬內
+  - 1000 萬內
+  - 5000 萬內
+  - 更多
+
+# period
+period:
+  - 待評估
+  - 半年內
+  - 一年內
+  - 兩年內
+  - 兩年以上
+
+# progress
+progress:
+  - 開會
+  - 送出請求
+  - 收到回覆
+  - 研擬修法
+  - 提出草案
+  - 編預算
+  - 安排人力
+  - 修法
+  - 頒佈行政命令
+  - 辦活動
+  - 其他
 
 # policy
 # 提案內容：上層的政策
-id:
+policy_id:
   name: # 政策或計畫名稱
   description: # 施行方向
   _policy: # 上層的政策
@@ -156,7 +168,7 @@ id:
 
 # office
 # 單位或法人組織
-id:
+office_id:
   name: # 單位名稱
   type: gov, ngo, com # 單位類別
   link: # 相關連結
@@ -170,11 +182,11 @@ id:
 
 # topic
 # 司改國是會議主題
-id: name
+topic_id: name
 
 # team
 # 司改國是會議分組
-id:
+team_id:
   name: 
   title: 
   _topic:
@@ -184,7 +196,7 @@ id:
 
 # committee
 # 司改國是會議委員
-id:
+committee_id:
   title:
   staff:
   _stakeholder:
@@ -192,13 +204,13 @@ id:
 
 # stakeholder
 # 受影響族群（資料來源：英國人神圖）
-id:
+stakeholder_id:
   name_en: 
   description:
 
 # system
 # 司法體系（資料來源：英國人神圖）
-id:
+system_id:
   description:
   activity:
   - name: 

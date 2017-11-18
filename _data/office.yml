@@ -1,108 +1,72 @@
 "法務部":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "衛福部":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "法扶基金會":
   type: ngo
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "犯罪被害人保護協會":
   type: ngo
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "內政部警政署":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "考試院":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "教育部":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "原民會":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "司法院":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "內政部":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "性平處":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "內政部移民署":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "內政部警政署":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "勞動部":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "行政院海巡署":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "法務部調查局":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "法務部廉政署":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 
 "國防部":
   type: gov
+  link:
   contact:
-    - name: 
-      email: 
-      phone: 

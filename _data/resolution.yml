@@ -10,18 +10,11 @@
         - 1-5
       _topic:
         - 1-1
-      _stakeholder:
-        - 犯罪被害人
       _owner:
         - 法務部
       _partner:
-      _law:
-      _rule:
-      _policy:
-      milestone:
-      note:
-  status:
-  progress:
+      _stakeholder:
+        - 犯罪被害人
 
 "2":
   version:
@@ -33,17 +26,10 @@
         - 2-3
       _topic:
         - 1-1
-      _stakeholder:
-        - 犯罪被害人
       _owner:
       _partner:
-      _law:
-      _rule:
-      _policy:
-      milestone:
-      note:
-  status:
-  progress:
+      _stakeholder:
+        - 犯罪被害人
 
 "4":
   version:
@@ -53,16 +39,8 @@
         - 4-6
         - 4-7
       _topic:
-      _stakeholder:
       _owner:
       _partner:
-      _law:
-      _rule:
-      _policy:
-      milestone:
-      note:
-  status:
-  progress:
 
 "8":
   version:
@@ -73,7 +51,6 @@
         - 8-2
       _topic:
         - 1-2
-      _stakeholder:
       _owner:
         - 內政部警政署
       _partner:
@@ -86,8 +63,6 @@
         - 國防部
       note:
         - 司法院、以內政部名義邀請各司法警察機關共同討論
-  status:
-  progress:
 
 "9":
   version:
@@ -99,16 +74,8 @@
         - 9-3
       _topic:
         - 1-3
-      _stakeholder:
       _owner:
       _partner:
-      _law:
-      _rule:
-      _policy:
-      milestone:
-      note:
-  status:
-  progress:
 
 "10":
   version:
@@ -124,14 +91,12 @@
         - 10-7
       _topic:
         - 1-3
-      _stakeholder:
       _owner:
       _partner:
-      _law:
-      _rule:
-      _policy:
-      milestone:
-      note:
-  status:
-  progress:
 
+"29":
+  version:
+    - data: 2017-11-11
+      title:
+      _object:
+        - 29-1

@@ -63,54 +63,70 @@ title: 資料清單
           <div class="item">
             依狀態過濾
             <div class="menu">
+              {% for s in site.data.schema.status %}
               <div class="item">
                 <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
                   n
                 </span>
-                草案規劃中
+                {{ s }}
               </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依可行性過濾
+            <div class="menu">
+              {% for f in site.data.schema.feasibility %}
               <div class="item">
                 <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
                   n
                 </span>
-                草案審議中
+                {{ f }}
               </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依預算過濾
+            <div class="menu">
+              {% for b in site.data.schema.budget %}
               <div class="item">
                 <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
                   n
                 </span>
-                已成案
+                {{ b }}
               </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依所需期程過濾
+            <div class="menu">
+              {% for p in site.data.schema.period %}
               <div class="item">
                 <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
                   n
                 </span>
-                執行中
+                {{ p }}
               </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依進度過濾
+            <div class="menu">
+              {% for p in site.data.schema.progress %}
               <div class="item">
                 <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
                   n
                 </span>
-                驗收中
+                {{ p }}
               </div>
-              <div class="item">
-                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
-                  n
-                </span>
-                已結案
-              </div>
-              <div class="item">
-                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
-                  n
-                </span>
-                放置中
-              </div>
-              <div class="item">
-                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
-                  n
-                </span>
-                已撤案
-              </div>
+              {% endfor %}
             </div>
           </div>
 
