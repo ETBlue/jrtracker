@@ -118,14 +118,14 @@ title: 決議
 
             <p>
               影響族群：
-              {% for s in r[1].version.last._stakeholder %}
+              {% for s in site.data.object[o].version.last._stakeholder %}
               <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
                 {{ s }}
               </a>
               {% endfor %}
             </p>
 
-            {% if r[1].version.last._partner %}
+            {% if site.data.object[o].version.last._partner %}
 
             <p>
               配合單位：
