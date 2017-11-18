@@ -260,7 +260,7 @@
       hr:
         - 待評估
       _stakeholder: # 受影響的族群
-        - 一般民眾
+        - 市民
         - 各級檢察署及內部員工
         - 外部機關
       impact:
@@ -304,20 +304,34 @@
       _meeting: # 司改國是會議編號，應提供選單
         - 3-5
       reference:
-        - title: 總統府司法改革國是會議第三分組第四次會議資料編號3-4討4（陳瑞仁委員）
-          description:
-          url:
-        - title: 總統府司法改革國是會議第三分組第四次會議資料編號3-4討3、4（林孟皇委員）
-          description:
-          url:
-        - title: 總統府司法改革國是會議第三分組第五次會議紀錄
-          description:
-          url:
+        - title: （代補）我對於檢察體制改革的十大訴求
+          description: 
+          url: https://drive.google.com/open?id=0ByAtzol2R1UkXzJhRlZ3SzhhNTA
+          _agenda:
+            - 3-4-討3
+            - 3-4-討4
+          _author:
+            - 林孟皇
+        - title: （代補）有關「檢察官的法律定位」、「檢察體系的組織檢討」議題提案
+          description: 
+          url: https://drive.google.com/open?id=0ByAtzol2R1UkeUZyUXJsRnVISDA
+          _agenda:
+            - 3-4-討3
+            - 3-4-討4
+          _author:
+            - 林孟皇
+        - title: （代補）檢察官的法律定位問題
+          description: 
+          url: https://drive.google.com/open?id=0ByAtzol2R1UkUlV6aEt6ejhYMm8
+          _agenda:
+            - 3-4-討4
+          _author:
+            - 陳瑞仁
       note: # 自由發揮註解區
 
   status:
     - date: 2017-11-02
-      _status: 修正中
+      _status: 追蹤中
   progress:
     - date: 2017-09
       _type: 送出請求
@@ -329,3 +343,6 @@
       title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
       description:
       link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type

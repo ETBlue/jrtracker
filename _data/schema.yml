@@ -64,10 +64,16 @@ resolution_id:
           url:
       _meeting: # 司改國是會議編號，應提供選單
         - _meeting
-      reference:
+      reference: # 司改國是會議資料編號，應提供選單
         - title:
           description:
           url:
+          _agenda: 
+            - _agenda
+          _author: 
+            - _author
+      keywords: # 司法關鍵字
+        - keyword
       milestone: # 長期的才需要？寫在 plan 欄位裡面？（待確認）
         - date:
           title:
@@ -109,8 +115,8 @@ mission_id:
 # status
 status:
   - 尚未啟動
-  - 修正中
-  - 執行中
+  - 追蹤中
+  - 已整合至常態業務
   - 已完成
 
 # feasibility
@@ -151,6 +157,12 @@ progress:
   - 頒佈行政命令
   - 辦活動
   - 其他
+
+# policy
+policy:
+  - 無所屬政策
+  - 內政部 OOO 年 OOO 計畫
+  - 法務部 OOO 年 OOO 計畫
 
 # policy
 # 提案內容：上層的政策

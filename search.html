@@ -1,0 +1,441 @@
+---
+layout: global
+title: 搜尋
+---
+
+<main id="search">
+
+<section class="ui basic segment">
+  <div class="ui container">
+    <div class="ui two column stackable grid">
+      <div class="five wide column">
+        <div class="ui vertical fluid menu">
+
+          <div class="item">
+            <div class="ui icon input">
+              <input type="text" placeholder="Search..." value="被害人" />
+              <i class="search icon"></i>
+            </div>
+          </div>
+
+          <div class="item">
+            排序方式
+            <div class="menu">
+              <a class="item">
+                依決議編號
+              </a>
+              <a class="item">
+                依更新時間
+              </a>
+              <a class="item">
+                依熱門度
+              </a>
+            </div>
+          </div>
+
+          <div class="item">
+            依狀態過濾
+            <div class="menu">
+              {% for s in site.data.schema.status %}
+              <div class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                {{ s }}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依可行性過濾
+            <div class="menu">
+              {% for f in site.data.schema.feasibility %}
+              <div class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                {{ f }}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依預算過濾
+            <div class="menu">
+              {% for b in site.data.schema.budget %}
+              <div class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                {{ b }}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依所需期程過濾
+            <div class="menu">
+              {% for p in site.data.schema.period %}
+              <div class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                {{ p }}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依進度過濾
+            <div class="menu">
+              {% for p in site.data.schema.progress %}
+              <div class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                {{ p }}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依所屬政策過濾
+            <div class="menu">
+              {% for p in site.data.schema.policy %}
+              <a class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                {{ p }}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依相關法規過濾
+            <div class="menu">
+              <a class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                不需修法
+              </a>
+              <a class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                OOO 法
+              </a>
+            </div>
+          </div>
+
+          <div class="item">
+            依相關行政命令過濾
+            <div class="menu">
+              <a class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                不需行政命令
+              </a>
+              <a class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                OOO 命令 OOO 號
+              </a>
+            </div>
+          </div>
+
+          <div class="item">
+            依利害關係人過濾
+            <div class="menu">
+              {% for s in site.data.stakeholder %}
+              <a class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                {{ s[0] }}
+                {{ s[1].name_en }}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依司法關鍵字過濾
+            <div class="menu">
+              {% for s in site.data.system %}
+              {% for a in s[1].activity %}
+              <a class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                {{ a.name }}
+                {{ a.name_en }}
+              </a>
+              {% endfor %}
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依單位組織過濾
+            <div class="menu">
+              {% for o in site.data.office %}
+              <a class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                {{ o[0] }}
+                {% if o[1].type != "gov" %}
+                (NGO)
+                {% endif %}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依國是會議主題過濾
+            <div class="menu">
+              {% for t in site.data.topic %}
+              <a class="item">
+                <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
+                  n
+                </span>
+                {{ t[0] }}
+                {{ t[1] }}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="eleven wide column">
+
+        <p>
+          6 筆與 被害人 相關決議
+        </p>
+
+        {% for r in site.data.resolution %}
+        <div class="ui segment" style="">
+          <div class="content">
+            <header style="margin: -1rem -1rem 1rem  -1rem; padding: 1rem; background-color: #ccc; border-radius: 0.25rem 0.25rem 0 0;">
+              {% if r[1].version.first._owner %}
+              <p style="float: right; margin: 0; line-height: 2em;">
+                主責單位：
+                {% for ow in r[1].version.first._owner %}
+                <span class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                  {{ ow }}
+                </span>
+                {% endfor %}
+              </p>
+              {% endif %}
+              <p style=" margin: 0; line-height: 2em;">
+                <span style="float: none; margin-right: 1rem;">
+                  決議 {{ r[0] }}
+                </span>
+              </p>
+            </header>
+
+            {% if r[1].version.first.title %}
+            <h3 class="ui small header" style="margin-top: 1rem;">
+              {{ r[1].version.first.title }}
+            </h3>
+            {% endif %}
+
+            <p>
+              國是會議主題：
+              {% for t in r[1].version.first._topic %}
+              <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                {{ t }}
+                <span>　</span>
+                {{ site.data.topic[t] }}
+              </a>
+              {% endfor %}
+            </p>
+
+            <p>
+              影響族群：
+              {% for s in r[1].version.first._stakeholder %}
+              <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                {{ s }}
+              </a>
+              {% endfor %}
+            </p>
+
+            <p>
+              主責單位：
+              {% for ow in r[1].version.first._owner %}
+              <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                {{ ow }}
+              </a>
+              {% endfor %}
+            </p>
+
+            <p>
+              配合單位：
+              {% for pn in r[1].version.first._partner %}
+              <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                {{ pn }}
+              </a>
+              {% endfor %}
+            </p>
+
+            <p>
+              最新進度：[
+              {{ r[1].progress.first._type }}
+              ]
+              {{ r[1].progress.first.date }}
+              {{ r[1].progress.first.title }}
+            </p>
+
+            {% for o in r[1].version.first._object %}
+            <article style="margin: 1rem 0">
+
+              <header style="background-color: #ddd; padding: 0.5rem 1rem; margin: 1rem -1rem;">
+                {% if site.data.object[o].version.first._owner %}
+                <p style="float: right; margin: 0; line-height: 2em;">
+                  主責單位：
+                  {% for ow in site.data.object[o].version.first._owner %}
+                  <span class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                    {{ ow }}
+                  </span>
+                  {% endfor %}
+                </p>
+                {% endif %}
+                <p style=" margin: 0; line-height: 2em;">
+                  <span style="float: none; margin-right: 1rem;">
+                    子決議 {{ o }}
+                  </span>
+                </p>
+              </header>
+
+              {% for p in site.data.object[o].version.first.description %}
+              <p>
+                {{ p }}
+              </p>
+              {% endfor %}
+
+              <p>
+                影響族群：
+                {% for s in site.data.object[o].version.first._stakeholder %}
+                <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                  {{ s }}
+                </a>
+                {% endfor %}
+              </p>
+
+              <p>
+                主責單位：
+                {% for ow in site.data.object[o].version.first._owner %}
+                <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                  {{ ow }}
+                </a>
+                {% endfor %}
+              </p>
+
+              <p>
+                配合單位：
+                {% for pn in site.data.object[o].version.first._partner %}
+                <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                  {{ pn }}
+                </a>
+                {% endfor %}
+              </p>
+
+              <p>
+                最新進度：[
+                {{ site.data.object[o].progress.first._type }}
+                ]
+                {{ site.data.object[o].progress.first.date }}
+                {{ site.data.object[o].progress.first.title }}
+              </p>
+
+              {% if site.data.object[o].version.first._mission %}
+                {% for m in site.data.object[o].version.first._mission %}
+                <article style="margin: 1rem 0">
+
+                  <header style="background-color: rgba(0,0,0,0.05); padding: 0.5rem; margin: 1rem 0;">
+                    {% if site.data.mission[m].version.first._owner %}
+                    <p style="float: right; margin: 0; line-height: 2em;">
+                      主責單位：
+                      {% for ow in site.data.mission[m].version.first._owner %}
+                      <span class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                        {{ ow }}
+                      </span>
+                      {% endfor %}
+                    </p>
+                    {% endif %}
+                    <p style=" margin: 0; line-height: 2em;">
+                      <span style="float: none; margin-right: 1rem;">
+                        子決議細項 {{ m }}
+                      </span>
+                    </p>
+                  </header>
+
+                  {% for p in site.data.mission[m].version.first.description %}
+                  <p>
+                    {{ p }}
+                  </p>
+                  {% endfor %}
+
+                  <p>
+                    影響族群：
+                    {% for s in site.data.mission[m].version.first._stakeholder %}
+                    <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                      {{ s }}
+                    </a>
+                    {% endfor %}
+                  </p>
+
+                  <p>
+                    主責單位：
+                    {% for ow in site.data.mission[m].version.first._owner %}
+                    <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                      {{ ow }}
+                    </a>
+                    {% endfor %}
+                  </p>
+
+                  <p>
+                    配合單位：
+                    {% for pn in site.data.mission[m].version.first._partner %}
+                    <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+                      {{ pn }}
+                    </a>
+                    {% endfor %}
+                  </p>
+
+                  <p>
+                    最新進度：[
+                    {{ site.data.mission[m].progress.first._type }}
+                    ]
+                    {{ site.data.mission[m].progress.first.date }}
+                    {{ site.data.mission[m].progress.first.title }}
+                  </p>
+
+                </article>
+                {% endfor %}
+              {% endif %}
+
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
