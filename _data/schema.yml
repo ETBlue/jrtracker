@@ -4,6 +4,9 @@ resolution_id:
   version:
     - date:
       title:
+        - title
+      description:
+        - description
       _object: # 底下的子決議
         - _object
       _topic: # 對應的司改國是會議的主題
@@ -94,12 +97,14 @@ resolution_id:
         - title: 
           url: 
           type: # 連結類型
+  updated: date
 
 # object
 # 子決議
 object_id:
   version:
     - date:
+      title:
       description:
       _mission: # 底下的子決議細項
       # 以下格式同決議
@@ -109,6 +114,7 @@ object_id:
 mission_id:
   version:
     - date:
+      title:
       description:
       # 以下格式同決議
 

@@ -27,7 +27,7 @@ title: 決議
             <p style="float: right; margin: 0; line-height: 2em;">
               主責單位：
               {% for ow in r[1].version.last._owner %}
-              <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+              <a class="ui horizontal label">
                 {{ ow }}
               </a>
               {% endfor %}
@@ -41,15 +41,25 @@ title: 決議
           </header>
 
           {% if r[1].version.last.title %}
-          <p">
-            {{ r[1].version.last.title }}
+          {% for p in r[1].version.last.title %}
+          <p>
+            {{ p }}
           </p>
+          {% endfor %}
+          {% endif %}
+
+          {% if r[1].version.last.description %}
+          {% for p in r[1].version.last.description %}
+          <p>
+            {{ p }}
+          </p>
+          {% endfor %}
           {% endif %}
 
           <p>
             國是會議主題：
             {% for t in r[1].version.last._topic %}
-            <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+            <a class="ui horizontal label">
               {{ t }}
               <span>　</span>
               {{ site.data.topic[t] }}
@@ -76,19 +86,19 @@ title: 決議
               經費需求：{{ r[1].version.last.budget }}
             </p>
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               最新進度：
               {% if r[1].progress %}
-              <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+              <a class="ui horizontal label">
                 {{ r[1].progress.last.date }}
               </a>
               {% endif %}
             </p>
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               影響族群：
               {% for s in r[1].version.last._stakeholder %}
-              <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+              <a class="ui horizontal label">
                 {{ s }}
               </a>
               {% endfor %}
@@ -96,21 +106,21 @@ title: 決議
 
             {% if r[1].version.last._partner %}
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               配合單位：
               {% for pn in r[1].version.last._partner %}
-              <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+              <a class="ui horizontal label">
                 {{ pn }}
               </a>
               {% endfor %}
             </p>
             {% endif %}
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               司法關鍵字：
               {% if r[1].version.last.keyowrds %}
                 {% for k in r[1].version.last.keyowrds %}
-                <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+                <a class="ui horizontal label">
                   {{ k }}
                 </a>
                 {% endfor %}
@@ -286,7 +296,7 @@ title: 決議
               <p style="float: right; margin: 0; line-height: 2em;">
                 主責單位：
                 {% for ow in site.data.object[o].version.last._owner %}
-                <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+                <a class="ui horizontal label">
                   {{ ow }}
                 </a>
                 {% endfor %}
@@ -299,11 +309,21 @@ title: 決議
               </p>
             </header>
 
-            {% for p in site.data.object[o].version.last.description %}
-            <p>
-              {{ p }}
-            </p>
-            {% endfor %}
+          {% if site.data.object[o].version.last.title %}
+          {% for p in site.data.object[o].version.last.title %}
+          <p>
+            {{ p }}
+          </p>
+          {% endfor %}
+          {% endif %}
+
+          {% if site.data.object[o].version.last.description %}
+          {% for p in site.data.object[o].version.last.description %}
+          <p>
+            {{ p }}
+          </p>
+          {% endfor %}
+          {% endif %}
 
             {% if site.data.object[o].version.last._owner %}
 
@@ -323,19 +343,19 @@ title: 決議
               經費需求：{{ site.data.object[o].version.last.budget }}
             </p>
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               最新進度：
               {% if site.data.object[o].progress %}
-              <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+              <a class="ui horizontal label">
                 {{ site.data.object[o].progress.last.date }}
               </a>
               {% endif %}
             </p>
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               影響族群：
               {% for s in site.data.object[o].version.last._stakeholder %}
-              <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+              <a class="ui horizontal label">
                 {{ s }}
               </a>
               {% endfor %}
@@ -343,21 +363,21 @@ title: 決議
 
             {% if site.data.object[o].version.last._partner %}
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               配合單位：
               {% for pn in site.data.object[o].version.last._partner %}
-              <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+              <a class="ui horizontal label">
                 {{ pn }}
               </a>
               {% endfor %}
             </p>
             {% endif %}
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               司法關鍵字：
               {% if site.data.object[o].version.last.keyowrds %}
                 {% for k in site.data.object[o].version.last.keyowrds %}
-                <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+                <a class="ui horizontal label">
                   {{ k }}
                 </a>
                 {% endfor %}
@@ -534,7 +554,7 @@ title: 決議
                   <p style="float: right; margin: 0; line-height: 2em;">
                     主責單位：
                     {% for ow in site.data.mission[m].version.last._owner %}
-                    <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+                    <a class="ui horizontal label">
                       {{ ow }}
                     </a>
                     {% endfor %}
@@ -547,12 +567,21 @@ title: 決議
                   </p>
                 </header>
 
-                {% for p in site.data.mission[m].version.last.description %}
-                <p>
-                  {{ p }}
-                </p>
-                {% endfor %}
+          {% if site.data.mission[m].version.last.title %}
+          {% for p in site.data.mission[m].version.last.title %}
+          <p>
+            {{ p }}
+          </p>
+          {% endfor %}
+          {% endif %}
 
+          {% if site.data.mission[m].version.last.description %}
+          {% for p in site.data.mission[m].version.last.description %}
+          <p>
+            {{ p }}
+          </p>
+          {% endfor %}
+          {% endif %}
 
             {% if site.data.mission[m].version.last._owner %}
 
@@ -572,19 +601,19 @@ title: 決議
               經費需求：{{ site.data.mission[m].version.last.budget }}
             </p>
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               最新進度：
               {% if site.data.mission[m].progress %}
-              <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+              <a class="ui horizontal label">
                 {{ site.data.mission[m].progress.last.date }}
               </a>
               {% endif %}
             </p>
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               影響族群：
               {% for s in site.data.mission[m].version.last._stakeholder %}
-              <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+              <a class="ui horizontal label">
                 {{ s }}
               </a>
               {% endfor %}
@@ -592,21 +621,21 @@ title: 決議
 
             {% if site.data.mission[m].version.last._partner %}
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               配合單位：
               {% for pn in site.data.mission[m].version.last._partner %}
-              <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+              <a class="ui horizontal label">
                 {{ pn }}
               </a>
               {% endfor %}
             </p>
             {% endif %}
 
-            <p style="margin-bottom: 0.5rem;">
+            <p>
               司法關鍵字：
               {% if site.data.mission[m].version.last.keyowrds %}
                 {% for k in site.data.mission[m].version.last.keyowrds %}
-                <a class="ui horizontal label" style="margin-bottom: 0.5rem;">
+                <a class="ui horizontal label">
                   {{ k }}
                 </a>
                 {% endfor %}

@@ -37,12 +37,12 @@ title: 搜尋
             依狀態過濾
             <div class="menu">
               {% for s in site.data.schema.status %}
-              <div class="item">
+              <a class="item">
                 <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
                   n
                 </span>
                 {{ s }}
-              </div>
+              </a>
               {% endfor %}
             </div>
           </div>
@@ -51,12 +51,12 @@ title: 搜尋
             依可行性過濾
             <div class="menu">
               {% for f in site.data.schema.feasibility %}
-              <div class="item">
+              <a class="item">
                 <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
                   n
                 </span>
                 {{ f }}
-              </div>
+              </a>
               {% endfor %}
             </div>
           </div>
@@ -65,12 +65,12 @@ title: 搜尋
             依預算過濾
             <div class="menu">
               {% for b in site.data.schema.budget %}
-              <div class="item">
+              <a class="item">
                 <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
                   n
                 </span>
                 {{ b }}
-              </div>
+              </a>
               {% endfor %}
             </div>
           </div>
@@ -79,12 +79,12 @@ title: 搜尋
             依所需期程過濾
             <div class="menu">
               {% for p in site.data.schema.period %}
-              <div class="item">
+              <a class="item">
                 <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
                   n
                 </span>
                 {{ p }}
-              </div>
+              </a>
               {% endfor %}
             </div>
           </div>
@@ -93,12 +93,12 @@ title: 搜尋
             依進度過濾
             <div class="menu">
               {% for p in site.data.schema.progress %}
-              <div class="item">
+              <a class="item">
                 <span class="ui right floated horizontal label" style="background-color: rgba(0,0,0,0.1); color: inherit;">
                   n
                 </span>
                 {{ p }}
-              </div>
+              </a>
               {% endfor %}
             </div>
           </div>
@@ -226,211 +226,122 @@ title: 搜尋
         </p>
 
         {% for r in site.data.resolution %}
-        <div class="ui segment" style="">
-          <div class="content">
-            <header style="margin: -1rem -1rem 1rem  -1rem; padding: 1rem; background-color: #ccc; border-radius: 0.25rem 0.25rem 0 0;">
-              {% if r[1].version.first._owner %}
-              <p style="float: right; margin: 0; line-height: 2em;">
-                主責單位：
-                {% for ow in r[1].version.first._owner %}
-                <span class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                  {{ ow }}
-                </span>
-                {% endfor %}
-              </p>
-              {% endif %}
-              <p style=" margin: 0; line-height: 2em;">
-                <span style="float: none; margin-right: 1rem;">
-                  決議 {{ r[0] }}
-                </span>
-              </p>
-            </header>
 
-            {% if r[1].version.first.title %}
-            <h3 class="ui small header" style="margin-top: 1rem;">
-              {{ r[1].version.first.title }}
-            </h3>
-            {% endif %}
-
-            <p>
-              國是會議主題：
-              {% for t in r[1].version.first._topic %}
-              <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                {{ t }}
-                <span>　</span>
-                {{ site.data.topic[t] }}
-              </a>
-              {% endfor %}
-            </p>
-
-            <p>
-              影響族群：
-              {% for s in r[1].version.first._stakeholder %}
-              <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                {{ s }}
-              </a>
-              {% endfor %}
-            </p>
-
-            <p>
-              主責單位：
-              {% for ow in r[1].version.first._owner %}
-              <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
+        <div class="ui segment">
+          <header class="ui small header">
+            {% if r[1].version.last._owner %}
+            <span style="float: right;">
+              {% for ow in r[1].version.last._owner %}
+              <a class="ui horizontal label">
                 {{ ow }}
               </a>
               {% endfor %}
-            </p>
+            </span>
+            {% endif %}
 
-            <p>
-              配合單位：
-              {% for pn in r[1].version.first._partner %}
-              <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                {{ pn }}
+            {% if r[1].version.last._topic %}
+            <span style="float: right;">
+              {% for t in r[1].version.last._topic %}
+              <a class="ui horizontal label">
+                {{ t }} {{ site.data.topic[t] }}
               </a>
               {% endfor %}
-            </p>
+            </span>
+            {% endif %}
 
-            <p>
-              最新進度：[
-              {{ r[1].progress.first._type }}
-              ]
-              {{ r[1].progress.first.date }}
-              {{ r[1].progress.first.title }}
-            </p>
+            決議 {{ r[0] }}
+          </header>
 
-            {% for o in r[1].version.first._object %}
-            <article style="margin: 1rem 0">
+          {% if r[1].version.last.title %}
+          {% for p in r[1].version.last.title %}
+          <p>
+            {{ p }}
+          </p>
+          {% endfor %}
+          {% endif %}
 
-              <header style="background-color: #ddd; padding: 0.5rem 1rem; margin: 1rem -1rem;">
-                {% if site.data.object[o].version.first._owner %}
-                <p style="float: right; margin: 0; line-height: 2em;">
-                  主責單位：
-                  {% for ow in site.data.object[o].version.first._owner %}
-                  <span class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                    {{ ow }}
+          {% if r[1].version.last._object %}
+          <div class="ui relaxed divided list">
+
+            {% for o in r[1].version.last._object %}
+            <article class="item">
+              <div class="content">
+                <div class="header" style="margin-bottom: 0.5rem;">
+                  {% if site.data.object[o].version.last._owner %}
+                  <span style="float: right;">
+                    {% for ow in site.data.object[o].version.last._owner %}
+                    <a class="ui horizontal label">
+                      {{ ow }}
+                    </a>
+                    {% endfor %}
                   </span>
-                  {% endfor %}
-                </p>
-                {% endif %}
-                <p style=" margin: 0; line-height: 2em;">
-                  <span style="float: none; margin-right: 1rem;">
-                    子決議 {{ o }}
-                  </span>
-                </p>
-              </header>
-
-              {% for p in site.data.object[o].version.first.description %}
-              <p>
-                {{ p }}
-              </p>
-              {% endfor %}
-
-              <p>
-                影響族群：
-                {% for s in site.data.object[o].version.first._stakeholder %}
-                <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                  {{ s }}
-                </a>
-                {% endfor %}
-              </p>
-
-              <p>
-                主責單位：
-                {% for ow in site.data.object[o].version.first._owner %}
-                <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                  {{ ow }}
-                </a>
-                {% endfor %}
-              </p>
-
-              <p>
-                配合單位：
-                {% for pn in site.data.object[o].version.first._partner %}
-                <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                  {{ pn }}
-                </a>
-                {% endfor %}
-              </p>
-
-              <p>
-                最新進度：[
-                {{ site.data.object[o].progress.first._type }}
-                ]
-                {{ site.data.object[o].progress.first.date }}
-                {{ site.data.object[o].progress.first.title }}
-              </p>
-
-              {% if site.data.object[o].version.first._mission %}
-                {% for m in site.data.object[o].version.first._mission %}
-                <article style="margin: 1rem 0">
-
-                  <header style="background-color: rgba(0,0,0,0.05); padding: 0.5rem; margin: 1rem 0;">
-                    {% if site.data.mission[m].version.first._owner %}
-                    <p style="float: right; margin: 0; line-height: 2em;">
-                      主責單位：
-                      {% for ow in site.data.mission[m].version.first._owner %}
-                      <span class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                        {{ ow }}
-                      </span>
-                      {% endfor %}
-                    </p>
-                    {% endif %}
-                    <p style=" margin: 0; line-height: 2em;">
-                      <span style="float: none; margin-right: 1rem;">
-                        子決議細項 {{ m }}
-                      </span>
-                    </p>
-                  </header>
-
-                  {% for p in site.data.mission[m].version.first.description %}
+                  {% endif %}
+                  決議 {{ o }}
+                </div>
+                <div class="description">
+                  {% if site.data.object[o].version.last.title %}
+                  {% for p in site.data.object[o].version.last.title %}
                   <p>
                     {{ p }}
                   </p>
                   {% endfor %}
+                  {% endif %}
 
-                  <p>
-                    影響族群：
-                    {% for s in site.data.mission[m].version.first._stakeholder %}
-                    <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                      {{ s }}
-                    </a>
-                    {% endfor %}
-                  </p>
+                </div>
+              </div>
 
-                  <p>
-                    主責單位：
-                    {% for ow in site.data.mission[m].version.first._owner %}
-                    <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                      {{ ow }}
-                    </a>
-                    {% endfor %}
-                  </p>
-
-                  <p>
-                    配合單位：
-                    {% for pn in site.data.mission[m].version.first._partner %}
-                    <a class="ui horizontal label" style="margin: 0 0 0 0.5rem;">
-                      {{ pn }}
-                    </a>
-                    {% endfor %}
-                  </p>
-
-                  <p>
-                    最新進度：[
-                    {{ site.data.mission[m].progress.first._type }}
-                    ]
-                    {{ site.data.mission[m].progress.first.date }}
-                    {{ site.data.mission[m].progress.first.title }}
-                  </p>
-
+              {% if site.data.object[o].version.last._mission %}
+              <div class="ui relaxed divided list">
+                {% for m in site.data.object[o].version.last._mission %}
+                <article class="item">
+                  <div class="content">
+                    <div class="header" style="margin-bottom: 0.5rem;">
+                      {% if site.data.mission[m].version.last._owner %}
+                      <span style="float: right;">
+                        {% for ow in site.data.mission[m].version.last._owner %}
+                        <a class="ui horizontal label">
+                          {{ ow }}
+                        </a>
+                        {% endfor %}
+                      </span>
+                      {% endif %}
+                      決議 {{ m }}
+                    </div>
+                    <div class="description">
+                      {% if site.data.mission[m].version.last.title %}
+                      {% for p in site.data.mission[m].version.last.title %}
+                      <p>
+                        {{ p }}
+                      </p>
+                      {% endfor %}
+                      {% endif %}
+                    </div>
+                  </div>
                 </article>
                 {% endfor %}
+              </div>
               {% endif %}
 
             </article>
             {% endfor %}
+
           </div>
+          {% endif %}
+
+          <p>
+            <a class="ui small icon labeled button" href="resolution">
+              <i class="icon right chevron"></i>
+              詳細內容
+            </a>
+            {% if r[1].updated %}
+            於 {{ r[1].updated }} 更新
+            {% endif %}
+          </p>
+
+
         </div>
+
+
         {% endfor %}
 
       </div>
