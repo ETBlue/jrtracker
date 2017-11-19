@@ -5,12 +5,72 @@ title: 首頁
 
 <main id="homepage">
 
-<section class="ui basic segment">
+<header id="header" class="ui basic grey center aligned inverted segment" style="margin: 0">
+  <div class="ui container">
+    {% include menu.html %}
+
+    <div style="margin: 2rem 0;">
+      <h2 class="ui inverted header">
+        司法改革
+        <i class="law icon" style="margin: 0 1rem;"></i>
+        全民參與
+      </h2>
+      <p>
+        自 2016 年 11 月至 2017 年 8 月，司法改革國是會議歷經意見徵集、分組會議、總結會議三個階段，收集各界委員的寶貴建議，並彙整成 87 項最終決議。自 2018 年 n 月起，政府各相關機關將依據最終決議進行各項改革措施，並透過本資訊平台，向人民說明司法改革的進度與成果。
+      </p>
+      <div class="ui icon input" style="margin-top: 1rem;">
+        <input type="text" placeholder="關鍵字搜尋">
+        <i class="search icon"></i>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section style="padding: 3rem 0">
   <div class="ui container">
 
-    <h1 class="ui centered header">首頁，TBD</h1>
+    {% for t in site.data.team %}
+    <h2 class="ui center aligned dividing header">
+      司改國是會議{{ t[1].name }}　{{ t[1].title }}
+    </h2>
+    <div class="ui two stackable cards">
+
+      {% for tp in t[1]._topic %}
+      <div class="card">
+        <div class="content">
+          <a class="header" href="search">
+            {{ tp }}　{{ site.data.topic[tp] }}
+          </a>
+          <div class="meta" style="margin-top: 0.5rem;">
+            共 n 項決議
+          </div>
+          <div class="description" style="margin-top: 1rem;">
+            <div class="ui divided relaxed list">
+              {% for r in site.data.resolution %}
+              {% if r[1].updated %}
+              <div class="item">
+                <div class="content">
+                  <a class="header" href="resolution" style="max-height: 3rem; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                    決議 {{ r[0] }}　{{ r[1].version.last.title }}
+                  </a>
+                  <div class="description">
+                    於 {{ r[1].updated }} 更新
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+    {% endfor %}
 
   </div>
 </section>
+
 
 </main>
