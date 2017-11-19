@@ -304,7 +304,7 @@
       _meeting: # 司改國是會議編號，應提供選單
         - 3-5
       reference:
-        - title: （代補）我對於檢察體制改革的十大訴求
+        - title: 我對於檢察體制改革的十大訴求（代補）
           description: 
           url: https://drive.google.com/open?id=0ByAtzol2R1UkXzJhRlZ3SzhhNTA
           _agenda:
@@ -312,7 +312,7 @@
             - 3-4-討4
           _author:
             - 林孟皇
-        - title: （代補）有關「檢察官的法律定位」、「檢察體系的組織檢討」議題提案
+        - title: 有關「檢察官的法律定位」、「檢察體系的組織檢討」議題提案（代補）
           description: 
           url: https://drive.google.com/open?id=0ByAtzol2R1UkeUZyUXJsRnVISDA
           _agenda:
@@ -320,7 +320,7 @@
             - 3-4-討4
           _author:
             - 林孟皇
-        - title: （代補）檢察官的法律定位問題
+        - title: 檢察官的法律定位問題（代補）
           description: 
           url: https://drive.google.com/open?id=0ByAtzol2R1UkUlV6aEt6ejhYMm8
           _agenda:
@@ -343,6 +343,9 @@
       title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
       description:
       link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
         - title: test link title
           url: test link url
           type: test link type

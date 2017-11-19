@@ -28,8 +28,15 @@ html, body {
   display: inline-block;
 }
 
-a {
-  color: inherit;
+a,
+.ui.list .list>.item a.header,
+.ui.list>.item a.header {
+  color: inherit!important;
+}
+
+.ui.horizontal.label:last-child,
+.ui.horizontal.labels .label:last-child {
+  margin-right: 0;
 }
 
 @media only screen and (max-width: 767px) {
