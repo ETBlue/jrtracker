@@ -456,15 +456,6 @@ title: 決議
             {% endfor %}
 
             <h4 class="ui mini header">
-              上層政策
-            </h4>
-            {% for p in site.data.object[o].version.last._policy %}
-            <p>
-              {{ p }}
-            </p>
-            {% endfor %}
-
-            <h4 class="ui mini header">
               司改國是會議原始討論
             </h4>
             <div class="ui divided relaxed list">
@@ -708,15 +699,6 @@ title: 決議
               人力需求
             </h4>
             {% for p in site.data.mission[m].version.last.hr %}
-            <p>
-              {{ p }}
-            </p>
-            {% endfor %}
-
-            <h4 class="ui mini header">
-              上層政策
-            </h4>
-            {% for p in site.data.mission[m].version.last._policy %}
             <p>
               {{ p }}
             </p>
