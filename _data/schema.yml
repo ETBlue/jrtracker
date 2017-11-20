@@ -58,8 +58,6 @@ resolution_id:
             - title: 
               url: 
               type: 
-      _policy:
-        - _policy
       _period: # 期程，單選
       link:
         - title:
