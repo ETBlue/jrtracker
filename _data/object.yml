@@ -342,12 +342,12 @@
     - date: 2017-11-02
       _status: 追蹤中
   progress:
-    - date: 2017-09
+    - date: 2017-09-01
       _type: 送出請求
       title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
       description:
       link: # 相關連結
-    - date: 2017-10
+    - date: 2017-10-01
       _type: 研擬修法
       title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
       description:
