@@ -211,7 +211,7 @@ title: 搜尋
                   n
                 </span>
                 {{ t[0] }}
-                {{ t[1] }}
+                {{ t[1].title }}
               </a>
               {% endfor %}
             </div>
@@ -243,7 +243,7 @@ title: 搜尋
             <span style="float: right;">
               {% for t in r[1].version.last._topic %}
               <a class="ui horizontal label">
-                {{ t }} {{ site.data.topic[t] }}
+                {{ t }} {{ site.data.topic[t].title }}
               </a>
               {% endfor %}
             </span>

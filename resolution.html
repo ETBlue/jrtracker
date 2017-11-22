@@ -29,7 +29,7 @@ title: 決議
               {% for office in r[1].version.last._owner %}
               <a class="ui horizontal label" data-html="
               <h5 class='ui tiny header'>{{ office }}</h5>
-              <div class='ui list'>
+              <div class='ui relaxed list'>
                 {% for ct in site.data.office[office].contact %}
                 <div class='item'>
                   <i class='user icon'></i>
@@ -49,6 +49,7 @@ title: 決議
                 </div>
                 {% endfor %}
               </div>
+              <hr class='ui divider' />
               <p>
                 <a href='search' target='_blank'>
                   共參與 n 項決議
@@ -87,10 +88,72 @@ title: 決議
           <p>
             國是會議主題：
             {% for t in r[1].version.last._topic %}
-            <a class="ui horizontal label">
+            <a class="ui horizontal label" data-variation="very wide" data-html="
+              <h5 class='ui tiny header'>
+                {{ t }}
+                <span>　</span>
+                {{ site.data.topic[t].title }}
+              </h5>
+              <!--
+              {% if site.data.topic[t]._topic %}
+              <h6 class='ui header' style='font-size: 1rem; margin: 1rem 0;'>
+                子議題
+              </h6>
+              <div class='ui relaxed list'>
+                {% for tp in site.data.topic[t]._topic %}
+                <div class='item'>
+                  {{ tp }}
+                  <span>　</span>
+                  {{ site.data.topic[tp].title }}
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+              -->
+              {% if site.data.topic[t]._agenda %}
+              <!--
+              <h6 class='ui header' style='font-size: 1rem; margin: 1rem 0;'>
+                國是會議相關議程
+              </h6>
+              -->
+              <div class='ui relaxed divided list'>
+                {% for ag in site.data.topic[t]._agenda %}
+                <div class='item'>
+                  <div class='content'>
+                    <div class='header'>
+                      {{ ag }}
+                    </div>
+                    <div class='meta' style='margin-top: 0.5rem;'>
+                      {{ site.data.agenda[ag].title | slice: 0, 20 }}
+                      {% if site.data.agenda[ag].title.size > 20 %}
+                      ...
+                      {% endif %}
+                    </div>
+                    <div class='description' style='margin-top: 0.5rem;'>
+                      {% for mt in site.data.agenda[ag]._meeting %}
+                      <a href='{{ site.data.meeting[mt].url }}' target='_blank'>
+                        <i class='icon comments outline'></i>
+                        {% assign team_id = site.data.meeting[mt]._team %}
+                        {{ site.data.team[team_id].name }} {{ site.data.meeting[mt].title }}
+                      </a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+              {% endif %}
+              <hr class='ui divider' />
+              <p>
+                <a href='search' target='_blank'>
+                  共形成 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+            ">
               {{ t }}
               <span>　</span>
-              {{ site.data.topic[t] }}
+              {{ site.data.topic[t].title }}
             </a>
             {% endfor %}
           </p>
@@ -139,7 +202,7 @@ title: 決議
               {% for office in r[1].version.last._partner %}
               <a class="ui horizontal label" data-html="
                 <h5 class='ui tiny header'>{{ office }}</h5>
-                <div class='ui list'>
+                <div class='ui relaxed list'>
                   {% for ct in site.data.office[office].contact %}
                   <div class='item'>
                     <i class='user icon'></i>
@@ -159,6 +222,7 @@ title: 決議
                   </div>
                   {% endfor %}
                 </div>
+                <hr class='ui divider' />
                 <p>
                   <a href='search' target='_blank'>
                     共參與 n 項決議
@@ -287,7 +351,8 @@ title: 決議
                 <i class="icon comments outline"></i>
                 <div class="content">
                   <a class="header" href="{{ site.data.meeting[d].url }}" target="_blank">
-                    第 {{ site.data.meeting[d]._team }} 組 {{ site.data.meeting[d].title }}
+                    {% assign team = site.data.meeting[d]._team %}
+                    {{ site.data.team[team].name }} {{ site.data.meeting[d].title }}
                   </a>
                 </div>
               </div>
@@ -315,7 +380,7 @@ title: 決議
                 {% for office in site.data.object[o].version.last._owner %}
                 <a class="ui horizontal label" data-html="
                   <h5 class='ui tiny header'>{{ office }}</h5>
-                  <div class='ui list'>
+                  <div class='ui relaxed list'>
                     {% for ct in site.data.office[office].contact %}
                     <div class='item'>
                       <i class='user icon'></i>
@@ -335,6 +400,7 @@ title: 決議
                     </div>
                     {% endfor %}
                   </div>
+                  <hr class='ui divider' />
                   <p>
                     <a href='search' target='_blank'>
                       共參與 n 項決議
@@ -413,7 +479,7 @@ title: 決議
               {% for office in site.data.object[o].version.last._partner %}
               <a class="ui horizontal label" data-html="
                 <h5 class='ui tiny header'>{{ office }}</h5>
-                <div class='ui list'>
+                <div class='ui relaxed list'>
                   {% for ct in site.data.office[office].contact %}
                   <div class='item'>
                     <i class='user icon'></i>
@@ -433,6 +499,7 @@ title: 決議
                   </div>
                   {% endfor %}
                 </div>
+                <hr class='ui divider' />
                 <p>
                   <a href='search' target='_blank'>
                     共參與 n 項決議
@@ -561,7 +628,8 @@ title: 決議
                 <i class="icon comments outline"></i>
                 <div class="content">
                   <a class="header" href="{{ site.data.meeting[d].url }}" target="_blank">
-                第 {{ site.data.meeting[d]._team }} 組 {{ site.data.meeting[d].title }}
+                    {% assign team = site.data.meeting[d]._team %}
+                    {{ site.data.team[team].name }} {{ site.data.meeting[d].title }}
                   </a>
                 </div>
               </div>
@@ -590,7 +658,7 @@ title: 決議
                     {% for office in site.data.mission[m].version.last._owner %}
                     <a class="ui horizontal label" data-html="
                       <h5 class='ui tiny header'>{{ office }}</h5>
-                      <div class='ui list'>
+                      <div class='ui relaxed list'>
                         {% for ct in site.data.office[office].contact %}
                         <div class='item'>
                           <i class='user icon'></i>
@@ -610,6 +678,7 @@ title: 決議
                         </div>
                         {% endfor %}
                       </div>
+                      <hr class='ui divider' />
                       <p>
                         <a href='search' target='_blank'>
                           共參與 n 項決議
@@ -688,7 +757,7 @@ title: 決議
               {% for office in site.data.mission[m].version.last._partner %}
               <a class="ui horizontal label" data-html="
                 <h5 class='ui tiny header'>{{ office }}</h5>
-                <div class='ui list'>
+                <div class='ui relaxed list'>
                   {% for ct in site.data.office[office].contact %}
                   <div class='item'>
                     <i class='user icon'></i>
@@ -708,6 +777,7 @@ title: 決議
                   </div>
                   {% endfor %}
                 </div>
+                <hr class='ui divider' />
                 <p>
                   <a href='search' target='_blank'>
                     共參與 n 項決議
@@ -836,7 +906,8 @@ title: 決議
                 <i class="icon comments outline"></i>
                 <div class="content">
                   <a class="header" href="{{ site.data.meeting[d].url }}" target="_blank">
-                第 {{ site.data.meeting[d]._team }} 組 {{ site.data.meeting[d].title }}
+                    {% assign team = site.data.meeting[d]._team %}
+                    {{ site.data.team[team].name }} {{ site.data.meeting[d].title }}
                   </a>
                 </div>
               </div>

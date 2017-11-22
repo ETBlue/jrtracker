@@ -190,7 +190,21 @@ office_id:
 
 # topic
 # 司改國是會議主題
-topic_id: name
+topic_id:
+  title:
+  _topic:
+    - _topic
+  _agenda:
+    - _agenda
+
+# agenda
+# 司改國是會議討論項目
+agenda_id:
+  title:
+  description:
+    - paragraph
+  _meeting:
+    - _meeting
 
 # team
 # 司改國是會議分組
