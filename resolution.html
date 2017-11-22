@@ -208,6 +208,18 @@ title: 決議
             {% endfor %}
 
             <h4 class="ui mini header">
+              相關資料
+            </h4>
+            <div class="ui divided relaxed list">
+              {% for link in r[1].version.last.link %}
+              <a class="item" href="{{ link.url }}" target="_blank">
+                <i class="icon globe"></i>
+                {{ link.title }}
+              </a>
+              {% endfor %}
+            </div>
+
+            <h4 class="ui mini header">
               司改國是會議相關場次
             </h4>
             <div class="ui divided relaxed list">
@@ -220,18 +232,6 @@ title: 決議
                   </a>
                 </div>
               </div>
-              {% endfor %}
-            </div>
-
-            <h4 class="ui mini header">
-              改革方案相關資料
-            </h4>
-            <div class="ui divided relaxed list">
-              {% for link in r[1].version.last.link %}
-              <a class="item" href="{{ link.url }}" target="_blank">
-                <i class="icon globe"></i>
-                {{ link.title }}
-              </a>
               {% endfor %}
             </div>
 
@@ -423,6 +423,18 @@ title: 決議
             {% endfor %}
 
             <h4 class="ui mini header">
+              相關資料
+            </h4>
+            <div class="ui divided relaxed list">
+              {% for link in site.data.object[o].version.last.link %}
+              <a class="item" href="{{ link.url }}" target="_blank">
+                <i class="icon globe"></i>
+                {{ link.title }}
+              </a>
+              {% endfor %}
+            </div>
+
+            <h4 class="ui mini header">
               司改國是會議相關場次
             </h4>
             <div class="ui divided relaxed list">
@@ -435,18 +447,6 @@ title: 決議
                   </a>
                 </div>
               </div>
-              {% endfor %}
-            </div>
-
-            <h4 class="ui mini header">
-              改革方案相關資料
-            </h4>
-            <div class="ui divided relaxed list">
-              {% for link in site.data.object[o].version.last.link %}
-              <a class="item" href="{{ link.url }}" target="_blank">
-                <i class="icon globe"></i>
-                {{ link.title }}
-              </a>
               {% endfor %}
             </div>
 
@@ -639,6 +639,18 @@ title: 決議
             {% endfor %}
 
             <h4 class="ui mini header">
+              相關資料
+            </h4>
+            <div class="ui divided relaxed list">
+              {% for link in site.data.mission[m].version.last.link %}
+              <a class="item" href="{{ link.url }}" target="_blank">
+                <i class="icon globe"></i>
+                {{ link.title }}
+              </a>
+              {% endfor %}
+            </div>
+
+            <h4 class="ui mini header">
               司改國是會議相關場次
             </h4>
             <div class="ui divided relaxed list">
@@ -651,18 +663,6 @@ title: 決議
                   </a>
                 </div>
               </div>
-              {% endfor %}
-            </div>
-
-            <h4 class="ui mini header">
-              改革方案相關資料
-            </h4>
-            <div class="ui divided relaxed list">
-              {% for link in site.data.mission[m].version.last.link %}
-              <a class="item" href="{{ link.url }}" target="_blank">
-                <i class="icon globe"></i>
-                {{ link.title }}
-              </a>
               {% endfor %}
             </div>
 
