@@ -208,7 +208,7 @@ title: 決議
             {% endfor %}
 
             <h4 class="ui mini header">
-              司改國是會議原始討論
+              司改國是會議相關場次
             </h4>
             <div class="ui divided relaxed list">
               {% for d in r[1].version.last._meeting %}
@@ -224,41 +224,7 @@ title: 決議
             </div>
 
             <h4 class="ui mini header">
-              司改國是會議資料
-            </h4>
-            <div class="ui divided relaxed list">
-              {% for ref in r[1].version.last.reference %}
-              <div class="item">
-                <i class="icon file text outline"></i>
-                <div class="content">
-                  <a class="header" href="{{ ref.url }}" target="_blank">
-                  {{ ref.title }}
-                  </a>
-                  <div class="description" style="margin-top: 1rem;">
-                    <p style="margin-bottom: 0.5rem;">
-                    作者：
-                    {% for a in ref._author %}
-                    <a class="ui horizontal label">
-                      {{ a }}
-                    </a>
-                    {% endfor %}
-                    </p>
-                    <p>
-                      相關議程：
-                      {% for a in ref._agenda %}
-                      <a class="ui horizontal label">
-                        {{ a }}
-                      </a>
-                      {% endfor %}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-
-            <h4 class="ui mini header">
-              相關連結
+              改革方案相關資料
             </h4>
             <div class="ui divided relaxed list">
               {% for link in r[1].version.last.link %}
@@ -456,7 +422,7 @@ title: 決議
             {% endfor %}
 
             <h4 class="ui mini header">
-              司改國是會議原始討論
+              司改國是會議相關場次
             </h4>
             <div class="ui divided relaxed list">
               {% for d in site.data.object[o].version.last._meeting %}
@@ -472,41 +438,7 @@ title: 決議
             </div>
 
             <h4 class="ui mini header">
-              司改國是會議資料
-            </h4>
-            <div class="ui divided relaxed list">
-              {% for ref in site.data.object[o].version.last.reference %}
-              <div class="item">
-                <i class="icon file text outline"></i>
-                <div class="content">
-                  <a class="header" href="{{ ref.url }}" target="_blank">
-                  {{ ref.title }}
-                  </a>
-                  <div class="description" style="margin-top: 1rem;">
-                    <p style="margin-bottom: 0.5rem;">
-                    作者：
-                    {% for a in ref._author %}
-                    <a class="ui horizontal label">
-                      {{ a }}
-                    </a>
-                    {% endfor %}
-                    </p>
-                    <p>
-                      相關議程：
-                      {% for a in ref._agenda %}
-                      <a class="ui horizontal label">
-                        {{ a }}
-                      </a>
-                      {% endfor %}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-
-            <h4 class="ui mini header">
-              相關連結
+              改革方案相關資料
             </h4>
             <div class="ui divided relaxed list">
               {% for link in site.data.object[o].version.last.link %}
@@ -705,7 +637,7 @@ title: 決議
             {% endfor %}
 
             <h4 class="ui mini header">
-              司改國是會議原始討論
+              司改國是會議相關場次
             </h4>
             <div class="ui divided relaxed list">
               {% for d in site.data.mission[m].version.last._meeting %}
@@ -721,41 +653,7 @@ title: 決議
             </div>
 
             <h4 class="ui mini header">
-              司改國是會議資料
-            </h4>
-            <div class="ui divided relaxed list">
-              {% for ref in site.data.mission[m].version.last.reference %}
-              <div class="item">
-                <i class="icon file text outline"></i>
-                <div class="content">
-                  <a class="header" href="{{ ref.url }}" target="_blank">
-                  {{ ref.title }}
-                  </a>
-                  <div class="description" style="margin-top: 1rem;">
-                    <p style="margin-bottom: 0.5rem;">
-                    作者：
-                    {% for a in ref._author %}
-                    <a class="ui horizontal label">
-                      {{ a }}
-                    </a>
-                    {% endfor %}
-                    </p>
-                    <p>
-                      相關議程：
-                      {% for a in ref._agenda %}
-                      <a class="ui horizontal label">
-                        {{ a }}
-                      </a>
-                      {% endfor %}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-
-            <h4 class="ui mini header">
-              相關連結
+              改革方案相關資料
             </h4>
             <div class="ui divided relaxed list">
               {% for link in site.data.mission[m].version.last.link %}

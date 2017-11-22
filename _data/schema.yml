@@ -59,20 +59,12 @@ resolution_id:
               url: 
               type: 
       _period: # 期程，單選
+      _meeting: # 司改國是會議編號，應提供選單
+        - _meeting
       link:
         - title:
           description:
           url:
-      _meeting: # 司改國是會議編號，應提供選單
-        - _meeting
-      reference: # 司改國是會議資料編號，應提供選單
-        - title:
-          description:
-          url:
-          _agenda: 
-            - _agenda
-          _author: 
-            - _author
       keywords: # 司法關鍵字
         - keyword
       milestone: # 長期的才需要？寫在 plan 欄位裡面？（待確認）
