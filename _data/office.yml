@@ -127,3 +127,10 @@
     - name: 林先生
       email: email@gov.tw
       phone: 02-12345678 分機 11
+"法務部檢察司":
+  type: gov
+  link:
+  contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
