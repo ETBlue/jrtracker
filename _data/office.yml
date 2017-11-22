@@ -1,72 +1,129 @@
 "法務部":
   type: gov
-  link:
-  contact:
+  link: # 相關連結
+    - title: 官網
+      url: 
+      type: 
+  contact: # 聯絡窗口
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "衛福部":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "法扶基金會":
   type: ngo
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "犯罪被害人保護協會":
   type: ngo
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "內政部警政署":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "考試院":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "教育部":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "原民會":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "司法院":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "內政部":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "性平處":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "內政部移民署":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "內政部警政署":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "勞動部":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "行政院海巡署":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "法務部調查局":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "法務部廉政署":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11
 "國防部":
   type: gov
   link:
   contact:
+    - name: 林先生
+      email: email@gov.tw
+      phone: 02-12345678 分機 11

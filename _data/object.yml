@@ -294,29 +294,34 @@
         - name: 法院組織法
           type: 增訂
           description: # 修法方向
+            - 修法概念說明
           paragraph: 114
           subparagraph: 2
           item: # 款
           old: # 原本條文內容
           new: # 修法後內容
+            - 新條文內容
           _legislator: # 負責提案的立委
             - _legislator
           link: # 相關連結
-            - title: 
+            - title: 連結標題
               url: 
               type: 
         - name: 法務部組織法
           type: 修正
           description: # 修法方向
+            - 修法概念說明
           paragraph: 5
           subparagraph: 
           item: # 款
           old: # 原本條文內容
+            - 舊條文內容
           new: # 修法後內容
+            - 新條文內容
           _legislator: # 負責提案的立委
             - _legislator
           link: # 相關連結
-            - title: 
+            - title: 連結標題
               url: 
               type: 
       rule:

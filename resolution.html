@@ -26,9 +26,37 @@ title: 決議
             {% if r[1].version.last._owner %}
             <p style="float: right; margin: 0; line-height: 2em;">
               主責單位：
-              {% for ow in r[1].version.last._owner %}
-              <a class="ui horizontal label">
-                {{ ow }}
+              {% for office in r[1].version.last._owner %}
+              <a class="ui horizontal label" data-html="
+              <h5 class='ui tiny header'>{{ office }}</h5>
+              <div class='ui list'>
+                {% for ct in site.data.office[office].contact %}
+                <div class='item'>
+                  <i class='user icon'></i>
+                  <div class='content'>
+                    <div class='header'>
+                      聯絡窗口：{{ ct.name }}
+                    </div>
+                    <div class='list'>
+                      <div class='item'>
+                      {{ ct.email }}
+                      </div>
+                      <div class='item'>
+                      {{ ct.phone }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+              <p>
+                <a href='search' target='_blank'>
+                  共參與 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+              ">
+                {{ office }}
               </a>
               {% endfor %}
             </p>
@@ -108,9 +136,37 @@ title: 決議
 
             <p>
               配合單位：
-              {% for pn in r[1].version.last._partner %}
-              <a class="ui horizontal label">
-                {{ pn }}
+              {% for office in r[1].version.last._partner %}
+              <a class="ui horizontal label" data-html="
+                <h5 class='ui tiny header'>{{ office }}</h5>
+                <div class='ui list'>
+                  {% for ct in site.data.office[office].contact %}
+                  <div class='item'>
+                    <i class='user icon'></i>
+                    <div class='content'>
+                      <div class='header'>
+                        聯絡窗口：{{ ct.name }}
+                      </div>
+                      <div class='list'>
+                        <div class='item'>
+                        {{ ct.email }}
+                        </div>
+                        <div class='item'>
+                        {{ ct.phone }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                <p>
+                  <a href='search' target='_blank'>
+                    共參與 n 項決議
+                    <i class='icon right chevron'></i>
+                  </a>
+                </p>
+              ">
+                {{ office }}
               </a>
               {% endfor %}
             </p>
@@ -155,8 +211,11 @@ title: 決議
               <span class="ui horizontal basic label">
                 {{ l.type }}
               </span>
+              <a class="ui horizontal label">
+                {{ l.name }}
+              </a>
               <span>
-              {{ l.name }} 第 {{ l.paragraph }} 條
+              第 {{ l.paragraph }} 條
               {% if l.subparagraph %}
               第 {{ l.subparagraph }} 款
               {% endif %}
@@ -253,9 +312,37 @@ title: 決議
               {% if site.data.object[o].version.last._owner %}
               <p style="float: right; margin: 0; line-height: 2em;">
                 主責單位：
-                {% for ow in site.data.object[o].version.last._owner %}
-                <a class="ui horizontal label">
-                  {{ ow }}
+                {% for office in site.data.object[o].version.last._owner %}
+                <a class="ui horizontal label" data-html="
+                  <h5 class='ui tiny header'>{{ office }}</h5>
+                  <div class='ui list'>
+                    {% for ct in site.data.office[office].contact %}
+                    <div class='item'>
+                      <i class='user icon'></i>
+                      <div class='content'>
+                        <div class='header'>
+                          聯絡窗口：{{ ct.name }}
+                        </div>
+                        <div class='list'>
+                          <div class='item'>
+                          {{ ct.email }}
+                          </div>
+                          <div class='item'>
+                          {{ ct.phone }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <p>
+                    <a href='search' target='_blank'>
+                      共參與 n 項決議
+                      <i class='icon right chevron'></i>
+                    </a>
+                  </p>
+                ">
+                  {{ office }}
                 </a>
                 {% endfor %}
               </p>
@@ -323,9 +410,37 @@ title: 決議
 
             <p>
               配合單位：
-              {% for pn in site.data.object[o].version.last._partner %}
-              <a class="ui horizontal label">
-                {{ pn }}
+              {% for office in site.data.object[o].version.last._partner %}
+              <a class="ui horizontal label" data-html="
+                <h5 class='ui tiny header'>{{ office }}</h5>
+                <div class='ui list'>
+                  {% for ct in site.data.office[office].contact %}
+                  <div class='item'>
+                    <i class='user icon'></i>
+                    <div class='content'>
+                      <div class='header'>
+                        聯絡窗口：{{ ct.name }}
+                      </div>
+                      <div class='list'>
+                        <div class='item'>
+                        {{ ct.email }}
+                        </div>
+                        <div class='item'>
+                        {{ ct.phone }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                <p>
+                  <a href='search' target='_blank'>
+                    共參與 n 項決議
+                    <i class='icon right chevron'></i>
+                  </a>
+                </p>
+              ">
+                {{ office }}
               </a>
               {% endfor %}
             </p>
@@ -370,8 +485,11 @@ title: 決議
               <span class="ui horizontal basic label">
                 {{ l.type }}
               </span>
+              <a class="ui horizontal label">
+                {{ l.name }}
+              </a>
               <span>
-              {{ l.name }} 第 {{ l.paragraph }} 條
+              第 {{ l.paragraph }} 條
               {% if l.subparagraph %}
               第 {{ l.subparagraph }} 款
               {% endif %}
@@ -469,9 +587,37 @@ title: 決議
                   {% if site.data.mission[m].version.last._owner %}
                   <p style="float: right; margin: 0; line-height: 2em;">
                     主責單位：
-                    {% for ow in site.data.mission[m].version.last._owner %}
-                    <a class="ui horizontal label">
-                      {{ ow }}
+                    {% for office in site.data.mission[m].version.last._owner %}
+                    <a class="ui horizontal label" data-html="
+                      <h5 class='ui tiny header'>{{ office }}</h5>
+                      <div class='ui list'>
+                        {% for ct in site.data.office[office].contact %}
+                        <div class='item'>
+                          <i class='user icon'></i>
+                          <div class='content'>
+                            <div class='header'>
+                              聯絡窗口：{{ ct.name }}
+                            </div>
+                            <div class='list'>
+                              <div class='item'>
+                              {{ ct.email }}
+                              </div>
+                              <div class='item'>
+                              {{ ct.phone }}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                      </div>
+                      <p>
+                        <a href='search' target='_blank'>
+                          共參與 n 項決議
+                          <i class='icon right chevron'></i>
+                        </a>
+                      </p>
+                    ">
+                      {{ office }}
                     </a>
                     {% endfor %}
                   </p>
@@ -539,9 +685,37 @@ title: 決議
 
             <p>
               配合單位：
-              {% for pn in site.data.mission[m].version.last._partner %}
-              <a class="ui horizontal label">
-                {{ pn }}
+              {% for office in site.data.mission[m].version.last._partner %}
+              <a class="ui horizontal label" data-html="
+                <h5 class='ui tiny header'>{{ office }}</h5>
+                <div class='ui list'>
+                  {% for ct in site.data.office[office].contact %}
+                  <div class='item'>
+                    <i class='user icon'></i>
+                    <div class='content'>
+                      <div class='header'>
+                        聯絡窗口：{{ ct.name }}
+                      </div>
+                      <div class='list'>
+                        <div class='item'>
+                        {{ ct.email }}
+                        </div>
+                        <div class='item'>
+                        {{ ct.phone }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                <p>
+                  <a href='search' target='_blank'>
+                    共參與 n 項決議
+                    <i class='icon right chevron'></i>
+                  </a>
+                </p>
+              ">
+                {{ office }}
               </a>
               {% endfor %}
             </p>
@@ -586,8 +760,11 @@ title: 決議
               <span class="ui horizontal basic label">
                 {{ l.type }}
               </span>
+              <a class="ui horizontal label">
+                {{ l.name }}
+              </a>
               <span>
-              {{ l.name }} 第 {{ l.paragraph }} 條
+              第 {{ l.paragraph }} 條
               {% if l.subparagraph %}
               第 {{ l.subparagraph }} 款
               {% endif %}
