@@ -248,8 +248,17 @@ title: 搜尋
               {% endfor %}
             </span>
             {% endif %}
-
+            <span style="float: none; margin-right: 1rem;">
             決議 {{ r[0] }}
+            </span>
+            {% if r[1].version.last._owner %}
+              {% if r[1].status.last %}
+              <span>
+              <i class="icon wait"></i>
+              {{ r[1].status.last._status }}
+              {% endif %}
+              </span>
+            {% endif %}
           </header>
 
           {% if r[1].version.last.title %}
@@ -276,7 +285,17 @@ title: 搜尋
                     {% endfor %}
                   </span>
                   {% endif %}
+                  <span style="float: none; margin-right: 1rem;">
                   決議 {{ o }}
+                  </span>
+                  {% if site.data.object[o].version.last._owner %}
+                    {% if site.data.object[o].status.last %}
+                    <span>
+                    <i class="icon wait"></i>
+                    {{ site.data.object[o].status.last._status }}
+                    {% endif %}
+                    </span>
+                  {% endif %}
                 </div>
                 <div class="description">
                   {% if site.data.object[o].version.last.title %}
@@ -305,7 +324,17 @@ title: 搜尋
                         {% endfor %}
                       </span>
                       {% endif %}
+                      <span style="float: none; margin-right: 1rem;">
                       決議 {{ m }}
+                      </span>
+                      {% if site.data.mission[m].version.last._owner %}
+                        {% if site.data.mission[m].status.last %}
+                        <span>
+                        <i class="icon wait"></i>
+                        {{ site.data.mission[m].status.last._status }}
+                        {% endif %}
+                        </span>
+                      {% endif %}
                     </div>
                     <div class="description">
                       {% if site.data.mission[m].version.last.title %}
