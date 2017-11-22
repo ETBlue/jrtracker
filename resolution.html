@@ -66,6 +66,14 @@ title: 決議
               <span style="float: none; margin-right: 1rem;">
                 決議 {{ r[0] }}
               </span>
+              {% if r[1].version.last._owner %}
+                {% if r[1].status.last %}
+                <span>
+                <i class="icon wait"></i>
+                {{ r[1].status.last._status }}
+                {% endif %}
+                </span>
+              {% endif %}
             </p>
           </header>
 
@@ -189,7 +197,15 @@ title: 決議
             <p>
               影響族群：
               {% for s in r[1].version.last._stakeholder %}
-              <a class="ui horizontal label">
+              <a class="ui horizontal label" data-html="
+              <h5 class='ui tiny header'>{{ s }}</h5>
+              <p>
+                <a href='search' target='_blank'>
+                  共涉及 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+              ">
                 {{ s }}
               </a>
               {% endfor %}
@@ -275,7 +291,15 @@ title: 決議
               <span class="ui horizontal basic label">
                 {{ l.type }}
               </span>
-              <a class="ui horizontal label">
+              <a class="ui horizontal label" data-html="
+              <h5 class='ui tiny header'>{{ l.name }}</h5>
+              <p>
+                <a href='search' target='_blank'>
+                  共涉及 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+              ">
                 {{ l.name }}
               </a>
               <span>
@@ -417,6 +441,14 @@ title: 決議
                 <span style="float: none; margin-right: 1rem;">
                   決議 {{ o }}
                 </span>
+                {% if site.data.object[o].version.last._owner %}
+                  {% if site.data.object[o].status.last %}
+                <span>
+                  <i class="icon wait"></i>
+                  {{ site.data.object[o].status.last._status }}
+                </span>
+                  {% endif %}
+                {% endif %}
               </p>
             </header>
 
@@ -466,7 +498,15 @@ title: 決議
             <p>
               影響族群：
               {% for s in site.data.object[o].version.last._stakeholder %}
-              <a class="ui horizontal label">
+              <a class="ui horizontal label" data-html="
+              <h5 class='ui tiny header'>{{ s }}</h5>
+              <p>
+                <a href='search' target='_blank'>
+                  共涉及 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+              ">
                 {{ s }}
               </a>
               {% endfor %}
@@ -552,7 +592,15 @@ title: 決議
               <span class="ui horizontal basic label">
                 {{ l.type }}
               </span>
-              <a class="ui horizontal label">
+              <a class="ui horizontal label" data-html="
+              <h5 class='ui tiny header'>{{ l.name }}</h5>
+              <p>
+                <a href='search' target='_blank'>
+                  共涉及 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+              ">
                 {{ l.name }}
               </a>
               <span>
@@ -695,6 +743,14 @@ title: 決議
                     <span style="float: none; margin-right: 1rem;">
                       決議 {{ m }}
                     </span>
+                {% if site.data.mission[m].version.last._owner %}
+                  {% if site.data.mission[m].status.last %}
+                    <span>
+                  <i class="icon wait"></i>
+                  {{ site.data.mission[m].status.last._status }}
+                    </span>
+                  {% endif %}
+                {% endif %}
                   </p>
                 </header>
 
@@ -744,7 +800,15 @@ title: 決議
             <p>
               影響族群：
               {% for s in site.data.mission[m].version.last._stakeholder %}
-              <a class="ui horizontal label">
+              <a class="ui horizontal label" data-html="
+              <h5 class='ui tiny header'>{{ s }}</h5>
+              <p>
+                <a href='search' target='_blank'>
+                  共涉及 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+              ">
                 {{ s }}
               </a>
               {% endfor %}
@@ -830,7 +894,15 @@ title: 決議
               <span class="ui horizontal basic label">
                 {{ l.type }}
               </span>
-              <a class="ui horizontal label">
+              <a class="ui horizontal label" data-html="
+              <h5 class='ui tiny header'>{{ l.name }}</h5>
+              <p>
+                <a href='search' target='_blank'>
+                  共涉及 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+              ">
                 {{ l.name }}
               </a>
               <span>
