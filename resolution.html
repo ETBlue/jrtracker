@@ -229,6 +229,7 @@ title: 決議
             <div class="ui divided relaxed list">
               {% for link in r[1].version.last.link %}
               <a class="item" href="{{ link.url }}" target="_blank">
+                <i class="icon globe"></i>
                 {{ link.title }}
               </a>
               {% endfor %}
@@ -443,6 +444,7 @@ title: 決議
             <div class="ui divided relaxed list">
               {% for link in site.data.object[o].version.last.link %}
               <a class="item" href="{{ link.url }}" target="_blank">
+                <i class="icon globe"></i>
                 {{ link.title }}
               </a>
               {% endfor %}
@@ -658,6 +660,7 @@ title: 決議
             <div class="ui divided relaxed list">
               {% for link in site.data.mission[m].version.last.link %}
               <a class="item" href="{{ link.url }}" target="_blank">
+                <i class="icon globe"></i>
                 {{ link.title }}
               </a>
               {% endfor %}
