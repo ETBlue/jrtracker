@@ -29,6 +29,7 @@ title: 決議
               {% for office in r[1].version.last._owner %}
               <a class="ui horizontal label" data-html="
               <h5 class='ui tiny header'>{{ office }}</h5>
+              {% if site.data.office[office].contact %}
               <div class='ui relaxed list'>
                 {% for ct in site.data.office[office].contact %}
                 <div class='item'>
@@ -50,6 +51,7 @@ title: 決議
                 {% endfor %}
               </div>
               <hr class='ui divider' />
+              {% endif %}
               <p>
                 <a href='search' target='_blank'>
                   共參與 n 項決議
@@ -150,8 +152,8 @@ title: 決議
                 </div>
                 {% endfor %}
               </div>
-              {% endif %}
               <hr class='ui divider' />
+              {% endif %}
               <p>
                 <a href='search' target='_blank'>
                   共形成 n 項決議
@@ -218,6 +220,7 @@ title: 決議
               {% for office in r[1].version.last._partner %}
               <a class="ui horizontal label" data-html="
                 <h5 class='ui tiny header'>{{ office }}</h5>
+                {% if site.data.office[office].contact %}
                 <div class='ui relaxed list'>
                   {% for ct in site.data.office[office].contact %}
                   <div class='item'>
@@ -239,6 +242,7 @@ title: 決議
                   {% endfor %}
                 </div>
                 <hr class='ui divider' />
+                {% endif %}
                 <p>
                   <a href='search' target='_blank'>
                     共參與 n 項決議
@@ -404,6 +408,7 @@ title: 決議
                 {% for office in site.data.object[o].version.last._owner %}
                 <a class="ui horizontal label" data-html="
                   <h5 class='ui tiny header'>{{ office }}</h5>
+                  {% if site.data.office[office].contact %}
                   <div class='ui relaxed list'>
                     {% for ct in site.data.office[office].contact %}
                     <div class='item'>
@@ -425,6 +430,7 @@ title: 決議
                     {% endfor %}
                   </div>
                   <hr class='ui divider' />
+                  {% endif %}
                   <p>
                     <a href='search' target='_blank'>
                       共參與 n 項決議
@@ -519,6 +525,7 @@ title: 決議
               {% for office in site.data.object[o].version.last._partner %}
               <a class="ui horizontal label" data-html="
                 <h5 class='ui tiny header'>{{ office }}</h5>
+                {% if site.data.office[office].contact %}
                 <div class='ui relaxed list'>
                   {% for ct in site.data.office[office].contact %}
                   <div class='item'>
@@ -540,6 +547,7 @@ title: 決議
                   {% endfor %}
                 </div>
                 <hr class='ui divider' />
+                {% endif %}
                 <p>
                   <a href='search' target='_blank'>
                     共參與 n 項決議
@@ -706,6 +714,7 @@ title: 決議
                     {% for office in site.data.mission[m].version.last._owner %}
                     <a class="ui horizontal label" data-html="
                       <h5 class='ui tiny header'>{{ office }}</h5>
+                      {% if site.data.office[office].contact %}
                       <div class='ui relaxed list'>
                         {% for ct in site.data.office[office].contact %}
                         <div class='item'>
@@ -727,6 +736,7 @@ title: 決議
                         {% endfor %}
                       </div>
                       <hr class='ui divider' />
+                      {% endif %}
                       <p>
                         <a href='search' target='_blank'>
                           共參與 n 項決議
@@ -821,6 +831,7 @@ title: 決議
               {% for office in site.data.mission[m].version.last._partner %}
               <a class="ui horizontal label" data-html="
                 <h5 class='ui tiny header'>{{ office }}</h5>
+                {% if site.data.office[office].contact %}
                 <div class='ui relaxed list'>
                   {% for ct in site.data.office[office].contact %}
                   <div class='item'>
@@ -842,6 +853,7 @@ title: 決議
                   {% endfor %}
                 </div>
                 <hr class='ui divider' />
+                {% endif %}
                 <p>
                   <a href='search' target='_blank'>
                     共參與 n 項決議
