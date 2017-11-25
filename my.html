@@ -1,0 +1,467 @@
+---
+layout: global
+title: 我的
+---
+
+<main id="my">
+
+
+<header id="header" class="ui basic grey center aligned inverted segment" style="margin: 0">
+  <div class="ui container">
+    {% include menu-backend-login.html %}
+  </div>
+</header>
+
+<section class="ui basic segment">
+  <div class="ui container">
+    <div class="ui two column stackable grid">
+      <div class="five wide column">
+
+        <div class="ui vertical fluid menu">
+
+          <div class="item">
+            <div class="ui icon input">
+              <input type="text" placeholder="關鍵字搜尋" value="" />
+              <i class="search icon"></i>
+            </div>
+          </div>
+
+          <div class="item">
+            排序方式
+            <div class="menu">
+              <a class="item">
+                依決議編號
+              </a>
+              <a class=" active item">
+                依更新時間
+              </a>
+            </div>
+          </div>
+
+          <div class="item">
+            依方案審核狀態過濾
+            <div class="menu">
+              {% for i in site.data.schema.log %}
+              <a class="item">
+                <span class="ui right floated horizontal basic {{ color }} label" style="background-color: #fff; color: inherit;">
+                  n
+                </span>
+                {{ i }}方案
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依進度審核狀態過濾
+            <div class="menu">
+              {% for i in site.data.schema.log %}
+              <a class="item">
+                <span class="ui right floated horizontal basic {{ color }} label" style="background-color: #fff; color: inherit;">
+                  n
+                </span>
+                {{ i }}進度
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="item">
+            依追蹤狀態過濾
+            <div class="menu">
+              {% for s in site.data.schema.status %}
+              <a class="item">
+                <span class="ui right floated horizontal basic label" style="background-color: #fff; color: inherit;">
+                  n
+                </span>
+                {{ s }}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="eleven wide column">
+
+        {% for r in site.data.resolution %}
+        {% if r[1].version.last._owner %}
+
+        <div class="ui segment">
+
+          <h2 class="ui small header">
+            {% if r[1].version.last._owner %}
+            <span style="float: right;">
+              {% for ow in r[1].version.last._owner %}
+              <a class="ui horizontal label">
+                {{ ow }}
+              </a>
+              {% endfor %}
+            </span>
+            {% endif %}
+
+            <a href="edit" style="float: none; margin-right: 1rem;">
+              決議 {{ r[0] }}
+            </a>
+            {% if r[1].version.last._owner %}
+              {% if r[1].status.last %}
+              <span>
+              <i class="icon
+              {% if r[1].status.last._status == '進行中' %}
+              wait
+              {% else %}
+                {% if r[1].status.last._status == '已完成' %}
+                checkmark
+                {% endif %}
+                {% if r[1].status.last._status == '已完成（納入常態業務）' %}
+                checkmark
+                {% endif %}
+              {% endif %}
+              "></i>
+              {{ r[1].status.last._status }}
+              {% endif %}
+              </span>
+            {% endif %}
+          </h2>
+
+          {% if r[1].version.last._topic %}
+          <p style="text-align: right;">
+            國是會議主題：
+            {% for t in r[1].version.last._topic %}
+            <a class="ui horizontal label">
+              {{ t }} {{ site.data.topic[t].title }}
+            </a>
+            {% endfor %}
+          </p>
+          {% endif %}
+
+          <p>
+            {{ r[1].version.last.title.first }}
+          </p>
+
+          {% unless r[1].status.last._status == "已完成" %}
+
+          <hr class="ui divider" />
+          <p style="text-align: right;">
+            {% if r[1].version.last.log.last._log %}
+            於
+            {{ r[1].version.last.log.last.date }}
+            {{ r[1].version.last.log.last._log }}
+            方案
+            {% endif %}
+            <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
+              {% if r[1].version.last.log.last._log == "已退回" %}
+              <a class="ui icon labeled button" href="edit">
+                <i class="icon pencil"></i>
+                編輯目前方案
+              </a>
+              {% else %}
+                {% if r[1].version.last.log.last._log == "已送出" %}
+                <a class="ui icon labeled button disabled">
+                  <i class="icon wait"></i>
+                  方案審核中
+                </a>
+                {% else %}
+                <a class="ui icon labeled button" href="edit">
+                  <i class="icon add"></i>
+                  新增方案版本
+                </a>
+                {% endif %}
+              {% endif %}
+            </span>
+          </p>
+
+          <p style="text-align: right;">
+            {% if r[1].progress.last.log.last._log %}
+            於
+            {{ r[1].progress.last.log.last.date }}
+            {{ r[1].progress.last.log.last._log }}
+            進度
+            {% endif %}
+            <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
+              {% if r[1].progress.last.log.last._log == "已退回" %}
+              <a class="ui icon labeled button" href="edit">
+                <i class="icon pencil"></i>
+                編輯目前進度
+              </a>
+              {% else %}
+                {% if r[1].progress.last.log.last._log == "已送出" %}
+                <a class="ui icon labeled button disabled">
+                  <i class="icon wait"></i>
+                  進度審核中
+                </a>
+                {% else %}
+                <a class="ui icon labeled button" href="edit">
+                  <i class="icon add"></i>
+                  新增進度
+                </a>
+                {% endif %}
+              {% endif %}
+            </span>
+          </p>
+
+          {% endunless %}
+
+        </div>
+
+        {% else %}
+
+          {% for o in r[1].version.last._object %}
+          {% if site.data.object[o].version.last._owner %}
+
+        <div class="ui segment">
+
+          <h2 class="ui small header">
+            {% if site.data.object[o].version.last._owner %}
+            <span style="float: right;">
+              {% for ow in site.data.object[o].version.last._owner %}
+              <a class="ui horizontal label">
+                {{ ow }}
+              </a>
+              {% endfor %}
+            </span>
+            {% endif %}
+
+            <a href="edit" style="float: none; margin-right: 1rem;">
+              決議 {{ o }}
+            </a>
+            {% if site.data.object[o].version.last._owner %}
+              {% if site.data.object[o].status.last %}
+              <span>
+              <i class="icon
+              {% if site.data.object[o].status.last._status == '進行中' %}
+              wait
+              {% else %}
+                {% if site.data.object[o].status.last._status == '已完成' %}
+                checkmark
+                {% endif %}
+                {% if site.data.object[o].status.last._status == '已完成（納入常態業務）' %}
+                checkmark
+                {% endif %}
+              {% endif %}
+              "></i>
+              {{ site.data.object[o].status.last._status }}
+              {% endif %}
+              </span>
+            {% endif %}
+          </h2>
+
+          {% if site.data.object[o].version.last._topic %}
+          <p style="text-align: right;">
+            國是會議主題：
+            {% for t in site.data.object[o].version.last._topic %}
+            <a class="ui horizontal label">
+              {{ t }} {{ site.data.topic[t].title }}
+            </a>
+            {% endfor %}
+          </p>
+          {% endif %}
+
+          <p>
+            {{ site.data.object[o].version.last.title.first }}
+          </p>
+
+          {% unless site.data.object[o].status.last._status == "已完成" %}
+
+          <hr class="ui divider" />
+          <p style="text-align: right;">
+            {% if site.data.object[o].version.last.log.last._log %}
+            於
+            {{ site.data.object[o].version.last.log.last.date }}
+            {{ site.data.object[o].version.last.log.last._log }}
+            方案
+            {% endif %}
+            <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
+              {% if site.data.object[o].version.last.log.last._log == "已退回" %}
+              <a class="ui icon labeled button" href="edit">
+                <i class="icon pencil"></i>
+                編輯目前方案
+              </a>
+              {% else %}
+                {% if site.data.object[o].version.last.log.last._log == "已送出" %}
+                <a class="ui icon labeled button disabled">
+                  <i class="icon wait"></i>
+                  方案審核中
+                </a>
+                {% else %}
+                <a class="ui icon labeled button" href="edit">
+                  <i class="icon add"></i>
+                  新增方案版本
+                </a>
+                {% endif %}
+              {% endif %}
+            </span>
+          </p>
+
+          <p style="text-align: right;">
+            {% if site.data.object[o].progress.last.log.last._log %}
+            於
+            {{ site.data.object[o].progress.last.log.last.date }}
+            {{ site.data.object[o].progress.last.log.last._log }}
+            進度
+            {% endif %}
+            <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
+              {% if site.data.object[o].progress.last.log.last._log == "已退回" %}
+              <a class="ui icon labeled button" href="edit">
+                <i class="icon pencil"></i>
+                編輯目前進度
+              </a>
+              {% else %}
+                {% if site.data.object[o].progress.last.log.last._log == "已送出" %}
+                <a class="ui icon labeled button disabled">
+                  <i class="icon wait"></i>
+                  進度審核中
+                </a>
+                {% else %}
+                <a class="ui icon labeled button" href="edit">
+                  <i class="icon add"></i>
+                  新增進度
+                </a>
+                {% endif %}
+              {% endif %}
+            </span>
+          </p>
+
+          {% endunless %}
+        </div>
+
+          {% else %}
+
+
+            {% for m in site.data.object[o].version.last._mission %}
+            {% if site.data.mission[m].version.last._owner %}
+
+        <div class="ui segment">
+
+          <h2 class="ui small header">
+            {% if site.data.mission[m].version.last._owner %}
+            <span style="float: right;">
+              {% for ow in site.data.mission[m].version.last._owner %}
+              <a class="ui horizontal label">
+                {{ ow }}
+              </a>
+              {% endfor %}
+            </span>
+            {% endif %}
+
+            <a href="edit" style="float: none; margin-right: 1rem;">
+              決議 {{ m }}
+            </a>
+            {% if site.data.mission[m].version.last._owner %}
+              {% if site.data.mission[m].status.last %}
+              <span>
+              <i class="icon
+              {% if site.data.mission[m].status.last._status == '進行中' %}
+              wait
+              {% else %}
+                {% if site.data.mission[m].status.last._status == '已完成' %}
+                checkmark
+                {% endif %}
+                {% if site.data.mission[m].status.last._status == '已完成（納入常態業務）' %}
+                checkmark
+                {% endif %}
+              {% endif %}
+              "></i>
+              {{ site.data.mission[m].status.last._status }}
+              {% endif %}
+              </span>
+            {% endif %}
+          </h2>
+
+          {% if site.data.mission[m].version.last._topic %}
+          <p style="text-align: right;">
+            國是會議主題：
+            {% for t in site.data.mission[m].version.last._topic %}
+            <a class="ui horizontal label">
+              {{ t }} {{ site.data.topic[t].title }}
+            </a>
+            {% endfor %}
+          </p>
+          {% endif %}
+
+          <p>
+            {{ site.data.mission[m].version.last.title.first }}
+          </p>
+
+          {% unless site.data.mission[m].status.last._status == "已完成" %}
+
+          <hr class="ui divider" />
+          <p style="text-align: right;">
+            {% if site.data.mission[m].version.last.log.last._log %}
+            於
+            {{ site.data.mission[m].version.last.log.last.date }}
+            {{ site.data.mission[m].version.last.log.last._log }}
+            方案
+            {% endif %}
+            <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
+              {% if site.data.mission[m].version.last.log.last._log == "已退回" %}
+              <a class="ui icon labeled button" href="edit">
+                <i class="icon pencil"></i>
+                編輯目前方案
+              </a>
+              {% else %}
+                {% if site.data.mission[m].version.last.log.last._log == "已送出" %}
+                <a class="ui icon labeled button disabled">
+                  <i class="icon wait"></i>
+                  方案審核中
+                </a>
+                {% else %}
+                <a class="ui icon labeled button" href="edit">
+                  <i class="icon add"></i>
+                  新增方案版本
+                </a>
+                {% endif %}
+              {% endif %}
+            </span>
+          </p>
+
+          <p style="text-align: right;">
+            {% if site.data.mission[m].progress.last.log.last._log %}
+            於
+            {{ site.data.mission[m].progress.last.log.last.date }}
+            {{ site.data.mission[m].progress.last.log.last._log }}
+            進度
+            {% endif %}
+            <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
+              {% if site.data.mission[m].progress.last.log.last._log == "已退回" %}
+              <a class="ui icon labeled button" href="edit">
+                <i class="icon pencil"></i>
+                編輯目前進度
+              </a>
+              {% else %}
+                {% if site.data.mission[m].progress.last.log.last._log == "已送出" %}
+                <a class="ui icon labeled button disabled">
+                  <i class="icon wait"></i>
+                  進度審核中
+                </a>
+                {% else %}
+                <a class="ui icon labeled button" href="edit">
+                  <i class="icon add"></i>
+                  新增進度
+                </a>
+                {% endif %}
+              {% endif %}
+            </span>
+          </p>
+
+          {% endunless %}
+        </div>
+
+
+            {% endif %}
+            {% endfor %}
+
+          {% endif %}
+          {% endfor %}
+
+        {% endif %}
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</main>

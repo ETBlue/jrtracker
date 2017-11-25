@@ -8,16 +8,7 @@ title: 首頁
 <header id="header" class="ui basic grey center aligned inverted segment" style="margin: 0">
   <div class="ui container">
 
-    <div class="ui grey inverted stackable borderless menu">
-      <a class="item" href="index">
-        {{ site.data.site.name }}
-      </a>
-      <div class="right menu">
-        <a class="item" href="about">
-          關於
-        </a>
-      </div>
-    </div>
+    {% include menu-nosearch.html %}
 
     <div style="margin: 2rem 0;">
       <h2 class="ui inverted header">

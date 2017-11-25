@@ -16,7 +16,17 @@
       _partner:
       _stakeholder:
         - 犯罪被害人
+      log:
+        - date: 2017-11-22
+          _log: 已送出
+  status:
+    - date: 2017-11-02
+      _status: 進行中
   updated: 2017-11-22
+  progress:
+    - log:
+        - date: 2017-11-22
+          _log: 已上架
 
 "2":
   version:
@@ -68,7 +78,17 @@
         - 國防部
       note:
         - 司法院、以內政部名義邀請各司法警察機關共同討論
+      log:
+        - date: 2017-11-22
+          _log: 已退回
+  status:
+    - date: 2017-11-02
+      _status: 已完成（納入常態業務）
   updated: 2017-11-22
+  progress:
+    - log:
+      - date: 2017-11-22
+        _log: 已退回
 
 "9":
   version:

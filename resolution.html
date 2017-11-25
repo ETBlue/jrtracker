@@ -52,7 +52,18 @@ title: 決議
               {% if r[1].version.last._owner %}
                 {% if r[1].status.last %}
                 <span>
-                <i class="icon wait"></i>
+                <i class="icon
+              {% if r[1].status.last._status == '進行中' %}
+              wait
+              {% else %}
+                {% if r[1].status.last._status == '已完成' %}
+                checkmark
+                {% endif %}
+                {% if r[1].status.last._status == '已完成（納入常態業務）' %}
+                checkmark
+                {% endif %}
+              {% endif %}
+              "></i>
                 {{ r[1].status.last._status }}
                 {% endif %}
                 </span>
@@ -397,7 +408,18 @@ title: 決議
                 {% if site.data.object[o].version.last._owner %}
                   {% if site.data.object[o].status.last %}
                 <span>
-                  <i class="icon wait"></i>
+                  <i class="icon
+              {% if site.data.object[o].status.last._status == '進行中' %}
+              wait
+              {% else %}
+                {% if site.data.object[o].status.last._status == '已完成' %}
+                checkmark
+                {% endif %}
+                {% if site.data.object[o].status.last._status == '已完成（納入常態業務）' %}
+                checkmark
+                {% endif %}
+              {% endif %}
+              "></i>
                   {{ site.data.object[o].status.last._status }}
                 </span>
                   {% endif %}
@@ -670,7 +692,18 @@ title: 決議
                 {% if site.data.mission[m].version.last._owner %}
                   {% if site.data.mission[m].status.last %}
                     <span>
-                  <i class="icon wait"></i>
+                  <i class="icon
+              {% if site.data.mission[m].status.last._status == '進行中' %}
+              wait
+              {% else %}
+                {% if site.data.mission[m].status.last._status == '已完成' %}
+                checkmark
+                {% endif %}
+                {% if site.data.mission[m].status.last._status == '已完成（納入常態業務）' %}
+                checkmark
+                {% endif %}
+              {% endif %}
+              "></i>
                   {{ site.data.mission[m].status.last._status }}
                     </span>
                   {% endif %}
@@ -1055,39 +1088,82 @@ title: 決議
 
         <div style="border-left: 5px rgba(0,0,0,0) solid; margin-left: 1rem; padding: 0 0 1rem 1.5rem; position: relative;">
           <a class="ui circular grey label" style="position: absolute; left: -1rem; top: -0.2rem; margin: 0;">
-            <i class="wait icon" style="margin: 0;"></i>
+            <i class="icon refresh" style="margin: 0;"></i>
           </a>
           <div>
             <p>
               目前狀態
             </p>
+            <div class="ui relaxed list">
           {% if r[1].status %}
+            <div class="item">
             <a class="ui horizontal label" style="margin-left: 0;">
               決議 {{ r[0] }}
             </a>
             <span>
+              <i class="icon
+              {% if r[1].status.last._status == '進行中' %}
+              wait
+              {% else %}
+                {% if r[1].status.last._status == '已完成' %}
+                checkmark
+                {% endif %}
+                {% if r[1].status.last._status == '已完成（納入常態業務）' %}
+                checkmark
+                {% endif %}
+              {% endif %}
+              "></i>
             {{ r[1].status.last._status }}
             </span>
+            </div>
           {% else %}
 
           {% for o in r[1].version.last._object %}
             {% if site.data.object[o].status %}
+            <div class="item">
               <a class="ui horizontal label" style="margin-left: 0;">
                 決議 {{ o }}
               </a>
               <span>
+              <i class="icon
+              {% if site.data.object[o].status.last._status == '進行中' %}
+              wait
+              {% else %}
+                {% if site.data.object[o].status.last._status == '已完成' %}
+                checkmark
+                {% endif %}
+                {% if site.data.object[o].status.last._status == '已完成（納入常態業務）' %}
+                checkmark
+                {% endif %}
+              {% endif %}
+              "></i>
               {{ site.data.object[o].status.last._status }}
               </span>
+            </div>
             {% else %}
 
             {% for m in site.data.object[o].version.last._mission %}
               {% if site.data.mission[m].status %}
+            <div class="item">
                 <a class="ui horizontal label" style="margin-left: 0;">
                   決議 {{ m }}
                 </a>
                 <span>
+              <i class="icon
+              {% if site.data.mission[m].status.last._status == '進行中' %}
+              wait
+              {% else %}
+                {% if site.data.mission[m].status.last._status == '已完成' %}
+                checkmark
+                {% endif %}
+                {% if site.data.mission[m].status.last._status == '已完成（納入常態業務）' %}
+                checkmark
+                {% endif %}
+              {% endif %}
+              "></i>
                 {{ site.data.mission[m].status.last._status }}
                 </span>
+            </div>
               {% endif %}
             {% endfor %}
 
@@ -1095,6 +1171,7 @@ title: 決議
           {% endfor %}
 
           {% endif %}
+          </div>
           </div>
           
         </div>

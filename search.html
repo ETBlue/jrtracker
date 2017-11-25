@@ -225,27 +225,37 @@ title: 搜尋
             </span>
             {% endif %}
 
-            {% if r[1].version.last._topic %}
-            <span style="float: right;">
-              {% for t in r[1].version.last._topic %}
-              <a class="ui horizontal label">
-                {{ t }} {{ site.data.topic[t].title }}
-              </a>
-              {% endfor %}
-            </span>
-            {% endif %}
-            <span style="float: none; margin-right: 1rem;">
-            決議 {{ r[0] }}
-            </span>
+            <a href="resolution" style="float: none; margin-right: 1rem;">
+              決議 {{ r[0] }}
+            </a>
             {% if r[1].version.last._owner %}
               {% if r[1].status.last %}
               <span>
-              <i class="icon wait"></i>
+              <i class="icon
+              {% if r[1].status.last._status == '進行中' %}
+              wait
+              {% else %}
+                {% if r[1].status.last._status == '已完成' %}
+                checkmark
+                {% endif %}
+              {% endif %}
+              "></i>
               {{ r[1].status.last._status }}
               {% endif %}
               </span>
             {% endif %}
           </header>
+
+          {% if r[1].version.last._topic %}
+          <p style="text-align: right;">
+            國是會議主題：
+            {% for t in r[1].version.last._topic %}
+            <a class="ui horizontal label">
+              {{ t }} {{ site.data.topic[t].title }}
+            </a>
+            {% endfor %}
+          </p>
+          {% endif %}
 
           {% if r[1].version.last.title %}
           {% for p in r[1].version.last.title %}
@@ -256,7 +266,7 @@ title: 搜尋
           {% endif %}
 
           {% if r[1].version.last._object %}
-          <div class="ui relaxed divided list">
+          <div class="ui relaxed list">
 
             {% for o in r[1].version.last._object %}
             <article class="item">
@@ -271,13 +281,21 @@ title: 搜尋
                     {% endfor %}
                   </span>
                   {% endif %}
-                  <span style="float: none; margin-right: 1rem;">
+                  <a href="resolution" style="float: none; margin-right: 1rem;">
                   決議 {{ o }}
-                  </span>
+                  </a>
                   {% if site.data.object[o].version.last._owner %}
                     {% if site.data.object[o].status.last %}
                     <span>
-                    <i class="icon wait"></i>
+                    <i class="icon
+                    {% if site.data.object[o].status.last._status == '進行中' %}
+                    wait
+                    {% else %}
+                      {% if site.data.object[o].status.last._status == '已完成' %}
+                      checkmark
+                      {% endif %}
+                    {% endif %}
+                    "></i>
                     {{ site.data.object[o].status.last._status }}
                     {% endif %}
                     </span>
@@ -296,7 +314,7 @@ title: 搜尋
               </div>
 
               {% if site.data.object[o].version.last._mission %}
-              <div class="ui relaxed divided list">
+              <div class="ui relaxed list">
                 {% for m in site.data.object[o].version.last._mission %}
                 <article class="item">
                   <div class="content">
@@ -310,13 +328,21 @@ title: 搜尋
                         {% endfor %}
                       </span>
                       {% endif %}
-                      <span style="float: none; margin-right: 1rem;">
+                      <a href="resolution" style="float: none; margin-right: 1rem;">
                       決議 {{ m }}
-                      </span>
+                      </a>
                       {% if site.data.mission[m].version.last._owner %}
                         {% if site.data.mission[m].status.last %}
                         <span>
-                        <i class="icon wait"></i>
+                        <i class="icon
+                        {% if site.data.mission[m].status.last._status == '進行中' %}
+                        wait
+                        {% else %}
+                          {% if site.data.mission[m].status.last._status == '已完成' %}
+                          checkmark
+                          {% endif %}
+                        {% endif %}
+                        "></i>
                         {{ site.data.mission[m].status.last._status }}
                         {% endif %}
                         </span>
@@ -343,14 +369,15 @@ title: 搜尋
           </div>
           {% endif %}
 
-          <p>
-            <a class="ui small icon labeled button" href="resolution">
-              <i class="icon right chevron"></i>
-              詳細內容
-            </a>
+          <hr class="ui divider" />
+          <p style="text-align: right;">
             {% if r[1].updated %}
             於 {{ r[1].updated }} 更新
             {% endif %}
+            <a class="ui small icon labeled button" href="resolution" style="margin: 0 0 0 0.5rem;">
+              <i class="icon right chevron"></i>
+              詳細內容
+            </a>
           </p>
 
 
