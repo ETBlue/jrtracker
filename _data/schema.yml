@@ -74,6 +74,13 @@ resolution_id:
             - title:
               description:
       note: # 自由發揮註解區
+      log:
+        - date: date
+          _log: 已送出
+        - date: date
+          _log: 已退回
+        - date: date
+          _log: 已上架
 
   status:
     - date: # 進入此狀態時間
@@ -87,6 +94,13 @@ resolution_id:
         - title: 
           url: 
           type: # 連結類型
+      log:
+        - date: date
+          _log: 已送出
+        - date: date
+          _log: 已退回
+        - date: date
+          _log: 已上架
   updated: date
 
 # object
@@ -107,6 +121,12 @@ mission_id:
       title:
       description:
       # 以下格式同決議
+
+# log
+log:
+  - 已送出
+  - 已退回
+  - 已上架
 
 # status
 status:
