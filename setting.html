@@ -1,0 +1,43 @@
+---
+layout: admin
+title: 站台設定
+---
+
+<main id="setting">
+
+<section class="ui basic segment">
+  <div class="ui container">
+
+    <table class="ui basic table">
+      <tr>
+        <td>網站名稱</td>
+        <td>{{ site.data.site.name }}</td>
+      </tr>
+      <tr>
+        <td>網站描述</td>
+        <td>{{ site.data.site.description }}</td>
+      </tr>
+      <tr>
+        <td>favicon</td>
+        <td>
+          <img class="ui mini image" src="{{ site.data.site.favicon }}">
+        </td>
+      </tr>
+      <tr>
+        <td>前台 og image</td>
+        <td>
+          <img class="ui medium image" src="{{ site.data.site.cover }}">
+        </td>
+      </tr>
+    </table>
+
+    <p style="margin: 2rem 0; text-align: center;">
+      <span class="ui icon labeled small button">
+        <i class="icon setting"></i>
+        編輯站台設定
+      </span>
+    </p>
+
+  </div>
+</section>
+</main>

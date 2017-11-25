@@ -3,6 +3,21 @@ description: 給你滿滿的資料大平台！熱烈實驗中 # 社群網站連�
 cover: assets/images/cover.png # 社群網站連結顯圖
 favicon: assets/images/fav.png # 瀏覽器分頁圖示
 
+toc: # about 頁面標題
+  - 關於司法改革國是會議進度追蹤平台
+  - 司法改革國是會議追蹤工作計畫書
+
+admin: # 管理員頁面次選單
+  - title: 決議管理
+    url: audit
+    icon: search
+  - title: 文案編輯
+    url: intro
+    icon: pencil
+  - title: 站台設定
+    url: setting
+    icon: setting
+
 code:
   source: https://github.com/ETBlue/jrtracker
   license: MIT

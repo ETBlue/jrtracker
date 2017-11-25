@@ -1,9 +1,9 @@
 ---
-layout: backend
-title: 我的
+layout: admin
+title: 決議管理
 ---
 
-<main id="my">
+<main id="audit">
 
 <section class="ui basic segment">
   <div class="ui container">
@@ -93,7 +93,7 @@ title: 我的
             </span>
             {% endif %}
 
-            <a href="edit" style="float: none; margin-right: 1rem;">
+            <a href="approve" style="float: none; margin-right: 1rem;">
               決議 {{ r[0] }}
             </a>
             {% if r[1].version.last._owner %}
@@ -145,20 +145,20 @@ title: 我的
             {% endif %}
             <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
               {% if r[1].version.last.log.last._log == "已退回" %}
-              <a class="ui icon labeled button" href="edit">
-                <i class="icon pencil"></i>
-                編輯目前方案
+              <a class="ui icon labeled button disabled">
+                <i class="icon wait"></i>
+                方案修改中
               </a>
               {% else %}
                 {% if r[1].version.last.log.last._log == "已送出" %}
-                <a class="ui icon labeled button disabled">
-                  <i class="icon wait"></i>
-                  方案審核中
+                <a class="ui icon labeled button" href="approve">
+                  <i class="icon legal"></i>
+                  審核此方案
                 </a>
                 {% else %}
-                <a class="ui icon labeled button" href="edit">
-                  <i class="icon add"></i>
-                  新增方案版本
+                <a class="ui icon labeled button disabled">
+                  <i class="icon checkmark"></i>
+                  方案已上架
                 </a>
                 {% endif %}
               {% endif %}
@@ -174,20 +174,20 @@ title: 我的
             {% endif %}
             <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
               {% if r[1].progress.last.log.last._log == "已退回" %}
-              <a class="ui icon labeled button" href="edit">
-                <i class="icon pencil"></i>
-                編輯目前進度
+              <a class="ui icon labeled button disabled">
+                <i class="icon wait"></i>
+                進度修改中
               </a>
               {% else %}
                 {% if r[1].progress.last.log.last._log == "已送出" %}
-                <a class="ui icon labeled button disabled">
-                  <i class="icon wait"></i>
-                  進度審核中
+                <a class="ui icon labeled button" href="approve">
+                  <i class="icon legal"></i>
+                  審核此進度
                 </a>
                 {% else %}
-                <a class="ui icon labeled button" href="edit">
-                  <i class="icon add"></i>
-                  新增進度
+                <a class="ui icon labeled button disabled">
+                  <i class="icon checkmark"></i>
+                  進度已上架
                 </a>
                 {% endif %}
               {% endif %}
@@ -217,7 +217,7 @@ title: 我的
             </span>
             {% endif %}
 
-            <a href="edit" style="float: none; margin-right: 1rem;">
+            <a href="approve" style="float: none; margin-right: 1rem;">
               決議 {{ o }}
             </a>
             {% if site.data.object[o].version.last._owner %}
@@ -269,20 +269,20 @@ title: 我的
             {% endif %}
             <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
               {% if site.data.object[o].version.last.log.last._log == "已退回" %}
-              <a class="ui icon labeled button" href="edit">
-                <i class="icon pencil"></i>
-                編輯目前方案
+              <a class="ui icon labeled button disabled">
+                <i class="icon wait"></i>
+                方案修改中
               </a>
               {% else %}
                 {% if site.data.object[o].version.last.log.last._log == "已送出" %}
-                <a class="ui icon labeled button disabled">
-                  <i class="icon wait"></i>
-                  方案審核中
+                <a class="ui icon labeled button" href="approve">
+                  <i class="icon legal"></i>
+                  審核此方案
                 </a>
                 {% else %}
-                <a class="ui icon labeled button" href="edit">
-                  <i class="icon add"></i>
-                  新增方案版本
+                <a class="ui icon labeled button disabled">
+                  <i class="icon checkmark"></i>
+                  方案已上架
                 </a>
                 {% endif %}
               {% endif %}
@@ -298,20 +298,20 @@ title: 我的
             {% endif %}
             <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
               {% if site.data.object[o].progress.last.log.last._log == "已退回" %}
-              <a class="ui icon labeled button" href="edit">
-                <i class="icon pencil"></i>
-                編輯目前進度
+              <a class="ui icon labeled button disabled">
+                <i class="icon wait"></i>
+                進度修改中
               </a>
               {% else %}
                 {% if site.data.object[o].progress.last.log.last._log == "已送出" %}
-                <a class="ui icon labeled button disabled">
-                  <i class="icon wait"></i>
-                  進度審核中
+                <a class="ui icon labeled button" href="approve">
+                  <i class="icon legal"></i>
+                  審核此進度
                 </a>
                 {% else %}
-                <a class="ui icon labeled button" href="edit">
-                  <i class="icon add"></i>
-                  新增進度
+                <a class="ui icon labeled button disabled">
+                  <i class="icon checkmark"></i>
+                  進度已上架
                 </a>
                 {% endif %}
               {% endif %}
@@ -341,7 +341,7 @@ title: 我的
             </span>
             {% endif %}
 
-            <a href="edit" style="float: none; margin-right: 1rem;">
+            <a href="approve" style="float: none; margin-right: 1rem;">
               決議 {{ m }}
             </a>
             {% if site.data.mission[m].version.last._owner %}
@@ -393,20 +393,20 @@ title: 我的
             {% endif %}
             <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
               {% if site.data.mission[m].version.last.log.last._log == "已退回" %}
-              <a class="ui icon labeled button" href="edit">
-                <i class="icon pencil"></i>
-                編輯目前方案
+              <a class="ui icon labeled button disabled">
+                <i class="icon wait"></i>
+                方案修改中
               </a>
               {% else %}
                 {% if site.data.mission[m].version.last.log.last._log == "已送出" %}
-                <a class="ui icon labeled button disabled">
-                  <i class="icon wait"></i>
-                  方案審核中
+                <a class="ui icon labeled button" href="approve">
+                  <i class="icon legal"></i>
+                  審核此方案
                 </a>
                 {% else %}
-                <a class="ui icon labeled button" href="edit">
-                  <i class="icon add"></i>
-                  新增方案版本
+                <a class="ui icon labeled button disabled">
+                  <i class="icon checkmark"></i>
+                  方案已上架
                 </a>
                 {% endif %}
               {% endif %}
@@ -422,20 +422,20 @@ title: 我的
             {% endif %}
             <span class="ui small buttons" style="margin: 0 0 0 0.5rem;">
               {% if site.data.mission[m].progress.last.log.last._log == "已退回" %}
-              <a class="ui icon labeled button" href="edit">
-                <i class="icon pencil"></i>
-                編輯目前進度
+              <a class="ui icon labeled button disabled">
+                <i class="icon wait"></i>
+                進度修改中
               </a>
               {% else %}
                 {% if site.data.mission[m].progress.last.log.last._log == "已送出" %}
-                <a class="ui icon labeled button disabled">
-                  <i class="icon wait"></i>
-                  進度審核中
+                <a class="ui icon labeled button" href="approve">
+                  <i class="icon legal"></i>
+                  審核此進度
                 </a>
                 {% else %}
-                <a class="ui icon labeled button" href="edit">
-                  <i class="icon add"></i>
-                  新增進度
+                <a class="ui icon labeled button disabled">
+                  <i class="icon checkmark"></i>
+                  進度已上架
                 </a>
                 {% endif %}
               {% endif %}

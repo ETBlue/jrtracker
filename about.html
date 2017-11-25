@@ -1,9 +1,6 @@
 ---
 layout: page
 title: 關於
-toc:
-  - 關於司法改革國是會議進度追蹤平台
-  - 司法改革國是會議追蹤工作計畫書
 ---
 
 <main id="about">
@@ -13,7 +10,7 @@ toc:
     <div class="ui two column stackable grid">
       <div class="five wide column">
         <div class="ui vertical secondary pointing fluid menu">
-          {% for t in page.toc %}
+          {% for t in site.data.site.toc %}
           <a class="item">
             {{ t }}
           </a>
