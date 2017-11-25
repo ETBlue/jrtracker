@@ -140,6 +140,7 @@ title: 我的
           </p>
 
           {% unless r[1].status.last._status == "已完成" %}
+          {% unless r[1].status.last._status == "已完成（納入常態業務）" %}
 
           <hr class="ui divider" />
           <p style="text-align: right;">
@@ -200,6 +201,7 @@ title: 我的
             </span>
           </p>
 
+          {% endunless %}
           {% endunless %}
 
         </div>
@@ -262,6 +264,7 @@ title: 我的
           </p>
 
           {% unless site.data.object[o].status.last._status == "已完成" %}
+          {% unless site.data.object[o].status.last._status == "已完成（納入常態業務）" %}
 
           <hr class="ui divider" />
           <p style="text-align: right;">
@@ -322,6 +325,7 @@ title: 我的
             </span>
           </p>
 
+          {% endunless %}
           {% endunless %}
         </div>
 
@@ -384,6 +388,7 @@ title: 我的
           </p>
 
           {% unless site.data.mission[m].status.last._status == "已完成" %}
+          {% unless site.data.mission[m].status.last._status == "已完成（納入常態業務）" %}
 
           <hr class="ui divider" />
           <p style="text-align: right;">
@@ -444,6 +449,7 @@ title: 我的
             </span>
           </p>
 
+          {% endunless %}
           {% endunless %}
         </div>
 
