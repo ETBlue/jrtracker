@@ -23,10 +23,10 @@ resolution_id:
       # 填表階段會確定的
       background: # 背景 / 問題 / 成因 / 現況
         - paragraph
-      _feasibility: # 改革方向評估，單選
+      feasibility: # 改革方向評估
+        - paragraph
       plan:
         - paragraph
-      budget: # 預算
       hr:
         - paragraph
       _stakeholder: # 受影響的族群
@@ -130,27 +130,9 @@ log:
 
 # status
 status:
-  - 尚未啟動
-  - 追蹤中
-  - 已整合至常態業務
+  - 進行中
+  - 已完成（納入常態業務）
   - 已完成
-
-# feasibility
-feasibility:
-  - 評估中
-  - 可行
-  - 需另提方案
-  - 需重新定義問題
-
-# budget
-budget:
-  - 待評估
-  - 10 萬內
-  - 100 萬內
-  - 500 萬內
-  - 1000 萬內
-  - 5000 萬內
-  - 更多
 
 # period
 period:
@@ -166,12 +148,13 @@ progress:
   - 送出請求
   - 收到回覆
   - 研擬修法
-  - 提出草案
+  - 提出方案
   - 編預算
   - 安排人力
   - 修法
   - 頒佈行政命令
   - 辦活動
+  - 開記者會
   - 其他
 
 # policy

@@ -7,7 +7,12 @@ title: 首頁
 
 <header id="header" class="ui basic grey center aligned inverted segment" style="margin: 0">
   <div class="ui container">
-    {% include menu.html %}
+
+    <div class="ui grey inverted stackable borderless menu">
+      <a class="item" href="index">
+        {{ site.data.site.name }}
+      </a>
+    </div>
 
     <div style="margin: 2rem 0;">
       <h2 class="ui inverted header">
@@ -15,12 +20,14 @@ title: 首頁
         <i class="law icon" style="margin: 0 1rem;"></i>
         全民參與
       </h2>
-      <p>
+      <p style="margin: 2rem 0;">
         自 2016 年 11 月至 2017 年 8 月，司法改革國是會議歷經意見徵集、分組會議、總結會議三個階段，收集各界委員的寶貴建議，並彙整成 87 項最終決議。自 2018 年 n 月起，政府各相關機關將依據最終決議進行各項改革措施，並透過本資訊平台，向人民說明司法改革的進度與成果。
       </p>
-      <div class="ui icon input" style="margin-top: 1rem;">
+      <div class="ui action input">
         <input type="text" placeholder="關鍵字搜尋">
-        <i class="search icon"></i>
+        <a class="ui icon button" href="search">
+          <i class="search link icon"></i>
+        </a>
       </div>
     </div>
   </div>

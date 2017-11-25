@@ -29,29 +29,6 @@ title: 決議
               {% for office in r[1].version.last._owner %}
               <a class="ui horizontal label" data-html="
               <h5 class='ui tiny header'>{{ office }}</h5>
-              {% if site.data.office[office].contact %}
-              <div class='ui relaxed list'>
-                {% for ct in site.data.office[office].contact %}
-                <div class='item'>
-                  <i class='user icon'></i>
-                  <div class='content'>
-                    <div class='header'>
-                      聯絡窗口：{{ ct.name }}
-                    </div>
-                    <div class='list'>
-                      <div class='item'>
-                      {{ ct.email }}
-                      </div>
-                      <div class='item'>
-                      {{ ct.phone }}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {% endfor %}
-              </div>
-              <hr class='ui divider' />
-              {% endif %}
               <p>
                 <a href='search' target='_blank'>
                   共參與 n 項決議
@@ -62,6 +39,10 @@ title: 決議
                 {{ office }}
               </a>
               {% endfor %}
+              <a class="ui horizontal icon label">
+                <i class="icon rss"></i>
+                訂閱
+              </a>
             </p>
             {% endif %}
             <p style=" margin: 0; line-height: 2em;">
@@ -78,22 +59,6 @@ title: 決議
               {% endif %}
             </p>
           </header>
-
-          {% if r[1].version.last.title %}
-          {% for p in r[1].version.last.title %}
-          <p>
-            {{ p }}
-          </p>
-          {% endfor %}
-          {% endif %}
-
-          {% if r[1].version.last.description %}
-          {% for p in r[1].version.last.description %}
-          <p>
-            {{ p }}
-          </p>
-          {% endfor %}
-          {% endif %}
 
           <p>
             國是會議主題：
@@ -168,109 +133,28 @@ title: 決議
             {% endfor %}
           </p>
 
+          {% if r[1].version.last.title %}
+          {% for p in r[1].version.last.title %}
+          <p>
+            {{ p }}
+          </p>
+          {% endfor %}
+          {% endif %}
+
+          {% if r[1].version.last.description %}
+          {% for p in r[1].version.last.description %}
+          <p>
+            {{ p }}
+          </p>
+          {% endfor %}
+          {% endif %}
+
           {% if r[1].version.last._owner %}
 
-
-            {% if r[1].version.last._feasibility %}
-            <p>
-              改革方向評估：{{ r[1].version.last._feasibility }}
-            </p>
-            {% endif %}
-
-            {% if r[1].version.last._period %}
-            <p>
-              預估期程：{{ r[1].version.last._period }}
-            </p>
-            {% endif %}
-
-            <p>
-              經費需求：{{ r[1].version.last.budget }}
-            </p>
-
-            <p>
-              最新進度：
-              {% if r[1].progress %}
-              <a class="ui horizontal label">
-                {{ r[1].progress.last.date }}
-              </a>
-              {% endif %}
-            </p>
-
-            <p>
-              影響族群：
-              {% for s in r[1].version.last._stakeholder %}
-              <a class="ui horizontal label" data-html="
-              <h5 class='ui tiny header'>{{ s }}</h5>
-              <p>
-                <a href='search' target='_blank'>
-                  共涉及 n 項決議
-                  <i class='icon right chevron'></i>
-                </a>
-              </p>
-              ">
-                {{ s }}
-              </a>
-              {% endfor %}
-            </p>
-
-            {% if r[1].version.last._partner %}
-
-            <p>
-              配合單位：
-              {% for office in r[1].version.last._partner %}
-              <a class="ui horizontal label" data-html="
-                <h5 class='ui tiny header'>{{ office }}</h5>
-                {% if site.data.office[office].contact %}
-                <div class='ui relaxed list'>
-                  {% for ct in site.data.office[office].contact %}
-                  <div class='item'>
-                    <i class='user icon'></i>
-                    <div class='content'>
-                      <div class='header'>
-                        聯絡窗口：{{ ct.name }}
-                      </div>
-                      <div class='list'>
-                        <div class='item'>
-                        {{ ct.email }}
-                        </div>
-                        <div class='item'>
-                        {{ ct.phone }}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {% endfor %}
-                </div>
-                <hr class='ui divider' />
-                {% endif %}
-                <p>
-                  <a href='search' target='_blank'>
-                    共參與 n 項決議
-                    <i class='icon right chevron'></i>
-                  </a>
-                </p>
-              ">
-                {{ office }}
-              </a>
-              {% endfor %}
-            </p>
-            {% endif %}
-
-            <p>
-              司法關鍵字：
-              {% if r[1].version.last.keyowrds %}
-                {% for k in r[1].version.last.keyowrds %}
-                <a class="ui horizontal label">
-                  {{ k }}
-                </a>
-                {% endfor %}
-              {% endif %}
-            </p>
-
-            {% if r[1].version.last.background %}
             <h4 class="ui mini header">
-              背景說明
+              問題與背景
             </h4>
+            {% if r[1].version.last.background %}
             {% for p in r[1].version.last.background %}
             <p>
               {{ p }}
@@ -279,7 +163,25 @@ title: 決議
             {% endif %}
 
             <h4 class="ui mini header">
-              改革方案
+              改革方向評估
+            </h4>
+            {% if r[1].version.last.feasibility %}
+            {% for p in r[1].version.last.feasibility %}
+            <p>
+              {{ p }}
+            </p>
+            {% endfor %}
+            {% endif %}
+
+            <div class="ui icon labeled small button" data-action="collapse" style="margin: 1rem 0;">
+              <i class="icon down chevron"></i>
+              展開 / 收合
+            </div>
+
+            <div class="collapsable">
+
+            <h4 class="ui mini header">
+              行動方案
             </h4>
             {% for p in r[1].version.last.plan %}
             <p>
@@ -341,18 +243,67 @@ title: 決議
             {% endfor %}
 
             <h4 class="ui mini header">
-              影響評估
+              經費或人力調整
             </h4>
-            {% for p in r[1].version.last.impact %}
+            {% for p in r[1].version.last.hr %}
             <p>
               {{ p }}
             </p>
             {% endfor %}
 
             <h4 class="ui mini header">
-              人力需求
+              協辦單位
             </h4>
-            {% for p in r[1].version.last.hr %}
+            {% if r[1].version.last._partner %}
+            <p>
+              {% for office in r[1].version.last._partner %}
+              <a class="ui horizontal label" data-html="
+                <h5 class='ui tiny header'>{{ office }}</h5>
+                <p>
+                  <a href='search' target='_blank'>
+                    共參與 n 項決議
+                    <i class='icon right chevron'></i>
+                  </a>
+                </p>
+              ">
+                {{ office }}
+              </a>
+              {% endfor %}
+            </p>
+            {% endif %}
+
+            <h4 class="ui mini header">
+              預估期程
+            </h4>
+            {% if r[1].version.last._period %}
+            <p>
+              {{ r[1].version.last._period }}
+            </p>
+            {% endif %}
+
+            <h4 class="ui mini header">
+              影響對象
+            </h4>
+            <p>
+              {% for s in r[1].version.last._stakeholder %}
+              <a class="ui horizontal label" data-html="
+              <h5 class='ui tiny header'>{{ s }}</h5>
+              <p>
+                <a href='search' target='_blank'>
+                  共涉及 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+              ">
+                {{ s }}
+              </a>
+              {% endfor %}
+            </p>
+
+            <h4 class="ui mini header">
+              影響評估
+            </h4>
+            {% for p in r[1].version.last.impact %}
             <p>
               {{ p }}
             </p>
@@ -388,6 +339,19 @@ title: 決議
             </div>
 
             <h4 class="ui mini header">
+              司法關鍵字
+            </h4>
+            <p>
+              {% if r[1].version.last.keyowrds %}
+                {% for k in r[1].version.last.keyowrds %}
+                <a class="ui horizontal label">
+                  {{ k }}
+                </a>
+                {% endfor %}
+              {% endif %}
+            </p>
+
+            <h4 class="ui mini header">
               備註
             </h4>
             {% for n in r[1].version.last.note %}
@@ -395,6 +359,8 @@ title: 決議
               {{ n }}
             </p>
             {% endfor %}
+
+            </div>
 
           {% endif %}
 
@@ -408,29 +374,6 @@ title: 決議
                 {% for office in site.data.object[o].version.last._owner %}
                 <a class="ui horizontal label" data-html="
                   <h5 class='ui tiny header'>{{ office }}</h5>
-                  {% if site.data.office[office].contact %}
-                  <div class='ui relaxed list'>
-                    {% for ct in site.data.office[office].contact %}
-                    <div class='item'>
-                      <i class='user icon'></i>
-                      <div class='content'>
-                        <div class='header'>
-                          聯絡窗口：{{ ct.name }}
-                        </div>
-                        <div class='list'>
-                          <div class='item'>
-                          {{ ct.email }}
-                          </div>
-                          <div class='item'>
-                          {{ ct.phone }}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    {% endfor %}
-                  </div>
-                  <hr class='ui divider' />
-                  {% endif %}
                   <p>
                     <a href='search' target='_blank'>
                       共參與 n 項決議
@@ -441,6 +384,10 @@ title: 決議
                   {{ office }}
                 </a>
                 {% endfor %}
+                <a class="ui horizontal icon label">
+                  <i class="icon rss"></i>
+                  訂閱
+                </a>
               </p>
               {% endif %}
               <p style=" margin: 0; line-height: 2em;">
@@ -458,248 +405,234 @@ title: 決議
               </p>
             </header>
 
-          {% if site.data.object[o].version.last.title %}
-          {% for p in site.data.object[o].version.last.title %}
-          <p>
-            {{ p }}
-          </p>
-          {% endfor %}
-          {% endif %}
+            {% if site.data.object[o].version.last.title %}
+            {% for p in site.data.object[o].version.last.title %}
+            <p>
+              {{ p }}
+            </p>
+            {% endfor %}
+            {% endif %}
 
-          {% if site.data.object[o].version.last.description %}
-          {% for p in site.data.object[o].version.last.description %}
-          <p>
-            {{ p }}
-          </p>
-          {% endfor %}
-          {% endif %}
+            {% if site.data.object[o].version.last.description %}
+            {% for p in site.data.object[o].version.last.description %}
+            <p>
+              {{ p }}
+            </p>
+            {% endfor %}
+            {% endif %}
 
             {% if site.data.object[o].version.last._owner %}
 
-            {% if site.data.object[o].version.last._feasibility %}
-            <p>
-              改革方向評估：{{ site.data.object[o].version.last._feasibility }}
-            </p>
-            {% endif %}
-
-            {% if site.data.object[o].version.last._period %}
-            <p>
-              預估期程：{{ site.data.object[o].version.last._period }}
-            </p>
-            {% endif %}
-
-            <p>
-              經費需求：{{ site.data.object[o].version.last.budget }}
-            </p>
-
-            <p>
-              最新進度：
-              {% if site.data.object[o].progress %}
-              <a class="ui horizontal label">
-                {{ site.data.object[o].progress.last.date }}
-              </a>
-              {% endif %}
-            </p>
-
-            <p>
-              影響族群：
-              {% for s in site.data.object[o].version.last._stakeholder %}
-              <a class="ui horizontal label" data-html="
-              <h5 class='ui tiny header'>{{ s }}</h5>
+              <h4 class="ui mini header">
+                問題與背景
+              </h4>
+              {% if site.data.object[o].version.last.background %}
+              {% for p in site.data.object[o].version.last.background %}
               <p>
-                <a href='search' target='_blank'>
-                  共涉及 n 項決議
-                  <i class='icon right chevron'></i>
-                </a>
+                {{ p }}
               </p>
-              ">
-                {{ s }}
-              </a>
               {% endfor %}
-            </p>
+              {% endif %}
 
-            {% if site.data.object[o].version.last._partner %}
+              <h4 class="ui mini header">
+                改革方向評估
+              </h4>
+              {% if site.data.object[o].version.last.feasibility %}
+              {% for p in site.data.object[o].version.last.feasibility %}
+              <p>
+                {{ p }}
+              </p>
+              {% endfor %}
+              {% endif %}
 
-            <p>
-              配合單位：
-              {% for office in site.data.object[o].version.last._partner %}
-              <a class="ui horizontal label" data-html="
-                <h5 class='ui tiny header'>{{ office }}</h5>
-                {% if site.data.office[office].contact %}
-                <div class='ui relaxed list'>
-                  {% for ct in site.data.office[office].contact %}
-                  <div class='item'>
-                    <i class='user icon'></i>
-                    <div class='content'>
-                      <div class='header'>
-                        聯絡窗口：{{ ct.name }}
-                      </div>
-                      <div class='list'>
-                        <div class='item'>
-                        {{ ct.email }}
-                        </div>
-                        <div class='item'>
-                        {{ ct.phone }}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  {% endfor %}
-                </div>
-                <hr class='ui divider' />
-                {% endif %}
+              <div class="ui icon labeled small button" data-action="collapse" style="margin: 1rem 0;">
+                <i class="icon down chevron"></i>
+                展開 / 收合
+              </div>
+
+              <div class="collapsable">
+
+              <h4 class="ui mini header">
+                行動方案
+              </h4>
+              {% for p in site.data.object[o].version.last.plan %}
+              <p>
+                {{ p }}
+              </p>
+              {% endfor %}
+
+              <h4 class="ui mini header">
+                法規
+              </h4>
+              {% for l in site.data.object[o].version.last.law %}
+              <p>
+                <span class="ui horizontal basic label">
+                  {{ l.type }}
+                </span>
+                <a class="ui horizontal label" data-html="
+                <h5 class='ui tiny header'>{{ l.name }}</h5>
                 <p>
                   <a href='search' target='_blank'>
-                    共參與 n 項決議
+                    共涉及 n 項決議
                     <i class='icon right chevron'></i>
                   </a>
                 </p>
-              ">
-                {{ office }}
-              </a>
+                ">
+                  {{ l.name }}
+                </a>
+                <span>
+                第 {{ l.paragraph }} 條
+                {% if l.subparagraph %}
+                第 {{ l.subparagraph }} 款
+                {% endif %}
+                {% if l.item %}
+                之 {{ l.item }}
+                {% endif %}
+                </span>
+              </p>
+              {% if l.old %}
+              <p>
+                舊條文：{{ l.old }}
+              </p>
+              {% endif %}
+              {% if l.new %}
+              <p>
+                新條文：{{ l.new }}
+              </p>
+              {% endif %}
               {% endfor %}
-            </p>
-            {% endif %}
 
-            <p>
-              司法關鍵字：
-              {% if site.data.object[o].version.last.keyowrds %}
-                {% for k in site.data.object[o].version.last.keyowrds %}
-                <a class="ui horizontal label">
-                  {{ k }}
+              <h4 class="ui mini header">
+                行政命令
+              </h4>
+              {% for rule in site.data.object[o].version.last.rule %}
+              <p>
+                {{ rule.name }}
+              </p>
+              <p>
+                {{ rule.description }}
+              </p>
+              {% endfor %}
+
+              <h4 class="ui mini header">
+                經費或人力調整
+              </h4>
+              {% for p in site.data.object[o].version.last.hr %}
+              <p>
+                {{ p }}
+              </p>
+              {% endfor %}
+
+              <h4 class="ui mini header">
+                協辦單位
+              </h4>
+              {% if site.data.object[o].version.last._partner %}
+              <p>
+                {% for office in site.data.object[o].version.last._partner %}
+                <a class="ui horizontal label" data-html="
+                  <h5 class='ui tiny header'>{{ office }}</h5>
+                  <p>
+                    <a href='search' target='_blank'>
+                      共參與 n 項決議
+                      <i class='icon right chevron'></i>
+                    </a>
+                  </p>
+                ">
+                  {{ office }}
                 </a>
                 {% endfor %}
-              {% endif %}
-            </p>
-
-            {% if site.data.object[o].version.last.background %}
-            <h4 class="ui mini header">
-              背景說明
-            </h4>
-            {% for p in site.data.object[o].version.last.background %}
-            <p>
-              {{ p }}
-            </p>
-            {% endfor %}
-            {% endif %}
-
-            <h4 class="ui mini header">
-              改革方案
-            </h4>
-            {% for p in site.data.object[o].version.last.plan %}
-            <p>
-              {{ p }}
-            </p>
-            {% endfor %}
-
-            <h4 class="ui mini header">
-              法規
-            </h4>
-            {% for l in site.data.object[o].version.last.law %}
-            <p>
-              <span class="ui horizontal basic label">
-                {{ l.type }}
-              </span>
-              <a class="ui horizontal label" data-html="
-              <h5 class='ui tiny header'>{{ l.name }}</h5>
-              <p>
-                <a href='search' target='_blank'>
-                  共涉及 n 項決議
-                  <i class='icon right chevron'></i>
-                </a>
               </p>
-              ">
-                {{ l.name }}
-              </a>
-              <span>
-              第 {{ l.paragraph }} 條
-              {% if l.subparagraph %}
-              第 {{ l.subparagraph }} 款
               {% endif %}
-              {% if l.item %}
-              之 {{ l.item }}
+
+              <h4 class="ui mini header">
+                預估期程
+              </h4>
+              {% if site.data.object[o].version.last._period %}
+              <p>
+                {{ site.data.object[o].version.last._period }}
+              </p>
               {% endif %}
-              </span>
-            </p>
-            {% if l.old %}
-            <p>
-              舊條文：{{ l.old }}
-            </p>
-            {% endif %}
-            {% if l.new %}
-            <p>
-              新條文：{{ l.new }}
-            </p>
-            {% endif %}
-            {% endfor %}
 
-            <h4 class="ui mini header">
-              行政命令
-            </h4>
-            {% for rule in site.data.object[o].version.last.rule %}
-            <p>
-              {{ rule.name }}
-            </p>
-            <p>
-              {{ rule.description }}
-            </p>
-            {% endfor %}
-
-            <h4 class="ui mini header">
-              影響評估
-            </h4>
-            {% for p in site.data.object[o].version.last.impact %}
-            <p>
-              {{ p }}
-            </p>
-            {% endfor %}
-
-            <h4 class="ui mini header">
-              人力需求
-            </h4>
-            {% for p in site.data.object[o].version.last.hr %}
-            <p>
-              {{ p }}
-            </p>
-            {% endfor %}
-
-            <h4 class="ui mini header">
-              相關資料
-            </h4>
-            <div class="ui divided relaxed list">
-              {% for link in site.data.object[o].version.last.link %}
-              <a class="item" href="{{ link.url }}" target="_blank">
-                <i class="icon globe"></i>
-                {{ link.title }}
-              </a>
-              {% endfor %}
-            </div>
-
-            <h4 class="ui mini header">
-              司改國是會議相關場次
-            </h4>
-            <div class="ui divided relaxed list">
-              {% for d in site.data.object[o].version.last._meeting %}
-              <div class="item">
-                <i class="icon comments outline"></i>
-                <div class="content">
-                  <a class="header" href="{{ site.data.meeting[d].url }}" target="_blank">
-                    {% assign team = site.data.meeting[d]._team %}
-                    {{ site.data.team[team].name }} {{ site.data.meeting[d].title }}
+              <h4 class="ui mini header">
+                影響對象
+              </h4>
+              <p>
+                {% for s in site.data.object[o].version.last._stakeholder %}
+                <a class="ui horizontal label" data-html="
+                <h5 class='ui tiny header'>{{ s }}</h5>
+                <p>
+                  <a href='search' target='_blank'>
+                    共涉及 n 項決議
+                    <i class='icon right chevron'></i>
                   </a>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
+                </p>
+                ">
+                  {{ s }}
+                </a>
+                {% endfor %}
+              </p>
 
-            <h4 class="ui mini header">
-              備註
-            </h4>
-            {% for n in site.data.object[o].version.last.note %}
-            <p>
-              {{ n }}
-            </p>
-            {% endfor %}
+              <h4 class="ui mini header">
+                影響評估
+              </h4>
+              {% for p in site.data.object[o].version.last.impact %}
+              <p>
+                {{ p }}
+              </p>
+              {% endfor %}
+
+              <h4 class="ui mini header">
+                相關資料
+              </h4>
+              <div class="ui divided relaxed list">
+                {% for link in site.data.object[o].version.last.link %}
+                <a class="item" href="{{ link.url }}" target="_blank">
+                  <i class="icon globe"></i>
+                  {{ link.title }}
+                </a>
+                {% endfor %}
+              </div>
+
+              <h4 class="ui mini header">
+                司改國是會議相關場次
+              </h4>
+              <div class="ui divided relaxed list">
+                {% for d in site.data.object[o].version.last._meeting %}
+                <div class="item">
+                  <i class="icon comments outline"></i>
+                  <div class="content">
+                    <a class="header" href="{{ site.data.meeting[d].url }}" target="_blank">
+                      {% assign team = site.data.meeting[d]._team %}
+                      {{ site.data.team[team].name }} {{ site.data.meeting[d].title }}
+                    </a>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+
+              <h4 class="ui mini header">
+                司法關鍵字
+              </h4>
+              <p>
+                {% if site.data.object[o].version.last.keyowrds %}
+                  {% for k in site.data.object[o].version.last.keyowrds %}
+                  <a class="ui horizontal label">
+                    {{ k }}
+                  </a>
+                  {% endfor %}
+                {% endif %}
+              </p>
+
+              <h4 class="ui mini header">
+                備註
+              </h4>
+              {% for n in site.data.object[o].version.last.note %}
+              <p>
+                {{ n }}
+              </p>
+              {% endfor %}
+
+              </div>
 
             {% endif %}
 
@@ -714,29 +647,6 @@ title: 決議
                     {% for office in site.data.mission[m].version.last._owner %}
                     <a class="ui horizontal label" data-html="
                       <h5 class='ui tiny header'>{{ office }}</h5>
-                      {% if site.data.office[office].contact %}
-                      <div class='ui relaxed list'>
-                        {% for ct in site.data.office[office].contact %}
-                        <div class='item'>
-                          <i class='user icon'></i>
-                          <div class='content'>
-                            <div class='header'>
-                              聯絡窗口：{{ ct.name }}
-                            </div>
-                            <div class='list'>
-                              <div class='item'>
-                              {{ ct.email }}
-                              </div>
-                              <div class='item'>
-                              {{ ct.phone }}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {% endfor %}
-                      </div>
-                      <hr class='ui divider' />
-                      {% endif %}
                       <p>
                         <a href='search' target='_blank'>
                           共參與 n 項決議
@@ -747,6 +657,10 @@ title: 決議
                       {{ office }}
                     </a>
                     {% endfor %}
+                    <a class="ui horizontal icon label">
+                      <i class="icon rss"></i>
+                      訂閱
+                    </a>
                   </p>
                   {% endif %}
                   <p style=" margin: 0; line-height: 2em;">
@@ -764,250 +678,236 @@ title: 決議
                   </p>
                 </header>
 
-          {% if site.data.mission[m].version.last.title %}
-          {% for p in site.data.mission[m].version.last.title %}
-          <p>
-            {{ p }}
-          </p>
-          {% endfor %}
-          {% endif %}
+                {% if site.data.mission[m].version.last.title %}
+                {% for p in site.data.mission[m].version.last.title %}
+                <p>
+                  {{ p }}
+                </p>
+                {% endfor %}
+                {% endif %}
 
-          {% if site.data.mission[m].version.last.description %}
-          {% for p in site.data.mission[m].version.last.description %}
-          <p>
-            {{ p }}
-          </p>
-          {% endfor %}
-          {% endif %}
+                {% if site.data.mission[m].version.last.description %}
+                {% for p in site.data.mission[m].version.last.description %}
+                <p>
+                  {{ p }}
+                </p>
+                {% endfor %}
+                {% endif %}
 
-            {% if site.data.mission[m].version.last._owner %}
+                {% if site.data.mission[m].version.last._owner %}
 
-            {% if site.data.mission[m].version.last._feasibility %}
-            <p>
-              改革方向評估：{{ site.data.mission[m].version.last._feasibility }}
-            </p>
-            {% endif %}
+                  <h4 class="ui mini header">
+                    問題與背景
+                  </h4>
+                  {% if site.data.mission[m].version.last.background %}
+                  {% for p in site.data.mission[m].version.last.background %}
+                  <p>
+                    {{ p }}
+                  </p>
+                  {% endfor %}
+                  {% endif %}
 
-            {% if site.data.mission[m].version.last._period %}
-            <p>
-              預估期程：{{ site.data.mission[m].version.last._period }}
-            </p>
-            {% endif %}
+                  <h4 class="ui mini header">
+                    改革方向評估
+                  </h4>
+                  {% if site.data.mission[m].version.last.feasibility %}
+                  {% for p in site.data.mission[m].version.last.feasibility %}
+                  <p>
+                    {{ p }}
+                  </p>
+                  {% endfor %}
+                  {% endif %}
 
-            <p>
-              經費需求：{{ site.data.mission[m].version.last.budget }}
-            </p>
+                  <div class="ui icon labeled small button" data-action="collapse" style="margin: 1rem 0;">
+                    <i class="icon down chevron"></i>
+                    展開 / 收合
+                  </div>
 
-            <p>
-              最新進度：
-              {% if site.data.mission[m].progress %}
-              <a class="ui horizontal label">
-                {{ site.data.mission[m].progress.last.date }}
-              </a>
-              {% endif %}
-            </p>
+                  <div class="collapsable">
 
-            <p>
-              影響族群：
-              {% for s in site.data.mission[m].version.last._stakeholder %}
-              <a class="ui horizontal label" data-html="
-              <h5 class='ui tiny header'>{{ s }}</h5>
-              <p>
-                <a href='search' target='_blank'>
-                  共涉及 n 項決議
-                  <i class='icon right chevron'></i>
-                </a>
-              </p>
-              ">
-                {{ s }}
-              </a>
-              {% endfor %}
-            </p>
+                  <h4 class="ui mini header">
+                    行動方案
+                  </h4>
+                  {% for p in site.data.mission[m].version.last.plan %}
+                  <p>
+                    {{ p }}
+                  </p>
+                  {% endfor %}
 
-            {% if site.data.mission[m].version.last._partner %}
+                  <h4 class="ui mini header">
+                    法規
+                  </h4>
+                  {% for l in site.data.mission[m].version.last.law %}
+                  <p>
+                    <span class="ui horizontal basic label">
+                      {{ l.type }}
+                    </span>
+                    <a class="ui horizontal label" data-html="
+                    <h5 class='ui tiny header'>{{ l.name }}</h5>
+                    <p>
+                      <a href='search' target='_blank'>
+                        共涉及 n 項決議
+                        <i class='icon right chevron'></i>
+                      </a>
+                    </p>
+                    ">
+                      {{ l.name }}
+                    </a>
+                    <span>
+                    第 {{ l.paragraph }} 條
+                    {% if l.subparagraph %}
+                    第 {{ l.subparagraph }} 款
+                    {% endif %}
+                    {% if l.item %}
+                    之 {{ l.item }}
+                    {% endif %}
+                    </span>
+                  </p>
+                  {% if l.old %}
+                  <p>
+                    舊條文：{{ l.old }}
+                  </p>
+                  {% endif %}
+                  {% if l.new %}
+                  <p>
+                    新條文：{{ l.new }}
+                  </p>
+                  {% endif %}
+                  {% endfor %}
 
-            <p>
-              配合單位：
-              {% for office in site.data.mission[m].version.last._partner %}
-              <a class="ui horizontal label" data-html="
-                <h5 class='ui tiny header'>{{ office }}</h5>
-                {% if site.data.office[office].contact %}
-                <div class='ui relaxed list'>
-                  {% for ct in site.data.office[office].contact %}
-                  <div class='item'>
-                    <i class='user icon'></i>
-                    <div class='content'>
-                      <div class='header'>
-                        聯絡窗口：{{ ct.name }}
-                      </div>
-                      <div class='list'>
-                        <div class='item'>
-                        {{ ct.email }}
-                        </div>
-                        <div class='item'>
-                        {{ ct.phone }}
-                        </div>
+                  <h4 class="ui mini header">
+                    行政命令
+                  </h4>
+                  {% for rule in site.data.mission[m].version.last.rule %}
+                  <p>
+                    {{ rule.name }}
+                  </p>
+                  <p>
+                    {{ rule.description }}
+                  </p>
+                  {% endfor %}
+
+                  <h4 class="ui mini header">
+                    經費或人力調整
+                  </h4>
+                  {% for p in site.data.mission[m].version.last.hr %}
+                  <p>
+                    {{ p }}
+                  </p>
+                  {% endfor %}
+
+                  <h4 class="ui mini header">
+                    協辦單位
+                  </h4>
+                  {% if site.data.mission[m].version.last._partner %}
+                  <p>
+                    {% for office in site.data.mission[m].version.last._partner %}
+                    <a class="ui horizontal label" data-html="
+                      <h5 class='ui tiny header'>{{ office }}</h5>
+                      <p>
+                        <a href='search' target='_blank'>
+                          共參與 n 項決議
+                          <i class='icon right chevron'></i>
+                        </a>
+                      </p>
+                    ">
+                      {{ office }}
+                    </a>
+                    {% endfor %}
+                  </p>
+                  {% endif %}
+
+                  <h4 class="ui mini header">
+                    預估期程
+                  </h4>
+                  {% if site.data.mission[m].version.last._period %}
+                  <p>
+                    {{ site.data.mission[m].version.last._period }}
+                  </p>
+                  {% endif %}
+
+                  <h4 class="ui mini header">
+                    影響對象
+                  </h4>
+                  <p>
+                    {% for s in site.data.mission[m].version.last._stakeholder %}
+                    <a class="ui horizontal label" data-html="
+                    <h5 class='ui tiny header'>{{ s }}</h5>
+                    <p>
+                      <a href='search' target='_blank'>
+                        共涉及 n 項決議
+                        <i class='icon right chevron'></i>
+                      </a>
+                    </p>
+                    ">
+                      {{ s }}
+                    </a>
+                    {% endfor %}
+                  </p>
+
+                  <h4 class="ui mini header">
+                    影響評估
+                  </h4>
+                  {% for p in site.data.mission[m].version.last.impact %}
+                  <p>
+                    {{ p }}
+                  </p>
+                  {% endfor %}
+
+                  <h4 class="ui mini header">
+                    相關資料
+                  </h4>
+                  <div class="ui divided relaxed list">
+                    {% for link in site.data.mission[m].version.last.link %}
+                    <a class="item" href="{{ link.url }}" target="_blank">
+                      <i class="icon globe"></i>
+                      {{ link.title }}
+                    </a>
+                    {% endfor %}
+                  </div>
+
+                  <h4 class="ui mini header">
+                    司改國是會議相關場次
+                  </h4>
+                  <div class="ui divided relaxed list">
+                    {% for d in site.data.mission[m].version.last._meeting %}
+                    <div class="item">
+                      <i class="icon comments outline"></i>
+                      <div class="content">
+                        <a class="header" href="{{ site.data.meeting[d].url }}" target="_blank">
+                          {% assign team = site.data.meeting[d]._team %}
+                          {{ site.data.team[team].name }} {{ site.data.meeting[d].title }}
+                        </a>
                       </div>
                     </div>
+                    {% endfor %}
                   </div>
+
+                  <h4 class="ui mini header">
+                    司法關鍵字
+                  </h4>
+                  <p>
+                    {% if site.data.mission[m].version.last.keyowrds %}
+                      {% for k in site.data.mission[m].version.last.keyowrds %}
+                      <a class="ui horizontal label">
+                        {{ k }}
+                      </a>
+                      {% endfor %}
+                    {% endif %}
+                  </p>
+
+                  <h4 class="ui mini header">
+                    備註
+                  </h4>
+                  {% for n in site.data.mission[m].version.last.note %}
+                  <p>
+                    {{ n }}
+                  </p>
                   {% endfor %}
-                </div>
-                <hr class='ui divider' />
+
+                  </div>
+
                 {% endif %}
-                <p>
-                  <a href='search' target='_blank'>
-                    共參與 n 項決議
-                    <i class='icon right chevron'></i>
-                  </a>
-                </p>
-              ">
-                {{ office }}
-              </a>
-              {% endfor %}
-            </p>
-            {% endif %}
-
-            <p>
-              司法關鍵字：
-              {% if site.data.mission[m].version.last.keyowrds %}
-                {% for k in site.data.mission[m].version.last.keyowrds %}
-                <a class="ui horizontal label">
-                  {{ k }}
-                </a>
-                {% endfor %}
-              {% endif %}
-            </p>
-
-            {% if site.data.mission[m].version.last.background %}
-            <h4 class="ui mini header">
-              背景說明
-            </h4>
-            {% for p in site.data.mission[m].version.last.background %}
-            <p>
-              {{ p }}
-            </p>
-            {% endfor %}
-            {% endif %}
-
-            <h4 class="ui mini header">
-              改革方案
-            </h4>
-            {% for p in site.data.mission[m].version.last.plan %}
-            <p>
-              {{ p }}
-            </p>
-            {% endfor %}
-
-            <h4 class="ui mini header">
-              法規
-            </h4>
-            {% for l in site.data.mission[m].version.last.law %}
-            <p>
-              <span class="ui horizontal basic label">
-                {{ l.type }}
-              </span>
-              <a class="ui horizontal label" data-html="
-              <h5 class='ui tiny header'>{{ l.name }}</h5>
-              <p>
-                <a href='search' target='_blank'>
-                  共涉及 n 項決議
-                  <i class='icon right chevron'></i>
-                </a>
-              </p>
-              ">
-                {{ l.name }}
-              </a>
-              <span>
-              第 {{ l.paragraph }} 條
-              {% if l.subparagraph %}
-              第 {{ l.subparagraph }} 款
-              {% endif %}
-              {% if l.item %}
-              之 {{ l.item }}
-              {% endif %}
-              </span>
-            </p>
-            {% if l.old %}
-            <p>
-              舊條文：{{ l.old }}
-            </p>
-            {% endif %}
-            {% if l.new %}
-            <p>
-              新條文：{{ l.new }}
-            </p>
-            {% endif %}
-            {% endfor %}
-
-            <h4 class="ui mini header">
-              行政命令
-            </h4>
-            {% for rule in site.data.mission[m].version.last.rule %}
-            <p>
-              {{ rule.name }}
-            </p>
-            <p>
-              {{ rule.description }}
-            </p>
-            {% endfor %}
-
-            <h4 class="ui mini header">
-              影響評估
-            </h4>
-            {% for p in site.data.mission[m].version.last.impact %}
-            <p>
-              {{ p }}
-            </p>
-            {% endfor %}
-
-            <h4 class="ui mini header">
-              人力需求
-            </h4>
-            {% for p in site.data.mission[m].version.last.hr %}
-            <p>
-              {{ p }}
-            </p>
-            {% endfor %}
-
-            <h4 class="ui mini header">
-              相關資料
-            </h4>
-            <div class="ui divided relaxed list">
-              {% for link in site.data.mission[m].version.last.link %}
-              <a class="item" href="{{ link.url }}" target="_blank">
-                <i class="icon globe"></i>
-                {{ link.title }}
-              </a>
-              {% endfor %}
-            </div>
-
-            <h4 class="ui mini header">
-              司改國是會議相關場次
-            </h4>
-            <div class="ui divided relaxed list">
-              {% for d in site.data.mission[m].version.last._meeting %}
-              <div class="item">
-                <i class="icon comments outline"></i>
-                <div class="content">
-                  <a class="header" href="{{ site.data.meeting[d].url }}" target="_blank">
-                    {% assign team = site.data.meeting[d]._team %}
-                    {{ site.data.team[team].name }} {{ site.data.meeting[d].title }}
-                  </a>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-
-            <h4 class="ui mini header">
-              備註
-            </h4>
-            {% for n in site.data.mission[m].version.last.note %}
-            <p>
-              {{ n }}
-            </p>
-            {% endfor %}
-
-            {% endif %}
 
               </article>
               {% endfor %}

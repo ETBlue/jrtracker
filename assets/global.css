@@ -39,6 +39,10 @@ a,
   margin-right: 0;
 }
 
+.collapsable {
+  display: none;
+}
+
 @media only screen and (max-width: 767px) {
 
 
