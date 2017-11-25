@@ -1,7 +1,7 @@
-name: 司法改革進度追蹤
-description: 給你滿滿的資料大平台！熱烈實驗中
-#cover: assets/images/cover.png
-#favicon: assets/images/fav.png
+name: 司法改革進度追蹤 # 社群網站連結標題、選單標題
+description: 給你滿滿的資料大平台！熱烈實驗中 # 社群網站連結描述
+cover: assets/images/cover.png # 社群網站連結顯圖
+favicon: assets/images/fav.png # 瀏覽器分頁圖示
 
 code:
   source: https://github.com/ETBlue/jrtracker
