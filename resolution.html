@@ -1088,7 +1088,7 @@ title: 決議
 
         <div style="border-left: 5px rgba(0,0,0,0) solid; margin-left: 1rem; padding: 0 0 1rem 1.5rem; position: relative;">
           <a class="ui circular grey label" style="position: absolute; left: -1rem; top: -0.2rem; margin: 0;">
-            <i class="icon refresh" style="margin: 0;"></i>
+            <i class="icon refresh" data-html="企畫註解：<br />按了可以更新進度" style="margin: 0;"></i>
           </a>
           <div>
             <p>
@@ -1097,7 +1097,7 @@ title: 決議
             <div class="ui relaxed list">
           {% if r[1].status %}
             <div class="item">
-            <a class="ui horizontal label" style="margin-left: 0;">
+            <a class="ui horizontal label" data-html="企畫註解：<br />按了可以展開對應的子決議，同時收合其他的" style="margin-left: 0;">
               決議 {{ r[0] }}
             </a>
             <span>
@@ -1121,7 +1121,7 @@ title: 決議
           {% for o in r[1].version.last._object %}
             {% if site.data.object[o].status %}
             <div class="item">
-              <a class="ui horizontal label" style="margin-left: 0;">
+              <a class="ui horizontal label" data-html="企畫註解：<br />按了可以展開對應的子決議，同時收合其他的" style="margin-left: 0;">
                 決議 {{ o }}
               </a>
               <span>
@@ -1145,7 +1145,7 @@ title: 決議
             {% for m in site.data.object[o].version.last._mission %}
               {% if site.data.mission[m].status %}
             <div class="item">
-                <a class="ui horizontal label" style="margin-left: 0;">
+                <a class="ui horizontal label" data-html="企畫註解：<br />按了可以展開對應的子決議，同時收合其他的" style="margin-left: 0;">
                   決議 {{ m }}
                 </a>
                 <span>
