@@ -24,9 +24,24 @@
       _status: 進行中
   updated: 2017-11-22
   progress:
-    - log:
+    - date: 2017-11-22 # commit 日期
+      _type: 開會 # 進度類型
+      title: 
+      description:
+        - 進度描述進度描述進度描述，進度描述進度描述進度描述，進度描述進度描述進度描述
+      link: # 相關連結
+        - title: 連結標題
+          url: 
+          type: 標籤 # 連結類型
+      log:
         - date: 2017-11-22
           _log: 已上架
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已送出
 
 "2":
   version:
@@ -81,14 +96,29 @@
       log:
         - date: 2017-11-22
           _log: 已退回
+          comment:
+            - 審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah。
   status:
     - date: 2017-11-02
       _status: 已完成（納入常態業務）
   updated: 2017-11-22
   progress:
-    - log:
-      - date: 2017-11-22
-        _log: 已退回
+    - date: 2017-11-22 # commit 日期
+      _type: 開會 # 進度類型
+      title: 
+      description:
+        - 進度描述進度描述進度描述，進度描述進度描述進度描述，進度描述進度描述進度描述
+      link: # 相關連結
+        - title: 連結標題
+          url: 
+          type: 標籤 # 連結類型
+      log:
+        - date: 2017-11-22
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已退回
+          comment:
+            - 審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah。
 
 "9":
   version:

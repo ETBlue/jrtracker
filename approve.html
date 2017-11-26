@@ -80,28 +80,7 @@ title: 決議審核
                 <span>　</span>
                 {{ site.data.topic[t].title }}
               </h5>
-              <!--
-              {% if site.data.topic[t]._topic %}
-              <h6 class='ui header' style='font-size: 1rem; margin: 1rem 0;'>
-                子議題
-              </h6>
-              <div class='ui relaxed list'>
-                {% for tp in site.data.topic[t]._topic %}
-                <div class='item'>
-                  {{ tp }}
-                  <span>　</span>
-                  {{ site.data.topic[tp].title }}
-                </div>
-                {% endfor %}
-              </div>
-              {% endif %}
-              -->
               {% if site.data.topic[t]._agenda %}
-              <!--
-              <h6 class='ui header' style='font-size: 1rem; margin: 1rem 0;'>
-                國是會議相關議程
-              </h6>
-              -->
               <div class='ui relaxed divided list'>
                 {% for ag in site.data.topic[t]._agenda %}
                 <div class='item'>
@@ -394,7 +373,7 @@ title: 決議審核
             </div>
             <div style="margin: 1rem 0;">
               <div class="ui form">
-              <textarea placeholder="審核者留言" style="resize: none;"></textarea>
+              <textarea placeholder="審核意見" style="resize: none;"></textarea>
               </div>
               <div class="ui two fluid buttons">
                 <div class="ui icon labeled grey button">
@@ -464,17 +443,17 @@ title: 決議審核
                   {% if site.data.object[o].status.last %}
                 <span>
                   <i class="icon
-              {% if site.data.object[o].status.last._status == '進行中' %}
-              wait
-              {% else %}
-                {% if site.data.object[o].status.last._status == '已完成' %}
-                checkmark
-                {% endif %}
-                {% if site.data.object[o].status.last._status == '已完成（納入常態業務）' %}
-                checkmark
-                {% endif %}
-              {% endif %}
-              "></i>
+                  {% if site.data.object[o].status.last._status == '進行中' %}
+                  wait
+                  {% else %}
+                    {% if site.data.object[o].status.last._status == '已完成' %}
+                    checkmark
+                    {% endif %}
+                    {% if site.data.object[o].status.last._status == '已完成（納入常態業務）' %}
+                    checkmark
+                    {% endif %}
+                  {% endif %}
+                  "></i>
                   {{ site.data.object[o].status.last._status }}
                 </span>
                   {% endif %}
@@ -732,7 +711,7 @@ title: 決議審核
               </div>
               <div style="margin: 1rem 0;">
                 <div class="ui form">
-                <textarea placeholder="審核者留言" style="resize: none;"></textarea>
+                <textarea placeholder="審核意見" style="resize: none;"></textarea>
                 </div>
                 <div class="ui two fluid buttons">
                   <div class="ui icon labeled grey button">
@@ -803,17 +782,17 @@ title: 決議審核
                   {% if site.data.mission[m].status.last %}
                     <span>
                   <i class="icon
-              {% if site.data.mission[m].status.last._status == '進行中' %}
-              wait
-              {% else %}
-                {% if site.data.mission[m].status.last._status == '已完成' %}
-                checkmark
-                {% endif %}
-                {% if site.data.mission[m].status.last._status == '已完成（納入常態業務）' %}
-                checkmark
-                {% endif %}
-              {% endif %}
-              "></i>
+                  {% if site.data.mission[m].status.last._status == '進行中' %}
+                  wait
+                  {% else %}
+                    {% if site.data.mission[m].status.last._status == '已完成' %}
+                    checkmark
+                    {% endif %}
+                    {% if site.data.mission[m].status.last._status == '已完成（納入常態業務）' %}
+                    checkmark
+                    {% endif %}
+                  {% endif %}
+                  "></i>
                   {{ site.data.mission[m].status.last._status }}
                     </span>
                   {% endif %}
@@ -1071,7 +1050,7 @@ title: 決議審核
                 </div>
                 <div style="margin: 1rem 0;">
                   <div class="ui form">
-                  <textarea placeholder="審核者留言" style="resize: none;"></textarea>
+                  <textarea placeholder="審核意見" style="resize: none;"></textarea>
                   </div>
                   <div class="ui two fluid buttons">
                     <div class="ui icon labeled grey button">
@@ -1127,11 +1106,23 @@ title: 決議審核
           <span class="ui circular grey label" style="position: absolute; left: -1rem; top: -0.2rem; margin: 0;">
             <i class="checkmark icon" style="margin: 0;"></i>
           </span>
+          {% if p.log.last._log == '已送出' %}
+          <div class="ui grey segment">
+            <div class="ui top attached grey label">
+              待審核進度
+            </div>
+          {% endif %}
+          {% if p.log.last._log == '已退回' %}
+          <div class="ui grey secondary segment">
+            <div class="ui top attached grey label">
+              已退回進度
+            </div>
+          {% endif %}
           <div>
             {{ p.date }}
           </div>
           <h3 class="ui small header" style="margin-top: 0.5rem;">
-            <a class="ui horizontal label" style="margin-left: 0;">
+            <a class="ui horizontal label" data-html="企畫註解：<br />按了可以展開對應的子決議，同時收合其他的" style="margin-left: 0;">
               決議 {{ r[0] }}
             </a>
             <span>
@@ -1149,13 +1140,46 @@ title: 決議審核
           <div class="ui divided relaxed list">
             {% for l in p.link %}
             <a class="item" href="{{ l.url }}" target="_blank">
+              {% if l.type %}
               <span class="ui basic horizontal label">
               {{ l.type }}
               </span>
+              {% endif %}
               <span>
               {{ l.title }}
               </span>
             </a>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% if p.log.last._log == '已送出' %}
+          </div>
+          <div class="ui form">
+            <textarea placeholder="審核意見" style="resize: none;"></textarea>
+            <div class="ui icon labeled grey fluid button">
+              <i class="icon checkmark"></i>
+              通過此進度
+            </div>
+            <div class="ui horizontal divider">
+              或
+            </div>
+            <div class="ui icon labeled grey fluid button">
+              <i class="icon delete"></i>
+              退回此進度
+            </div>
+          </div>
+          {% endif %}
+          {% if p.log.last._log == '已退回' %}
+          </div>
+          <div class="ui grey secondary segment">
+            <div class="ui top attached grey label">
+              審核意見
+            </div>
+            {% for p in p.log.last.comment %}
+            <p>
+              {{ p }}
+            </p>
             {% endfor %}
           </div>
           {% endif %}
@@ -1169,11 +1193,23 @@ title: 決議審核
           <span class="ui circular grey label" style="position: absolute; left: -1rem; top: -0.2rem; margin: 0;">
             <i class="checkmark icon" style="margin: 0;"></i>
           </span>
+          {% if p.log.last._log == '已送出' %}
+          <div class="ui grey segment">
+            <div class="ui top attached grey label">
+              待審核進度
+            </div>
+          {% endif %}
+          {% if p.log.last._log == '已退回' %}
+          <div class="ui grey secondary segment">
+            <div class="ui top attached grey label">
+              已退回進度
+            </div>
+          {% endif %}
           <div>
             {{ p.date }}
           </div>
           <h3 class="ui small header" style="margin-top: 0.5rem;">
-            <a class="ui horizontal label" style="margin-left: 0;">
+            <a class="ui horizontal label" data-html="企畫註解：<br />按了可以展開對應的子決議，同時收合其他的" style="margin-left: 0;">
               決議 {{ o }}
             </a>
             <span>
@@ -1202,6 +1238,37 @@ title: 決議審核
           </div>
           {% endif %}
 
+          {% if p.log.last._log == '已送出' %}
+          </div>
+          <div class="ui form">
+            <textarea placeholder="審核意見" style="resize: none;"></textarea>
+            <div class="ui icon labeled grey fluid button">
+              <i class="icon checkmark"></i>
+              通過此進度
+            </div>
+            <div class="ui horizontal divider">
+              或
+            </div>
+            <div class="ui icon labeled grey fluid button">
+              <i class="icon delete"></i>
+              退回此進度
+            </div>
+          </div>
+          {% endif %}
+          {% if p.log.last._log == '已退回' %}
+          </div>
+          <div class="ui grey secondary segment">
+            <div class="ui top attached grey label">
+              審核意見
+            </div>
+            {% for p in p.log.last.comment %}
+            <p>
+              {{ p }}
+            </p>
+            {% endfor %}
+          </div>
+          {% endif %}
+
         </div>
         {% endfor %}
         {% endfor %}
@@ -1213,11 +1280,23 @@ title: 決議審核
           <span class="ui circular grey label" style="position: absolute; left: -1rem; top: -0.2rem; margin: 0;">
             <i class="checkmark icon" style="margin: 0;"></i>
           </span>
+          {% if p.log.last._log == '已送出' %}
+          <div class="ui grey segment">
+            <div class="ui top attached grey label">
+              待審核進度
+            </div>
+          {% endif %}
+          {% if p.log.last._log == '已退回' %}
+          <div class="ui grey secondary segment">
+            <div class="ui top attached grey label">
+              已退回進度
+            </div>
+          {% endif %}
           <div>
             {{ p.date }}
           </div>
           <h3 class="ui small header" style="margin-top: 0.5rem;">
-            <a class="ui horizontal label" style="margin-left: 0;">
+            <a class="ui horizontal label" data-html="企畫註解：<br />按了可以展開對應的子決議，同時收合其他的" style="margin-left: 0;">
               決議 {{ m }}
             </a>
             <span>
@@ -1246,6 +1325,37 @@ title: 決議審核
           </div>
           {% endif %}
 
+          {% if p.log.last._log == '已送出' %}
+          </div>
+          <div class="ui form">
+            <textarea placeholder="審核意見" style="resize: none;"></textarea>
+            <div class="ui icon labeled grey fluid button">
+              <i class="icon checkmark"></i>
+              通過此進度
+            </div>
+            <div class="ui horizontal divider">
+              或
+            </div>
+            <div class="ui icon labeled grey fluid button">
+              <i class="icon delete"></i>
+              退回此進度
+            </div>
+          </div>
+          {% endif %}
+          {% if p.log.last._log == '已退回' %}
+          </div>
+          <div class="ui grey secondary segment">
+            <div class="ui top attached grey label">
+              審核意見
+            </div>
+            {% for p in p.log.last.comment %}
+            <p>
+              {{ p }}
+            </p>
+            {% endfor %}
+          </div>
+          {% endif %}
+
         </div>
         {% endfor %}
         {% endfor %}
@@ -1260,85 +1370,84 @@ title: 決議審核
               目前狀態
             </p>
             <div class="ui relaxed list">
-          {% if r[1].status %}
-            <div class="item">
-            <a class="ui horizontal label" data-html="企畫註解：<br />按了可以展開對應的子決議，同時收合其他的" style="margin-left: 0;">
-              決議 {{ r[0] }}
-            </a>
-            <span>
-              <i class="icon
-              {% if r[1].status.last._status == '進行中' %}
-              wait
-              {% else %}
-                {% if r[1].status.last._status == '已完成' %}
-                checkmark
-                {% endif %}
-                {% if r[1].status.last._status == '已完成（納入常態業務）' %}
-                checkmark
-                {% endif %}
-              {% endif %}
-              "></i>
-            {{ r[1].status.last._status }}
-            </span>
-            </div>
-          {% else %}
-
-          {% for o in r[1].version.last._object %}
-            {% if site.data.object[o].status %}
-            <div class="item">
-              <a class="ui horizontal label" data-html="企畫註解：<br />按了可以展開對應的子決議，同時收合其他的" style="margin-left: 0;">
-                決議 {{ o }}
-              </a>
-              <span>
-              <i class="icon
-              {% if site.data.object[o].status.last._status == '進行中' %}
-              wait
-              {% else %}
-                {% if site.data.object[o].status.last._status == '已完成' %}
-                checkmark
-                {% endif %}
-                {% if site.data.object[o].status.last._status == '已完成（納入常態業務）' %}
-                checkmark
-                {% endif %}
-              {% endif %}
-              "></i>
-              {{ site.data.object[o].status.last._status }}
-              </span>
-            </div>
-            {% else %}
-
-            {% for m in site.data.object[o].version.last._mission %}
-              {% if site.data.mission[m].status %}
-            <div class="item">
+            {% if r[1].version.last._owner %}
+              <div class="item">
                 <a class="ui horizontal label" data-html="企畫註解：<br />按了可以展開對應的子決議，同時收合其他的" style="margin-left: 0;">
-                  決議 {{ m }}
+                  決議 {{ r[0] }}
                 </a>
                 <span>
-              <i class="icon
-              {% if site.data.mission[m].status.last._status == '進行中' %}
-              wait
-              {% else %}
-                {% if site.data.mission[m].status.last._status == '已完成' %}
-                checkmark
-                {% endif %}
-                {% if site.data.mission[m].status.last._status == '已完成（納入常態業務）' %}
-                checkmark
-                {% endif %}
-              {% endif %}
-              "></i>
-                {{ site.data.mission[m].status.last._status }}
+                  <i class="icon
+                  {% if r[1].status.last._status == '進行中' %}
+                  wait
+                  {% else %}
+                    {% if r[1].status.last._status == '已完成' %}
+                    checkmark
+                    {% endif %}
+                    {% if r[1].status.last._status == '已完成（納入常態業務）' %}
+                    checkmark
+                    {% endif %}
+                  {% endif %}
+                  "></i>
+                {{ r[1].status.last._status }}
                 </span>
-            </div>
+              </div>
+            {% else %}
+
+              {% for o in r[1].version.last._object %}
+              {% if site.data.object[o].version.last._owner %}
+              <div class="item">
+                <a class="ui horizontal label" data-html="企畫註解：<br />按了可以展開對應的子決議，同時收合其他的" style="margin-left: 0;">
+                  決議 {{ o }}
+                </a>
+                <span>
+                <i class="icon
+                {% if site.data.object[o].status.last._status == '進行中' %}
+                wait
+                {% else %}
+                  {% if site.data.object[o].status.last._status == '已完成' %}
+                  checkmark
+                  {% endif %}
+                  {% if site.data.object[o].status.last._status == '已完成（納入常態業務）' %}
+                  checkmark
+                  {% endif %}
+                {% endif %}
+                "></i>
+                {{ site.data.object[o].status.last._status }}
+                </span>
+              </div>
+              {% else %}
+
+                {% for m in site.data.object[o].version.last._mission %}
+                  {% if site.data.mission[m].version.last._owner %}
+                <div class="item">
+                    <a class="ui horizontal label" data-html="企畫註解：<br />按了可以展開對應的子決議，同時收合其他的" style="margin-left: 0;">
+                      決議 {{ m }}
+                    </a>
+                    <span>
+                    <i class="icon
+                    {% if site.data.mission[m].status.last._status == '進行中' %}
+                    wait
+                    {% else %}
+                      {% if site.data.mission[m].status.last._status == '已完成' %}
+                      checkmark
+                      {% endif %}
+                      {% if site.data.mission[m].status.last._status == '已完成（納入常態業務）' %}
+                      checkmark
+                      {% endif %}
+                    {% endif %}
+                    "></i>
+                    {{ site.data.mission[m].status.last._status }}
+                    </span>
+                </div>
+                  {% endif %}
+                {% endfor %}
+
               {% endif %}
-            {% endfor %}
+              {% endfor %}
 
             {% endif %}
-          {% endfor %}
-
-          {% endif %}
+            </div>
           </div>
-          </div>
-          
         </div>
 
       </div>

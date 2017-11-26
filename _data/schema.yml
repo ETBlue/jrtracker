@@ -94,6 +94,7 @@ resolution_id:
       _type: # 進度類型
       title: # 進度條上的標題
       description:
+        - paragraph
       link: # 相關連結
         - title: 
           url: 
