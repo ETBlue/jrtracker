@@ -149,14 +149,14 @@ title: 編輯我的決議
 
           {% if r[1].version.last._owner %}
             {% if r[1].status.last._status == '進行中' and r[1].version.last.log.last._log == '已送出' %}
-          <div class="ui grey segment">
+          <div class="ui grey secondary segment">
             <div class="ui top attached grey label">
-              待審核方案
+              已送出方案
             </div>
             {% endif %}
 
             {% if r[1].status.last._status == '進行中' and r[1].version.last.log.last._log == '已退回' %}
-          <div class="ui grey secondary segment">
+          <div class="ui segment">
             <div class="ui top attached grey label">
               已退回方案
             </div>
@@ -379,25 +379,10 @@ title: 編輯我的決議
 
             {% if r[1].status.last._status == '進行中' and r[1].version.last.log.last._log == '已送出' %}
             </div>
-            <div style="margin: 1rem 0;">
-              <div class="ui form">
-              <textarea placeholder="審核意見" style="resize: none;"></textarea>
-              </div>
-              <div class="ui two fluid buttons">
-                <div class="ui icon labeled grey button">
-                  <i class="icon checkmark"></i>
-                  通過此方案
-                </div>
-                <div class="ui icon labeled grey button">
-                  <i class="icon delete"></i>
-                  退回此方案
-                </div>
-              </div>
-            </div>
             {% else %}
               {% if r[1].status.last._status == '進行中' and r[1].version.last.log.last._log == '已退回' %}
               </div>
-              <div class="ui secondary grey segment">
+              <div class="ui grey segment">
                 <div class="ui top attached grey label">
                   審核意見
                 </div>
@@ -410,6 +395,10 @@ title: 編輯我的決議
                 {% else %}
                 <p>無</p>
                 {% endif %}
+              </div>
+              <div class="ui icon labeled grey fluid button">
+                <i class="icon pencil"></i>
+                修改方案
               </div>
               {% else %}
               </div>
@@ -503,14 +492,14 @@ title: 編輯我的決議
 
             {% if site.data.object[o].version.last._owner %}
               {% if site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已送出' %}
-            <div class="ui grey segment">
+            <div class="ui grey secondary segment">
               <div class="ui top attached grey label">
-                待審核方案
+                已送出方案
               </div>
               {% endif %}
 
               {% if site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已退回' %}
-            <div class="ui grey secondary segment">
+            <div class="ui segment">
               <div class="ui top attached grey label">
                 已退回方案
               </div>
@@ -733,25 +722,10 @@ title: 編輯我的決議
 
               {% if site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已送出' %}
               </div>
-              <div style="margin: 1rem 0;">
-                <div class="ui form">
-                <textarea placeholder="審核意見" style="resize: none;"></textarea>
-                </div>
-                <div class="ui two fluid buttons">
-                  <div class="ui icon labeled grey button">
-                    <i class="icon checkmark"></i>
-                    通過此方案
-                  </div>
-                  <div class="ui icon labeled grey button">
-                    <i class="icon delete"></i>
-                    退回此方案
-                  </div>
-                </div>
-              </div>
               {% else %}
                 {% if site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已退回' %}
                 </div>
-                <div class="ui secondary grey segment">
+                <div class="ui grey segment">
                   <div class="ui top attached grey label">
                     審核意見
                   </div>
@@ -764,6 +738,10 @@ title: 編輯我的決議
                   {% else %}
                   <p>無</p>
                   {% endif %}
+                </div>
+                <div class="ui icon labeled grey fluid button">
+                  <i class="icon pencil"></i>
+                  修改方案
                 </div>
                 {% else %}
                 </div>
@@ -858,14 +836,14 @@ title: 編輯我的決議
 
                 {% if site.data.mission[m].version.last._owner %}
                   {% if site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已送出' %}
-                <div class="ui grey segment">
+                <div class="ui grey secondary segment">
                   <div class="ui top attached grey label">
-                    待審核方案
+                    已送出方案
                   </div>
                   {% endif %}
 
                   {% if site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已退回' %}
-                <div class="ui grey secondary segment">
+                <div class="ui segment">
                   <div class="ui top attached grey label">
                     已退回方案
                   </div>
@@ -1088,25 +1066,10 @@ title: 編輯我的決議
 
                 {% if site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已送出' %}
                 </div>
-                <div style="margin: 1rem 0;">
-                  <div class="ui form">
-                  <textarea placeholder="審核意見" style="resize: none;"></textarea>
-                  </div>
-                  <div class="ui two fluid buttons">
-                    <div class="ui icon labeled grey button">
-                      <i class="icon checkmark"></i>
-                      通過此方案
-                    </div>
-                    <div class="ui icon labeled grey button">
-                      <i class="icon delete"></i>
-                      退回此方案
-                    </div>
-                  </div>
-                </div>
                 {% else %}
                   {% if site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已退回' %}
                   </div>
-                  <div class="ui secondary grey segment">
+                  <div class="ui grey segment">
                     <div class="ui top attached grey label">
                       審核意見
                     </div>
@@ -1119,6 +1082,10 @@ title: 編輯我的決議
                     {% else %}
                     <p>無</p>
                     {% endif %}
+                  </div>
+                  <div class="ui icon labeled grey fluid button">
+                    <i class="icon pencil"></i>
+                    修改方案
                   </div>
                   {% else %}
                   </div>
