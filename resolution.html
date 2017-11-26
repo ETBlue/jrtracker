@@ -961,6 +961,7 @@ title: 決議
         </h2>
 
         {% for p in r[1].progress %}
+        {% if p.log.last._log == '已上架' %}
         <div style="border-left: 5px #ccc solid; margin-left: 1rem; padding: 0 0 1rem 1.5rem; position: relative;">
           <span class="ui circular grey label" style="position: absolute; left: -1rem; top: -0.2rem; margin: 0;">
             <i class="checkmark icon" style="margin: 0;"></i>
@@ -999,10 +1000,12 @@ title: 決議
           {% endif %}
 
         </div>
+        {% endif %}
         {% endfor %}
 
         {% for o in r[1].version.last._object %}
         {% for p in site.data.object[o].progress %}
+        {% if p.log.last._log == '已上架' %}
         <div style="border-left: 5px #ccc solid; margin-left: 1rem; padding: 0 0 1rem 1.5rem; position: relative;">
           <span class="ui circular grey label" style="position: absolute; left: -1rem; top: -0.2rem; margin: 0;">
             <i class="checkmark icon" style="margin: 0;"></i>
@@ -1041,12 +1044,14 @@ title: 決議
           {% endif %}
 
         </div>
+        {% endif %}
         {% endfor %}
         {% endfor %}
 
         {% for o in r[1].version.last._object %}
         {% for m in site.data.object[o].version.last._mission %}
         {% for p in site.data.mission[m].progress %}
+        {% if p.log.last._log == '已上架' %}
         <div style="border-left: 5px #ccc solid; margin-left: 1rem; padding: 0 0 1rem 1.5rem; position: relative;">
           <span class="ui circular grey label" style="position: absolute; left: -1rem; top: -0.2rem; margin: 0;">
             <i class="checkmark icon" style="margin: 0;"></i>
@@ -1085,6 +1090,7 @@ title: 決議
           {% endif %}
 
         </div>
+        {% endif %}
         {% endfor %}
         {% endfor %}
         {% endfor %}

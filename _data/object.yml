@@ -98,9 +98,37 @@
           comment:
             - 審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah。
   progress:
-    - log:
-      - date: 2017-11-22
-        _log: 已送出
+    - date: 2017-09-01
+      _type: 送出請求
+      title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
+      description:
+      link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+    - date: 2017-10-01
+      _type: 研擬修法
+      title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
+      description:
+      link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
+        - title: test link title
+          url: test link url
+          type: test link type
+      log:
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+          comment:
+            - 審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah。
   status:
     - date: 2017-11-02
       _status: 進行中
@@ -185,6 +213,33 @@
   status:
     - date: 2017-11-02
       _status: 已完成
+  progress:
+    - date: 2017-09-01
+      _type: 送出請求
+      title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
+      description:
+      link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+    - date: 2017-10-01
+      _type: 研擬修法
+      title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
+      description:
+      link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
+        - title: test link title
+          url: test link url
+          type: test link type
+      log:
+        - date: 2017-11-11
+          _log: 已上架
 
 "9-2":
   version:
@@ -206,6 +261,33 @@
   status:
     - date: 2017-11-02
       _status: 已完成（納入常態業務）
+  progress:
+    - date: 2017-09-01
+      _type: 送出請求
+      title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
+      description:
+      link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+    - date: 2017-10-01
+      _type: 研擬修法
+      title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
+      description:
+      link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
+        - title: test link title
+          url: test link url
+          type: test link type
+      log:
+        - date: 2017-11-11
+          _log: 已送出
 
 "9-3":
   version:
@@ -234,6 +316,33 @@
   status:
     - date: 2017-11-02
       _status: 進行中
+  progress:
+    - date: 2017-09-01
+      _type: 送出請求
+      title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
+      description:
+      link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+    - date: 2017-10-01
+      _type: 研擬修法
+      title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
+      description:
+      link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
+        - title: test link title
+          url: test link url
+          type: test link type
+      log:
+        - date: 2017-11-11
+          _log: 已上架
 
 "10-1":
   version:
@@ -258,6 +367,38 @@
   status:
     - date: 2017-11-02
       _status: 進行中
+  progress:
+    - date: 2017-09-01
+      _type: 送出請求
+      title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
+      description:
+      link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+    - date: 2017-10-01
+      _type: 研擬修法
+      title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
+      description:
+      link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
+        - title: test link title
+          url: test link url
+          type: test link type
+      log:
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+          comment:
+            - 審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah。
 
 "10-2":
   version:
@@ -279,6 +420,35 @@
   status:
     - date: 2017-11-02
       _status: 已完成
+  progress:
+    - date: 2017-09-01
+      _type: 送出請求
+      title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
+      description:
+      link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+    - date: 2017-10-01
+      _type: 研擬修法
+      title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
+      description:
+      link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
+        - title: test link title
+          url: test link url
+          type: test link type
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
 
 "10-3":
   version:
@@ -300,6 +470,37 @@
   status:
     - date: 2017-11-02
       _status: 已完成
+  progress:
+    - date: 2017-09-01
+      _type: 送出請求
+      title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
+      description:
+      link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+    - date: 2017-10-01
+      _type: 研擬修法
+      title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
+      description:
+      link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
+        - title: test link title
+          url: test link url
+          type: test link type
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+          comment:
+            - 審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah。
 
 "10-4":
   version:
@@ -326,6 +527,33 @@
   status:
     - date: 2017-11-02
       _status: 進行中
+  progress:
+    - date: 2017-09-01
+      _type: 送出請求
+      title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
+      description:
+      link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+    - date: 2017-10-01
+      _type: 研擬修法
+      title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
+      description:
+      link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
+        - title: test link title
+          url: test link url
+          type: test link type
+      log:
+        - date: 2017-11-11
+          _log: 已送出
 
 "10-5":
   version:
@@ -348,6 +576,37 @@
   status:
     - date: 2017-11-02
       _status: 進行中
+  progress:
+    - date: 2017-09-01
+      _type: 送出請求
+      title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
+      description:
+      link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+    - date: 2017-10-01
+      _type: 研擬修法
+      title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
+      description:
+      link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
+        - title: test link title
+          url: test link url
+          type: test link type
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+          comment:
+            - 審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah。
 
 "10-6":
   version:
@@ -371,6 +630,33 @@
   status:
     - date: 2017-11-02
       _status: 進行中
+  progress:
+    - date: 2017-09-01
+      _type: 送出請求
+      title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
+      description:
+      link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已上架
+    - date: 2017-10-01
+      _type: 研擬修法
+      title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
+      description:
+      link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
+        - title: test link title
+          url: test link url
+          type: test link type
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已送出
 
 "10-7":
   version:
@@ -401,6 +687,29 @@
   status:
     - date: 2017-11-02
       _status: 已完成
+  progress:
+    - date: 2017-09-01
+      _type: 送出請求
+      title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
+      description:
+      link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已上架
+    - date: 2017-10-01
+      _type: 研擬修法
+      title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
+      description:
+      link: # 相關連結
+        - title: test link title
+          url: test link url
+          type: test link type
+        - title: test link title
+          url: test link url
+          type: test link type
+      log:
+        - date: 2017-11-11
+          _log: 已上架
 
 "29-1":
   version:
@@ -496,6 +805,13 @@
       title: 請本部資訊處研議資訊系統統整，配合機關更名進行相關資訊作業。
       description:
       link: # 相關連結
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
     - date: 2017-10-01
       _type: 研擬修法
       title: 擬增訂法院組織法第114條之2、修正法務部組織法第5條
