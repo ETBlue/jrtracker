@@ -269,6 +269,9 @@ title: 搜尋
                       {% if site.data.object[o].status.last._status == '已完成' %}
                       checkmark
                       {% endif %}
+                      {% if site.data.object[o].status.last._status == '已完成（納入常態業務）' %}
+                      checkmark
+                      {% endif %}
                     {% endif %}
                     "></i>
                     {{ site.data.object[o].status.last._status }}
@@ -314,6 +317,9 @@ title: 搜尋
                         wait
                         {% else %}
                           {% if site.data.mission[m].status.last._status == '已完成' %}
+                          checkmark
+                          {% endif %}
+                          {% if site.data.mission[m].status.last._status == '已完成（納入常態業務）' %}
                           checkmark
                           {% endif %}
                         {% endif %}
