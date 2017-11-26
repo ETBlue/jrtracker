@@ -151,7 +151,7 @@ title: 編輯我的決議
             {% if r[1].status.last._status == '進行中' and r[1].version.last.log.last._log == '已送出' %}
           <div class="ui grey secondary segment">
             <div class="ui top attached grey label">
-              已送出方案
+              審核中方案
             </div>
             {% endif %}
 
@@ -494,7 +494,7 @@ title: 編輯我的決議
               {% if site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已送出' %}
             <div class="ui grey secondary segment">
               <div class="ui top attached grey label">
-                已送出方案
+                審核中方案
               </div>
               {% endif %}
 
@@ -838,7 +838,7 @@ title: 編輯我的決議
                   {% if site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已送出' %}
                 <div class="ui grey secondary segment">
                   <div class="ui top attached grey label">
-                    已送出方案
+                    審核中方案
                   </div>
                   {% endif %}
 
@@ -1114,13 +1114,13 @@ title: 編輯我的決議
             <i class="checkmark icon" style="margin: 0;"></i>
           </span>
           {% if p.log.last._log == '已送出' %}
-          <div class="ui grey segment">
+          <div class="ui secondary grey segment">
             <div class="ui top attached grey label">
-              待審核進度
+              審核中進度
             </div>
           {% endif %}
           {% if p.log.last._log == '已退回' %}
-          <div class="ui grey secondary segment">
+          <div class="ui grey segment">
             <div class="ui top attached grey label">
               已退回進度
             </div>
@@ -1162,24 +1162,10 @@ title: 編輯我的決議
 
           {% if p.log.last._log == '已送出' %}
           </div>
-          <div class="ui form">
-            <textarea placeholder="審核意見" style="resize: none;"></textarea>
-            <div class="ui icon labeled grey fluid button">
-              <i class="icon checkmark"></i>
-              通過此進度
-            </div>
-            <div class="ui horizontal divider">
-              或
-            </div>
-            <div class="ui icon labeled grey fluid button">
-              <i class="icon delete"></i>
-              退回此進度
-            </div>
-          </div>
           {% endif %}
           {% if p.log.last._log == '已退回' %}
           </div>
-          <div class="ui grey secondary segment">
+          <div class="ui grey segment">
             <div class="ui top attached grey label">
               審核意見
             </div>
@@ -1188,6 +1174,10 @@ title: 編輯我的決議
               {{ p }}
             </p>
             {% endfor %}
+          </div>
+          <div class="ui icon labeled fluid grey button">
+            <i class="icon pencil"></i>
+            修改進度
           </div>
           {% endif %}
 
@@ -1201,13 +1191,13 @@ title: 編輯我的決議
             <i class="checkmark icon" style="margin: 0;"></i>
           </span>
           {% if p.log.last._log == '已送出' %}
-          <div class="ui grey segment">
+          <div class="ui secondary grey segment">
             <div class="ui top attached grey label">
-              待審核進度
+              審核中進度
             </div>
           {% endif %}
           {% if p.log.last._log == '已退回' %}
-          <div class="ui grey secondary segment">
+          <div class="ui grey segment">
             <div class="ui top attached grey label">
               已退回進度
             </div>
@@ -1247,24 +1237,10 @@ title: 編輯我的決議
 
           {% if p.log.last._log == '已送出' %}
           </div>
-          <div class="ui form">
-            <textarea placeholder="審核意見" style="resize: none;"></textarea>
-            <div class="ui icon labeled grey fluid button">
-              <i class="icon checkmark"></i>
-              通過此進度
-            </div>
-            <div class="ui horizontal divider">
-              或
-            </div>
-            <div class="ui icon labeled grey fluid button">
-              <i class="icon delete"></i>
-              退回此進度
-            </div>
-          </div>
           {% endif %}
           {% if p.log.last._log == '已退回' %}
           </div>
-          <div class="ui grey secondary segment">
+          <div class="ui grey segment">
             <div class="ui top attached grey label">
               審核意見
             </div>
@@ -1273,6 +1249,10 @@ title: 編輯我的決議
               {{ p }}
             </p>
             {% endfor %}
+          </div>
+          <div class="ui icon labeled fluid grey button">
+            <i class="icon pencil"></i>
+            修改進度
           </div>
           {% endif %}
 
@@ -1288,13 +1268,13 @@ title: 編輯我的決議
             <i class="checkmark icon" style="margin: 0;"></i>
           </span>
           {% if p.log.last._log == '已送出' %}
-          <div class="ui grey segment">
+          <div class="ui secondary grey segment">
             <div class="ui top attached grey label">
-              待審核進度
+              審核中進度
             </div>
           {% endif %}
           {% if p.log.last._log == '已退回' %}
-          <div class="ui grey secondary segment">
+          <div class="ui grey segment">
             <div class="ui top attached grey label">
               已退回進度
             </div>
@@ -1334,24 +1314,10 @@ title: 編輯我的決議
 
           {% if p.log.last._log == '已送出' %}
           </div>
-          <div class="ui form">
-            <textarea placeholder="審核意見" style="resize: none;"></textarea>
-            <div class="ui icon labeled grey fluid button">
-              <i class="icon checkmark"></i>
-              通過此進度
-            </div>
-            <div class="ui horizontal divider">
-              或
-            </div>
-            <div class="ui icon labeled grey fluid button">
-              <i class="icon delete"></i>
-              退回此進度
-            </div>
-          </div>
           {% endif %}
           {% if p.log.last._log == '已退回' %}
           </div>
-          <div class="ui grey secondary segment">
+          <div class="ui grey segment">
             <div class="ui top attached grey label">
               審核意見
             </div>
@@ -1360,6 +1326,10 @@ title: 編輯我的決議
               {{ p }}
             </p>
             {% endfor %}
+          </div>
+          <div class="ui icon labeled fluid grey button">
+            <i class="icon pencil"></i>
+            修改進度
           </div>
           {% endif %}
 
