@@ -158,26 +158,6 @@ progress:
   - 開記者會
   - 其他
 
-# policy
-policy:
-  - 無所屬政策
-  - 內政部 OOO 年 OOO 計畫
-  - 法務部 OOO 年 OOO 計畫
-
-# policy
-# 提案內容：上層的政策
-policy_id:
-  name: # 政策或計畫名稱
-  description: # 施行方向
-  _policy: # 上層的政策
-    - _policy
-  _office: # 負責政策的機關
-    - _office
-  link: # 相關連結
-    - title: 
-      url: 
-      type: 
-
 # office
 # 單位或法人組織
 office_id:
