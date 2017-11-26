@@ -48,20 +48,6 @@ title: 搜尋
           </div>
 
           <div class="item">
-            依可行性過濾
-            <div class="menu">
-              {% for f in site.data.schema.feasibility %}
-              <a class="item">
-                <span class="ui right floated horizontal basic label" style="background-color: #fff; color: inherit;">
-                  n
-                </span>
-                {{ f }}
-              </a>
-              {% endfor %}
-            </div>
-          </div>
-
-          <div class="item">
             依所需期程過濾
             <div class="menu">
               {% for p in site.data.schema.period %}
@@ -222,6 +208,9 @@ title: 搜尋
               wait
               {% else %}
                 {% if r[1].status.last._status == '已完成' %}
+                checkmark
+                {% endif %}
+                {% if r[1].status.last._status == '已完成（納入常態業務）' %}
                 checkmark
                 {% endif %}
               {% endif %}
