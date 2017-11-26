@@ -160,6 +160,13 @@
         - 司法院
         - 衛福部
         - 原民會
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
   status:
     - date: 2017-11-02
       _status: 已完成
@@ -174,6 +181,13 @@
       _owner:
         - 司法院
       _partner:
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
   status:
     - date: 2017-11-02
       _status: 已完成（納入常態業務）
@@ -193,6 +207,13 @@
         - 衛福部
         - 原民會
         - 性平處
+      log:
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
   status:
     - date: 2017-11-02
       _status: 進行中
@@ -210,6 +231,13 @@
         - 法務部
         - 內政部移民署
         - 內政部警政署
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已送出
   status:
     - date: 2017-11-02
       _status: 進行中
@@ -224,6 +252,13 @@
       _owner:
         - 司法院
       _partner:
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已送出
   status:
     - date: 2017-11-02
       _status: 已完成
@@ -238,6 +273,13 @@
       _owner:
         - 勞動部
       _partner:
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
   status:
     - date: 2017-11-02
       _status: 已完成
@@ -255,6 +297,13 @@
         - 法務部
         - 內政部移民署
         - 內政部警政署
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已退回
   status:
     - date: 2017-11-02
       _status: 進行中
@@ -270,6 +319,13 @@
         - 司法院
       _partner:
         - 法務部
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已送出
   status:
     - date: 2017-11-02
       _status: 進行中
@@ -284,6 +340,13 @@
       _owner:
         - 司法院
       _partner:
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已退回
   status:
     - date: 2017-11-02
       _status: 進行中
@@ -307,6 +370,13 @@
         - 國防部
       note:
         - 法務部及各司法警察機關
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
   status:
     - date: 2017-11-02
       _status: 已完成
@@ -388,6 +458,13 @@
           description: 
           url: 
       note: # 自由發揮註解區
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已送出
 
   status:
     - date: 2017-11-02

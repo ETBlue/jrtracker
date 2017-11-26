@@ -11,6 +11,13 @@
         - 內政部警政署
         - 法扶基金會
         - 犯罪被害人保護協會
+      log:
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已送出
   status:
     - date: 2017-11-02
       _status: 進行中
@@ -24,6 +31,13 @@
       _owner:
         - 法務部
       _partner:
+      log:
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
   status:
     - date: 2017-11-02
       _status: 進行中
@@ -37,6 +51,13 @@
       _owner:
         - 法務部
       _partner:
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
   status:
     - date: 2017-11-02
       _status: 進行中
@@ -58,6 +79,13 @@
         - 考試院
       note:
         - 以內政部名義邀請考試院與會
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
   status:
     - date: 2017-11-02
       _status: 已完成
@@ -74,6 +102,13 @@
       _owner:
         - 法務部
       _partner:
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
   status:
     - date: 2017-11-02
       _status: 已完成（納入常態業務）
@@ -87,6 +122,13 @@
       _owner:
         - 法務部
       _partner:
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已退回
+        - date: 2017-11-11
+          _log: 已上架
   status:
     - date: 2017-11-02
       _status: 進行中
@@ -100,6 +142,15 @@
       _owner:
         - 法務部
       _partner:
+      log:
+        - date: 2017-11-11
+          _log: 已送出
+        - date: 2017-11-11
+          _log: 已上架
+        - date: 2017-11-11
+          _log: 已退回
+          comment:
+            - 審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah，審核意見 blah blah blah。
   status:
     - date: 2017-11-02
       _status: 進行中

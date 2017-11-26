@@ -161,6 +161,7 @@ title: 決議
           {% endif %}
 
           {% if r[1].version.last._owner %}
+          <div class="proposal" style="margin-top: 2rem;">
 
             <h4 class="ui mini header">
               問題與背景
@@ -372,7 +373,7 @@ title: 決議
             {% endfor %}
 
             </div>
-
+          </div>
           {% endif %}
 
           {% for o in r[1].version.last._object %}
@@ -444,6 +445,7 @@ title: 決議
             {% endif %}
 
             {% if site.data.object[o].version.last._owner %}
+            <div class="proposal" style="margin-top: 2rem;">
 
               <h4 class="ui mini header">
                 問題與背景
@@ -655,7 +657,7 @@ title: 決議
               {% endfor %}
 
               </div>
-
+            </div>
             {% endif %}
 
             {% if site.data.object[o].version.last._mission %}
@@ -728,6 +730,7 @@ title: 決議
                 {% endif %}
 
                 {% if site.data.mission[m].version.last._owner %}
+                <div class="proposal" style="margin-top: 2rem;">
 
                   <h4 class="ui mini header">
                     問題與背景
@@ -939,7 +942,7 @@ title: 決議
                   {% endfor %}
 
                   </div>
-
+                </div>
                 {% endif %}
 
               </article>

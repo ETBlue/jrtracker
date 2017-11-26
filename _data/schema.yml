@@ -77,10 +77,14 @@ resolution_id:
       log:
         - date: date
           _log: 已送出
+          comment:
         - date: date
           _log: 已退回
+          comment: # 審核意見
+            - paragraph
         - date: date
           _log: 已上架
+          comment:
 
   status:
     - date: # 進入此狀態時間
