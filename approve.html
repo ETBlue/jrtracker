@@ -13,13 +13,21 @@ title: 決議審核
     <div class="ui two column stackable grid">
       <div class="eleven wide column">
 
-        <div class="ui pointing menu">
-          {% for v in r[1].version %}
-          <a class="item active">
-            {{ v.date }}
-          </a>
-          {% endfor %}
-        </div>
+        {% if r[1].version.last._owner %}
+        <nav>
+          <div class="ui pointing menu">
+            {% for v in r[1].version reversed %}
+            <a class="item
+            {% if forloop.first %}
+            active
+            {% endif %}
+            ">
+              {{ v.date }}
+            </a>
+            {% endfor %}
+          </div>
+        </nav>
+        {% endif %}
 
         <div class="ui basic segment">
           <header style="margin: -1rem -1rem 1rem  -1rem; padding: 1rem; background-color: #ccc; ">
@@ -412,6 +420,22 @@ title: 決議審核
           {% for o in r[1].version.last._object %}
           <article style="margin: 1rem 0">
 
+            {% if site.data.object[o].version.last._owner %}
+            <nav style="margin: 1rem -1rem;">
+              <div class="ui pointing menu">
+                {% for v in site.data.object[o].version reversed %}
+                <a class="item
+                {% if forloop.first %}
+                active
+                {% endif %}
+                ">
+                  {{ v.date }}
+                </a>
+                {% endfor %}
+              </div>
+            </nav>
+            {% endif %}
+
             <header style="background-color: #ddd; padding: 0.5rem 1rem; margin: 1rem -1rem;">
               {% if site.data.object[o].version.last._owner %}
               <p style="float: right; margin: 0; line-height: 2em;">
@@ -750,6 +774,22 @@ title: 決議審核
             {% if site.data.object[o].version.last._mission %}
               {% for m in site.data.object[o].version.last._mission %}
               <article style="margin: 1rem 0">
+
+                {% if site.data.mission[m].version.last._owner %}
+                <nav style="margin: 1rem 0;">
+                  <div class="ui pointing menu">
+                    {% for v in site.data.mission[m].version reversed %}
+                    <a class="item
+                    {% if forloop.first %}
+                    active
+                    {% endif %}
+                    ">
+                      {{ v.date }}
+                    </a>
+                    {% endfor %}
+                  </div>
+                </nav>
+                {% endif %}
 
                 <header style="background-color: #eee; padding: 0.5rem; margin: 1rem 0;">
                   {% if site.data.mission[m].version.last._owner %}
