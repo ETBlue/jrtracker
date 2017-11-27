@@ -25,6 +25,39 @@ title: 編輯我的決議
               {{ v.date }}
             </a>
             {% endfor %}
+            <div class="right menu">
+            {% if r[1].status.last._status == '進行中' %}
+              {% if r[1].version.last.log.last._log == '已上架' %}
+              <div class="item" style="padding: 0 0.5rem;">
+                <a class="ui icon labeled grey button" style="color: #fff!important;">
+                  <i class="icon add"></i>
+                  新版本
+                </a>
+              </div>
+              {% endif %}
+              {% if r[1].version.last.log.last._log == '已送出' %}
+              <div class="item" style="padding: 0 0.5rem;">
+                <a class="ui icon labeled grey button disabled" style="color: #fff!important;">
+                  <i class="icon wait"></i>
+                  版本審核中
+                </a>
+              </div>
+              {% endif %}
+              {% if r[1].version.last.log.last._log == '已退回' %}
+              <div class="item" style="padding: 0 0.5rem;">
+                <a class="ui icon labeled grey button disabled" style="color: #fff!important;">
+                  <i class="icon wait"></i>
+                  版本修改中
+                </a>
+              </div>
+              {% endif %}
+            {% else %}
+              <div class="item">
+                  <i class="icon checkmark"></i>
+                  所有版本已封存
+              </div>
+            {% endif %}
+            </div>
           </div>
         </nav>
         {% endif %}
@@ -421,6 +454,39 @@ title: 編輯我的決議
                   {{ v.date }}
                 </a>
                 {% endfor %}
+                <div class="right menu">
+                {% if site.data.object[o].status.last._status == '進行中' %}
+                  {% if site.data.object[o].version.last.log.last._log == '已上架' %}
+                  <div class="item" style="padding: 0 0.5rem;">
+                    <a class="ui icon labeled grey button" style="color: #fff!important;">
+                      <i class="icon add"></i>
+                      新版本
+                    </a>
+                  </div>
+                  {% endif %}
+                  {% if site.data.object[o].version.last.log.last._log == '已送出' %}
+                  <div class="item" style="padding: 0 0.5rem;">
+                    <a class="ui icon labeled grey button disabled" style="color: #fff!important;">
+                      <i class="icon wait"></i>
+                      版本審核中
+                    </a>
+                  </div>
+                  {% endif %}
+                  {% if site.data.object[o].version.last.log.last._log == '已退回' %}
+                  <div class="item" style="padding: 0 0.5rem;">
+                    <a class="ui icon labeled grey button disabled" style="color: #fff!important;">
+                      <i class="icon wait"></i>
+                      版本修改中
+                    </a>
+                  </div>
+                  {% endif %}
+                {% else %}
+                  <div class="item">
+                      <i class="icon checkmark"></i>
+                      所有版本已封存
+                  </div>
+                {% endif %}
+                </div>
               </div>
             </nav>
             {% endif %}
@@ -765,6 +831,39 @@ title: 編輯我的決議
                       {{ v.date }}
                     </a>
                     {% endfor %}
+                    <div class="right menu">
+                    {% if site.data.mission[m].status.last._status == '進行中' %}
+                      {% if site.data.mission[m].version.last.log.last._log == '已上架' %}
+                      <div class="item" style="padding: 0 0.5rem;">
+                        <a class="ui icon labeled grey button" style="color: #fff!important;">
+                          <i class="icon add"></i>
+                          新版本
+                        </a>
+                      </div>
+                      {% endif %}
+                      {% if site.data.mission[m].version.last.log.last._log == '已送出' %}
+                      <div class="item" style="padding: 0 0.5rem;">
+                        <a class="ui icon labeled grey button disabled" style="color: #fff!important;">
+                          <i class="icon wait"></i>
+                          版本審核中
+                        </a>
+                      </div>
+                      {% endif %}
+                      {% if site.data.mission[m].version.last.log.last._log == '已退回' %}
+                      <div class="item" style="padding: 0 0.5rem;">
+                        <a class="ui icon labeled grey button disabled" style="color: #fff!important;">
+                          <i class="icon wait"></i>
+                          版本修改中
+                        </a>
+                      </div>
+                      {% endif %}
+                    {% else %}
+                      <div class="item">
+                          <i class="icon checkmark"></i>
+                          所有版本已封存
+                      </div>
+                    {% endif %}
+                    </div>
                   </div>
                 </nav>
                 {% endif %}
