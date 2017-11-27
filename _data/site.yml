@@ -8,9 +8,9 @@ toc: # about 頁面標題
   - 司法改革國是會議追蹤工作計畫書
 
 admin: # 管理員頁面次選單
-  - title: 決議管理
+  - title: 審核作業
     url: audit
-    icon: search
+    icon: legal
   - title: 文案編輯
     url: intro
     icon: pencil

@@ -73,6 +73,20 @@ title: 決議管理
             </div>
           </div>
 
+          <div class="item">
+            依負責單位過濾
+            <div class="menu">
+              {% for o in site.data.office %}
+              <a class="item">
+                <span class="ui right floated horizontal basic label" style="background-color: #fff; color: inherit;">
+                  n
+                </span>
+                {{ o[0] }}
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="eleven wide column">
@@ -85,9 +99,17 @@ title: 決議管理
           <h2 class="ui small header">
             {% if r[1].version.last._owner %}
             <span style="float: right;">
-              {% for ow in r[1].version.last._owner %}
-              <a class="ui horizontal label">
-                {{ ow }}
+              {% for office in r[1].version.last._owner %}
+              <a class="ui horizontal label" data-html="
+              <h5 class='ui tiny header'>{{ office }}</h5>
+              <p>
+                <a href='search' target='_blank'>
+                  共參與 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+              ">
+                {{ office }}
               </a>
               {% endfor %}
             </span>
@@ -99,21 +121,16 @@ title: 決議管理
             {% if r[1].version.last._owner %}
               {% if r[1].status.last %}
               <span>
-              <i class="icon
-              {% if r[1].status.last._status == '進行中' %}
-              wait
-              {% else %}
-                {% if r[1].status.last._status == '已完成' %}
-                checkmark
+                <i class="icon
+                {% if r[1].status.last._status == '進行中' %}
+                  wait
+                {% else %}
+                  checkmark
                 {% endif %}
-                {% if r[1].status.last._status == '已完成（納入常態業務）' %}
-                checkmark
-                {% endif %}
-              {% endif %}
-              "></i>
-              {{ r[1].status.last._status }}
-              {% endif %}
+                "></i>
+                {{ r[1].status.last._status }}
               </span>
+              {% endif %}
             {% endif %}
           </h2>
 
@@ -121,7 +138,48 @@ title: 決議管理
           <p style="text-align: right;">
             國是會議主題：
             {% for t in r[1].version.last._topic %}
-            <a class="ui horizontal label">
+            <a class="ui horizontal label" data-variation="very wide" data-html="
+              <h5 class='ui tiny header'>
+                {{ t }}
+                <span>　</span>
+                {{ site.data.topic[t].title }}
+              </h5>
+              {% if site.data.topic[t]._agenda %}
+              <div class='ui relaxed divided list'>
+                {% for ag in site.data.topic[t]._agenda %}
+                <div class='item'>
+                  <div class='content'>
+                    <div class='header'>
+                      {{ ag }}
+                    </div>
+                    <div class='meta' style='margin-top: 0.5rem;'>
+                      {{ site.data.agenda[ag].title | slice: 0, 20 }}
+                      {% if site.data.agenda[ag].title.size > 20 %}
+                      ...
+                      {% endif %}
+                    </div>
+                    <div class='description' style='margin-top: 0.5rem;'>
+                      {% for mt in site.data.agenda[ag]._meeting %}
+                      <a href='{{ site.data.meeting[mt].url }}' target='_blank'>
+                        <i class='icon comments outline'></i>
+                        {% assign team_id = site.data.meeting[mt]._team %}
+                        {{ site.data.team[team_id].name }} {{ site.data.meeting[mt].title }}
+                      </a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+              <hr class='ui divider' />
+              {% endif %}
+              <p>
+                <a href='search' target='_blank'>
+                  共形成 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+            ">
               {{ t }} {{ site.data.topic[t].title }}
             </a>
             {% endfor %}
@@ -132,8 +190,7 @@ title: 決議管理
             {{ r[1].version.last.title.first }}
           </p>
 
-          {% unless r[1].status.last._status == "已完成" %}
-          {% unless r[1].status.last._status == "已完成（納入常態業務）" %}
+          {% if r[1].status.last._status == '進行中' %}
 
           <hr class="ui divider" />
           <p style="text-align: right;">
@@ -194,8 +251,7 @@ title: 決議管理
             </span>
           </p>
 
-          {% endunless %}
-          {% endunless %}
+          {% endif %}
 
         </div>
 
@@ -209,9 +265,17 @@ title: 決議管理
           <h2 class="ui small header">
             {% if site.data.object[o].version.last._owner %}
             <span style="float: right;">
-              {% for ow in site.data.object[o].version.last._owner %}
-              <a class="ui horizontal label">
-                {{ ow }}
+              {% for office in site.data.object[o].version.last._owner %}
+              <a class="ui horizontal label" data-html="
+              <h5 class='ui tiny header'>{{ office }}</h5>
+              <p>
+                <a href='search' target='_blank'>
+                  共參與 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+              ">
+                {{ office }}
               </a>
               {% endfor %}
             </span>
@@ -223,41 +287,28 @@ title: 決議管理
             {% if site.data.object[o].version.last._owner %}
               {% if site.data.object[o].status.last %}
               <span>
-              <i class="icon
-              {% if site.data.object[o].status.last._status == '進行中' %}
-              wait
-              {% else %}
-                {% if site.data.object[o].status.last._status == '已完成' %}
-                checkmark
+                <i class="icon
+                {% if r[1].status.last._status == '進行中' and site.data.object[o].status.last._status == '進行中' %}
+                  wait
+                {% else %}
+                  checkmark
                 {% endif %}
-                {% if site.data.object[o].status.last._status == '已完成（納入常態業務）' %}
-                checkmark
+                "></i>
+                {% if r[1].status.last._status == '進行中' %}
+                  {{ site.data.object[o].status.last._status }}
+                {% else %}
+                  {{ r[1].status.last._status }}
                 {% endif %}
-              {% endif %}
-              "></i>
-              {{ site.data.object[o].status.last._status }}
-              {% endif %}
               </span>
+              {% endif %}
             {% endif %}
           </h2>
-
-          {% if site.data.object[o].version.last._topic %}
-          <p style="text-align: right;">
-            國是會議主題：
-            {% for t in site.data.object[o].version.last._topic %}
-            <a class="ui horizontal label">
-              {{ t }} {{ site.data.topic[t].title }}
-            </a>
-            {% endfor %}
-          </p>
-          {% endif %}
 
           <p>
             {{ site.data.object[o].version.last.title.first }}
           </p>
 
-          {% unless site.data.object[o].status.last._status == "已完成" %}
-          {% unless site.data.object[o].status.last._status == "已完成（納入常態業務）" %}
+          {% if r[1].status.last._status == '進行中' and site.data.object[o].status.last._status == '進行中' %}
 
           <hr class="ui divider" />
           <p style="text-align: right;">
@@ -318,8 +369,7 @@ title: 決議管理
             </span>
           </p>
 
-          {% endunless %}
-          {% endunless %}
+          {% endif %}
         </div>
 
           {% else %}
@@ -333,9 +383,17 @@ title: 決議管理
           <h2 class="ui small header">
             {% if site.data.mission[m].version.last._owner %}
             <span style="float: right;">
-              {% for ow in site.data.mission[m].version.last._owner %}
-              <a class="ui horizontal label">
-                {{ ow }}
+              {% for office in site.data.mission[m].version.last._owner %}
+              <a class="ui horizontal label" data-html="
+              <h5 class='ui tiny header'>{{ office }}</h5>
+              <p>
+                <a href='search' target='_blank'>
+                  共參與 n 項決議
+                  <i class='icon right chevron'></i>
+                </a>
+              </p>
+              ">
+                {{ office }}
               </a>
               {% endfor %}
             </span>
@@ -347,41 +405,28 @@ title: 決議管理
             {% if site.data.mission[m].version.last._owner %}
               {% if site.data.mission[m].status.last %}
               <span>
-              <i class="icon
-              {% if site.data.mission[m].status.last._status == '進行中' %}
-              wait
-              {% else %}
-                {% if site.data.mission[m].status.last._status == '已完成' %}
-                checkmark
+                <i class="icon
+                {% if r[1].status.last._status == '進行中' and site.data.mission[m].status.last._status == '進行中' %}
+                  wait
+                {% else %}
+                  checkmark
                 {% endif %}
-                {% if site.data.mission[m].status.last._status == '已完成（納入常態業務）' %}
-                checkmark
+                "></i>
+                {% if r[1].status.last._status == '進行中' %}
+                  {{ site.data.mission[m].status.last._status }}
+                {% else %}
+                  {{ r[1].status.last._status }}
                 {% endif %}
-              {% endif %}
-              "></i>
-              {{ site.data.mission[m].status.last._status }}
-              {% endif %}
               </span>
+              {% endif %}
             {% endif %}
           </h2>
-
-          {% if site.data.mission[m].version.last._topic %}
-          <p style="text-align: right;">
-            國是會議主題：
-            {% for t in site.data.mission[m].version.last._topic %}
-            <a class="ui horizontal label">
-              {{ t }} {{ site.data.topic[t].title }}
-            </a>
-            {% endfor %}
-          </p>
-          {% endif %}
 
           <p>
             {{ site.data.mission[m].version.last.title.first }}
           </p>
 
-          {% unless site.data.mission[m].status.last._status == "已完成" %}
-          {% unless site.data.mission[m].status.last._status == "已完成（納入常態業務）" %}
+          {% if r[1].status.last._status == '進行中' and site.data.mission[m].status.last._status == '進行中' %}
 
           <hr class="ui divider" />
           <p style="text-align: right;">
@@ -442,8 +487,7 @@ title: 決議管理
             </span>
           </p>
 
-          {% endunless %}
-          {% endunless %}
+          {% endif %}
         </div>
 
 

@@ -94,20 +94,15 @@ title: 編輯我的決議
                 {% if r[1].status.last %}
                 <span>
                 <i class="icon
-              {% if r[1].status.last._status == '進行中' %}
-              wait
-              {% else %}
-                {% if r[1].status.last._status == '已完成' %}
-                checkmark
+                {% if r[1].status.last._status == '進行中' %}
+                  wait
+                {% else %}
+                  checkmark
                 {% endif %}
-                {% if r[1].status.last._status == '已完成（納入常態業務）' %}
-                checkmark
-                {% endif %}
-              {% endif %}
-              "></i>
+                "></i>
                 {{ r[1].status.last._status }}
-                {% endif %}
                 </span>
+                {% endif %}
               {% endif %}
             </p>
           </header>
@@ -455,7 +450,7 @@ title: 編輯我的決議
                 </a>
                 {% endfor %}
                 <div class="right menu">
-                {% if r[1].status.last._status == '進行中' and  site.data.object[o].status.last._status == '進行中' %}
+                {% if r[1].status.last._status == '進行中' and site.data.object[o].status.last._status == '進行中' %}
                   {% if site.data.object[o].version.last.log.last._log == '已上架' %}
                   <div class="item" style="padding: 0 0.5rem;">
                     <a class="ui icon labeled grey button" style="color: #fff!important;">
@@ -522,18 +517,17 @@ title: 編輯我的決議
                   {% if site.data.object[o].status.last %}
                 <span>
                   <i class="icon
-                  {% if site.data.object[o].status.last._status == '進行中' %}
-                  wait
+                  {% if r[1].status.last._status == '進行中' and site.data.object[o].status.last._status == '進行中' %}
+                    wait
                   {% else %}
-                    {% if site.data.object[o].status.last._status == '已完成' %}
                     checkmark
-                    {% endif %}
-                    {% if site.data.object[o].status.last._status == '已完成（納入常態業務）' %}
-                    checkmark
-                    {% endif %}
                   {% endif %}
                   "></i>
-                  {{ site.data.object[o].status.last._status }}
+                  {% if r[1].status.last._status == '進行中' %}
+                    {{ site.data.object[o].status.last._status }}
+                  {% else %}
+                    {{ r[1].status.last._status }}
+                  {% endif %}
                 </span>
                   {% endif %}
                 {% endif %}
@@ -557,14 +551,14 @@ title: 編輯我的決議
             {% endif %}
 
             {% if site.data.object[o].version.last._owner %}
-              {% if r[1].status.last._status == '進行中' and  site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已送出' %}
+              {% if r[1].status.last._status == '進行中' and site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已送出' %}
             <div class="ui grey secondary segment">
               <div class="ui top attached grey label">
                 審核中方案
               </div>
               {% endif %}
 
-              {% if r[1].status.last._status == '進行中' and  site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已退回' %}
+              {% if r[1].status.last._status == '進行中' and site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已退回' %}
             <div class="ui segment">
               <div class="ui top attached grey label">
                 已退回方案
@@ -593,9 +587,9 @@ title: 編輯我的決議
               {% endfor %}
               {% endif %}
 
-              {% if r[1].status.last._status == '進行中' and  site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已送出' %}
+              {% if r[1].status.last._status == '進行中' and site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已送出' %}
               {% else %}
-              {% if r[1].status.last._status == '進行中' and  site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已退回' %}
+              {% if r[1].status.last._status == '進行中' and site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已退回' %}
               {% else %}
               <div class="ui icon labeled small button" data-action="collapse" style="margin: 1rem 0;">
                 <i class="icon down chevron"></i>
@@ -786,10 +780,10 @@ title: 編輯我的決議
               </p>
               {% endfor %}
 
-              {% if r[1].status.last._status == '進行中' and  site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已送出' %}
+              {% if r[1].status.last._status == '進行中' and site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已送出' %}
               </div>
               {% else %}
-                {% if r[1].status.last._status == '進行中' and  site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已退回' %}
+                {% if r[1].status.last._status == '進行中' and site.data.object[o].status.last._status == '進行中' and site.data.object[o].version.last.log.last._log == '已退回' %}
                 </div>
                 <div class="ui grey segment">
                   <div class="ui top attached grey label">
@@ -832,7 +826,7 @@ title: 編輯我的決議
                     </a>
                     {% endfor %}
                     <div class="right menu">
-                    {% if r[1].status.last._status == '進行中' and  site.data.mission[m].status.last._status == '進行中' %}
+                    {% if r[1].status.last._status == '進行中' and site.data.mission[m].status.last._status == '進行中' %}
                       {% if site.data.mission[m].version.last.log.last._log == '已上架' %}
                       <div class="item" style="padding: 0 0.5rem;">
                         <a class="ui icon labeled grey button" style="color: #fff!important;">
@@ -898,19 +892,18 @@ title: 編輯我的決議
                 {% if site.data.mission[m].version.last._owner %}
                   {% if site.data.mission[m].status.last %}
                     <span>
-                  <i class="icon
-                  {% if site.data.mission[m].status.last._status == '進行中' %}
-                  wait
-                  {% else %}
-                    {% if site.data.mission[m].status.last._status == '已完成' %}
-                    checkmark
-                    {% endif %}
-                    {% if site.data.mission[m].status.last._status == '已完成（納入常態業務）' %}
-                    checkmark
-                    {% endif %}
-                  {% endif %}
-                  "></i>
-                  {{ site.data.mission[m].status.last._status }}
+                      <i class="icon
+                      {% if r[1].status.last._status == '進行中' and site.data.mission[m].status.last._status == '進行中' %}
+                        wait
+                      {% else %}
+                        checkmark
+                      {% endif %}
+                      "></i>
+                      {% if r[1].status.last._status == '進行中' %}
+                        {{ site.data.mission[m].status.last._status }}
+                      {% else %}
+                        {{ r[1].status.last._status }}
+                      {% endif %}
                     </span>
                   {% endif %}
                 {% endif %}
@@ -934,14 +927,14 @@ title: 編輯我的決議
                 {% endif %}
 
                 {% if site.data.mission[m].version.last._owner %}
-                  {% if r[1].status.last._status == '進行中' and  site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已送出' %}
+                  {% if r[1].status.last._status == '進行中' and site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已送出' %}
                 <div class="ui grey secondary segment">
                   <div class="ui top attached grey label">
                     審核中方案
                   </div>
                   {% endif %}
 
-                  {% if r[1].status.last._status == '進行中' and  site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已退回' %}
+                  {% if r[1].status.last._status == '進行中' and site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已退回' %}
                 <div class="ui segment">
                   <div class="ui top attached grey label">
                     已退回方案
@@ -970,9 +963,9 @@ title: 編輯我的決議
                   {% endfor %}
                   {% endif %}
 
-                  {% if r[1].status.last._status == '進行中' and  site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已送出' %}
+                  {% if r[1].status.last._status == '進行中' and site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已送出' %}
                   {% else %}
-                  {% if r[1].status.last._status == '進行中' and  site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已退回' %}
+                  {% if r[1].status.last._status == '進行中' and site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已退回' %}
                   {% else %}
                   <div class="ui icon labeled small button" data-action="collapse" style="margin: 1rem 0;">
                     <i class="icon down chevron"></i>
@@ -1163,10 +1156,10 @@ title: 編輯我的決議
                   </p>
                   {% endfor %}
 
-                {% if r[1].status.last._status == '進行中' and  site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已送出' %}
+                {% if r[1].status.last._status == '進行中' and site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已送出' %}
                 </div>
                 {% else %}
-                  {% if r[1].status.last._status == '進行中' and  site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已退回' %}
+                  {% if r[1].status.last._status == '進行中' and site.data.mission[m].status.last._status == '進行中' and site.data.mission[m].version.last.log.last._log == '已退回' %}
                   </div>
                   <div class="ui grey segment">
                     <div class="ui top attached grey label">
@@ -1212,13 +1205,13 @@ title: 編輯我的決議
           <span class="ui circular grey label" style="position: absolute; left: -1rem; top: -0.2rem; margin: 0;">
             <i class="checkmark icon" style="margin: 0;"></i>
           </span>
-          {% if r[1].status.last._status == '進行中' and  p.log.last._log == '已送出' %}
+          {% if r[1].status.last._status == '進行中' and p.log.last._log == '已送出' %}
           <div class="ui secondary grey segment">
             <div class="ui top attached grey label">
               審核中進度
             </div>
           {% endif %}
-          {% if r[1].status.last._status == '進行中' and  p.log.last._log == '已退回' %}
+          {% if r[1].status.last._status == '進行中' and p.log.last._log == '已退回' %}
           <div class="ui grey segment">
             <div class="ui top attached grey label">
               已退回進度
@@ -1259,10 +1252,10 @@ title: 編輯我的決議
           </div>
           {% endif %}
 
-          {% if r[1].status.last._status == '進行中' and  p.log.last._log == '已送出' %}
+          {% if r[1].status.last._status == '進行中' and p.log.last._log == '已送出' %}
           </div>
           {% endif %}
-          {% if r[1].status.last._status == '進行中' and  p.log.last._log == '已退回' %}
+          {% if r[1].status.last._status == '進行中' and p.log.last._log == '已退回' %}
           </div>
           <div class="ui grey segment">
             <div class="ui top attached grey label">
@@ -1289,13 +1282,13 @@ title: 編輯我的決議
           <span class="ui circular grey label" style="position: absolute; left: -1rem; top: -0.2rem; margin: 0;">
             <i class="checkmark icon" style="margin: 0;"></i>
           </span>
-          {% if r[1].status.last._status == '進行中' and  p.log.last._log == '已送出' %}
+          {% if r[1].status.last._status == '進行中' and p.log.last._log == '已送出' %}
           <div class="ui secondary grey segment">
             <div class="ui top attached grey label">
               審核中進度
             </div>
           {% endif %}
-          {% if r[1].status.last._status == '進行中' and  p.log.last._log == '已退回' %}
+          {% if r[1].status.last._status == '進行中' and p.log.last._log == '已退回' %}
           <div class="ui grey segment">
             <div class="ui top attached grey label">
               已退回進度
@@ -1334,10 +1327,10 @@ title: 編輯我的決議
           </div>
           {% endif %}
 
-          {% if r[1].status.last._status == '進行中' and  p.log.last._log == '已送出' %}
+          {% if r[1].status.last._status == '進行中' and p.log.last._log == '已送出' %}
           </div>
           {% endif %}
-          {% if r[1].status.last._status == '進行中' and  p.log.last._log == '已退回' %}
+          {% if r[1].status.last._status == '進行中' and p.log.last._log == '已退回' %}
           </div>
           <div class="ui grey segment">
             <div class="ui top attached grey label">
@@ -1372,7 +1365,7 @@ title: 編輯我的決議
               審核中進度
             </div>
           {% endif %}
-          {% if r[1].status.last._status == '進行中' and  p.log.last._log == '已退回' %}
+          {% if r[1].status.last._status == '進行中' and p.log.last._log == '已退回' %}
           <div class="ui grey segment">
             <div class="ui top attached grey label">
               已退回進度
@@ -1411,10 +1404,10 @@ title: 編輯我的決議
           </div>
           {% endif %}
 
-          {% if r[1].status.last._status == '進行中' and  p.log.last._log == '已送出' %}
+          {% if r[1].status.last._status == '進行中' and p.log.last._log == '已送出' %}
           </div>
           {% endif %}
-          {% if r[1].status.last._status == '進行中' and  p.log.last._log == '已退回' %}
+          {% if r[1].status.last._status == '進行中' and p.log.last._log == '已退回' %}
           </div>
           <div class="ui grey segment">
             <div class="ui top attached grey label">
@@ -1454,17 +1447,12 @@ title: 編輯我的決議
                 <span>
                   <i class="icon
                   {% if r[1].status.last._status == '進行中' %}
-                  wait
+                    wait
                   {% else %}
-                    {% if r[1].status.last._status == '已完成' %}
                     checkmark
-                    {% endif %}
-                    {% if r[1].status.last._status == '已完成（納入常態業務）' %}
-                    checkmark
-                    {% endif %}
                   {% endif %}
                   "></i>
-                {{ r[1].status.last._status }}
+                  {{ r[1].status.last._status }}
                 </span>
               </div>
             {% else %}
@@ -1476,19 +1464,18 @@ title: 編輯我的決議
                   決議 {{ o }}
                 </a>
                 <span>
-                <i class="icon
-                {% if site.data.object[o].status.last._status == '進行中' %}
-                wait
-                {% else %}
-                  {% if site.data.object[o].status.last._status == '已完成' %}
-                  checkmark
+                  <i class="icon
+                  {% if r[1].status.last._status == '進行中' and site.data.object[o].status.last._status == '進行中' %}
+                    wait
+                  {% else %}
+                    checkmark
                   {% endif %}
-                  {% if site.data.object[o].status.last._status == '已完成（納入常態業務）' %}
-                  checkmark
+                  "></i>
+                  {% if r[1].status.last._status == '進行中' %}
+                    {{ site.data.object[o].status.last._status }}
+                  {% else %}
+                    {{ r[1].status.last._status }}
                   {% endif %}
-                {% endif %}
-                "></i>
-                {{ site.data.object[o].status.last._status }}
                 </span>
               </div>
               {% else %}
@@ -1500,19 +1487,18 @@ title: 編輯我的決議
                       決議 {{ m }}
                     </a>
                     <span>
-                    <i class="icon
-                    {% if site.data.mission[m].status.last._status == '進行中' %}
-                    wait
-                    {% else %}
-                      {% if site.data.mission[m].status.last._status == '已完成' %}
-                      checkmark
+                      <i class="icon
+                      {% if r[1].status.last._status == '進行中' and site.data.mission[m].status.last._status == '進行中' %}
+                        wait
+                      {% else %}
+                        checkmark
                       {% endif %}
-                      {% if site.data.mission[m].status.last._status == '已完成（納入常態業務）' %}
-                      checkmark
+                      "></i>
+                      {% if r[1].status.last._status == '進行中' %}
+                        {{ site.data.mission[m].status.last._status }}
+                      {% else %}
+                        {{ r[1].status.last._status }}
                       {% endif %}
-                    {% endif %}
-                    "></i>
-                    {{ site.data.mission[m].status.last._status }}
                     </span>
                   </div>
                   {% endif %}
