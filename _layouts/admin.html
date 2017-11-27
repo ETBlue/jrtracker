@@ -4,8 +4,9 @@ layout: global
 
 {% include header-admin.html %}
 
+<nav class="ui grey inverted basic segment" style="margin: -1rem 0 1rem 0;">
 <div class="ui container">
-<div class="ui five item menu">
+<div class="ui five item inverted menu">
   {% for m in site.data.site.admin %}
   <a class="item" href="{{ m.url }}">
     <i class="icon {{ m.icon }}"></i>
@@ -14,5 +15,6 @@ layout: global
   {% endfor %}
 </div>
 </div>
+</nav>
 
 {{ content }}
