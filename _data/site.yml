@@ -17,6 +17,9 @@ admin: # 管理員頁面次選單
   - title: 站台設定
     url: setting
     icon: setting
+  - title: 帳號設定
+    url: member
+    icon: users
 
 code:
   source: https://github.com/ETBlue/jrtracker
