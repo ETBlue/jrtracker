@@ -16,7 +16,18 @@
 
 本 repo 內容僅是第一次 iterate 後的雛形，僅供參考，對開發規格沒有拘束性，實際開發時要採納哪些部分，需由未來的實做團隊自行決定。
 
+### prototype
+
 - [首頁](https://etblue.github.io/jrtracker/)
 - [搜尋頁](https://etblue.github.io/jrtracker/search)
 - [決議頁](https://etblue.github.io/jrtracker/resolution)
 - [關於](https://etblue.github.io/jrtracker/about)
+
+### data model
+
+- [schema.yml](https://github.com/ETBlue/jrtracker/blob/gh-pages/_data/schema.yml)
+
+### references
+
+- [提案闖天關](https://etblue.github.io/jrpilot/)
+- [提案闖天關資料來源](https://docs.google.com/spreadsheets/d/1CTGZfJ55WJQEq6UexllrXZJvceVP3TRjzNGMgxE-I68/edit?usp=sharing)
